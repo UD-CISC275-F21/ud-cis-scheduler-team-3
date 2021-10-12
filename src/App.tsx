@@ -11,7 +11,7 @@ function App(): JSX.Element {
                 <img src={logo} className="App-logo" alt="logo" />
                 UD CIS Scheduler
                 <p>
-                    Authors: Ren Ross, 
+                    Authors: Ren Ross, Abel Juarez, and 
                 </p>
             </header>
         </div>
