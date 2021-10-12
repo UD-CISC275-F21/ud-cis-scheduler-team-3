@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-// Take two baby
+// Take three baby
 
 function App(): JSX.Element {
     return (
