@@ -3,7 +3,7 @@ import React from "react";
 const TestDummy = () => {
     return (
         <div>
-            <h1>test tab</h1>
+            <h1>fake tab</h1>
         </div>
     );
 };
