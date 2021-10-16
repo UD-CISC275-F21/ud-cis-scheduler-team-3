@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div>
             <header>
-                <h1>Welcome!</h1>
+                <h1>Welcome! testing</h1>
                     
                 <p>
                     Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre
