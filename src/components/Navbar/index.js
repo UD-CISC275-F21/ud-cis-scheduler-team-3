@@ -1,6 +1,6 @@
 import React from "react";
-import {Nav, Bars, NavMenu, NavLink} from "./NavbarElements";
-import {FaBars} from "react-icons/fa";
+import {Nav, NavMenu, NavLink} from "./NavbarElements";
+//import {FaBars} from "react-icons/fa";
 
 const Navbar = () => {
     return (
@@ -11,7 +11,7 @@ const Navbar = () => {
                     
                 </NavLink>
                 <NavMenu>
-                    <NavLink to="/TestingDummy/" activestyle>
+                    <NavLink to="/TestingDummy/">
                     TestingDummy
                     </NavLink>
                 </NavMenu>
