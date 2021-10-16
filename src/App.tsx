@@ -1,19 +1,44 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import Home from "./tabs/home";
+import TestDummy from "./tabs/testingdummy";
+import Navbar from "./components/Navbar";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom"; 
 
 // Take three baby
 
-function App(): JSX.Element {
+/*function App(): JSX.Element {
     return (
         <div className="App">
+            <Router>
+                <Navbar />
+                <Switch>
+                    <Route path='/home' exact component={Home} />
+                </Switch>
+            </Router>
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
+                    UD CIS Scheduler
                 <p>
                     Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre
                 </p>
             </header>
+            
+        </div>
+    );
+}
+*/
+function App(): JSX.Element {
+    return (
+        <div className="App">
+            <Router>
+                <Navbar />
+                <Switch>
+                    <Route path='/home' exact component={Home} />
+                    <Route path='/testingdummy' exact component={TestDummy} />
+                </Switch>
+            </Router>
+            
+            
         </div>
     );
 }
