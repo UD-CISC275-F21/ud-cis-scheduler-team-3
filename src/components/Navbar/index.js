@@ -1,5 +1,6 @@
 import React from "react";
 import {Nav, Bars, NavMenu, NavLink} from "./NavbarElements";
+import {FaBars} from "react-icons/fa";
 
 const Navbar = () => {
     return (
