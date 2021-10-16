@@ -31,6 +31,9 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <Router>
+                <header>
+                UD CIS Scheduler
+                </header>
                 <Navbar />
                 <Switch>
                     <Route path='/home' exact component={Home} />
