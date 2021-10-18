@@ -3,8 +3,9 @@ import "./App.css";
 
 function App(): JSX.Element {
     return (
-        <div className="App">
-            <body>
+        <body>
+            <div className="App">
+
                 <h1>
                 Welcome! 
                     <p>This is UD CIS Scheduler Builder!
@@ -17,16 +18,19 @@ function App(): JSX.Element {
                         </p>
                     </p>
                 </h1>
-            </body>
-            <header>
+                <header>
                 UD CIS Scheduler
 
-                <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
-            </header>
+                    <p>
+                    Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre
+
+                    </p>
+                </header>
               
             
             
-        </div>
+            </div>
+        </body>
     );
 }
 
