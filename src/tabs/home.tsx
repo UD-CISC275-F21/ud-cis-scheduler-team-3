@@ -1,6 +1,6 @@
 import React from "react";
 
-const Home = (): ReturnType => {
+const Home = () => {
     return (
         <div>
             <header>

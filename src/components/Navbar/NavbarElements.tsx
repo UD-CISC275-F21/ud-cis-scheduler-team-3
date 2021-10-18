@@ -3,8 +3,6 @@ import { NavLink as Link } from "react-router-dom";
 //import {FaBars } from "react-icons/fa";
 
 
-
-
 export const Nav = styled.nav`
    // background: #00BFFF;
     height: 50px;

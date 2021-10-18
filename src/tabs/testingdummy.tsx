@@ -1,6 +1,6 @@
 import React from "react";
 
-const TestDummy = (): ReturnType => {
+const TestDummy = () => {
     return (
         <div>
             <h1>fake tab</h1>

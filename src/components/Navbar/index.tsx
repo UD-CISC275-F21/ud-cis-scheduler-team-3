@@ -2,7 +2,7 @@ import React from "react";
 import {Nav, NavMenu, NavLink} from "./NavbarElements";
 //import {FaBars} from "react-icons/fa";
 
-const Navbar = (): ReturnType => {
+const Navbar = () => {
     return (
         <>
             <Nav>
