@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import COURSES from "./Assets/Courses";
 import "./App.css";
 
 function App(): JSX.Element {
@@ -21,11 +22,11 @@ function App(): JSX.Element {
 
                 <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
             </header>
-              
-            
             
         </div>
     );
 }
+
+
 
 export default App;
