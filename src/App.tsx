@@ -1,11 +1,15 @@
-import React from 'react';
-import COURSES from "./Assets/Courses";
+import React from "react";
+import { Course } from "./Components/Courses";
+//import { Header } from "./Components/Table-Header";
 import "./App.css";
+
+// import bootstrap
+
 
 function App(): JSX.Element {
     return (
         <div className="App">
-        
+
             <h1>
                 Welcome! 
                 <p>
@@ -22,11 +26,9 @@ function App(): JSX.Element {
 
                 <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
             </header>
-            
+
         </div>
     );
 }
 
-
-
-export default App;
+export default App; 
