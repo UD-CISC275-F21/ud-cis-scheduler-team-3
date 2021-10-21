@@ -13,14 +13,14 @@ export function CourseTable(): JSX.Element {
         {code: "MATH 241", title: "Analytic Geometry & Calculus A", credits: 4, description: " MATH 117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. RESTRICTIONS: Students who received credit in MATH 242 or MATH 243 are not eligible to take this course without permission."},
         {code: "ENGL 110", title: "Seminar in Composition", credits: 3, description: "Required of all students. Should be taken first year on campus"}];
     
-    return (<table>
+    return <table>
         <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th></tr>
         { courses.map((course: Course) => {
-            return (<tr key={course.code}>
+            return <tr key={course.code}>
                 <td>{course.title}</td>
                 <td>{course.credits}</td>
                 <td>{course.description}</td>
-            </tr>);
+            </tr>;
         })}
-    </table>);
+    </table>;
 }
