@@ -1,6 +1,6 @@
 import React from "react";
-import { Course } from "./Components/Courses";
-//import { Header } from "./Components/Table-Header";
+//import { Course } from "./Components/Courses";
+import { CourseTable, Course } from "./Components/Table-Header";
 import "./App.css";
 
 // import bootstrap
@@ -27,8 +27,13 @@ function App(): JSX.Element {
                 <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
             </header>
 
+            <CourseTable></CourseTable>
+
         </div>
+
+        
     );
 }
+
 
 export default App; 
