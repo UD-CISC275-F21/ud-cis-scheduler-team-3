@@ -1,6 +1,6 @@
 import React from "react";
 //import { Course } from "./Components/Courses";
-import { CourseTable, Course } from "./Components/Table-Header";
+import { CourseTable } from "./Components/Table-Header";
 import "./App.css";
 
 // import bootstrap
