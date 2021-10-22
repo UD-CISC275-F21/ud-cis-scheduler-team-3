@@ -12,8 +12,9 @@ function App (): JSX.Element {
     //jsx.element is very important return type , function has to return jsx.element
     return (
         <Tabs>
-            <Tab title="Welcome and navigating our site">Welcome To Team 3s UD CISC Schedule Builder
+            <Tab title="Welcome and navigating our site">Welcome To Team 3s
                 <header>
+                UD CIS Scheduler
                     <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
                     <p>Our goal is to help CISC students plan out their semesters,
                         by providing templates of potential Fall/Spring semesters and even
