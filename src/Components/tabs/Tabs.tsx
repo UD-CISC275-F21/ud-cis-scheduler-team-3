@@ -11,14 +11,14 @@ const Tabs: React.FC<Props> = ({ children }) => {
     return (
         <div>
             <ul>
-                {children.map((item, index) => (
+                {children.map((item, index) => 
                     <TabTitle
                         key={index}
                         title={item.props.title}
                         index={index}
                         setSelectedTab={setTab}
                     />
-                ))}
+                )}
             </ul>
             {children[selectedTab]}
         </div>
