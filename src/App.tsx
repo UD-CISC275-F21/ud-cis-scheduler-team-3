@@ -1,6 +1,6 @@
 import React from "react";
 import { CourseTable } from "./Components/Table-Header";
-import "./App.css";
+import "./css/App.css";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
 
