@@ -1,5 +1,5 @@
 import React from "react";
-import { CourseTable } from "./Components/Table-Header";
+import { FallTable } from "./Components/Fall-Semester";
 import { SpringTable } from "./Components/Spring-Semester";
 import "./css/App.css";
 import Tabs from "./Components/tabs/Tabs";
@@ -34,7 +34,7 @@ function App (): JSX.Element {
                 </ul>
             </Tab>
             <Tab title ="Course selector">
-                <CourseTable></CourseTable>
+                <FallTable></FallTable>
                 
                 <SpringTable></SpringTable>
             </Tab>
