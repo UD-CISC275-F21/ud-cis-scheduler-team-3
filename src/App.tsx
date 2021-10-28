@@ -1,5 +1,6 @@
 import React from "react";
 import { CourseTable } from "./Components/Table-Header";
+import { SpringTable } from "./Components/Spring-Semester";
 import "./css/App.css";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
@@ -34,6 +35,8 @@ function App (): JSX.Element {
             </Tab>
             <Tab title ="Course selector">
                 <CourseTable></CourseTable>
+                
+                <SpringTable></SpringTable>
             </Tab>
   
         </Tabs>
