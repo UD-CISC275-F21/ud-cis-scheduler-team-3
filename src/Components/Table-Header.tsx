@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Table.css";
+import "../css/Fall-Semester.css";
 
 export interface Course {
     code: string;
