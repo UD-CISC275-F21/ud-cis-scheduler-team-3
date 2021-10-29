@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/ud-cis-scheduler-team-3/static/css/main.78a9196a.chunk.css",
-    "main.js": "/ud-cis-scheduler-team-3/static/js/main.619b7269.chunk.js",
-    "main.js.map": "/ud-cis-scheduler-team-3/static/js/main.619b7269.chunk.js.map",
-    "runtime-main.js": "/ud-cis-scheduler-team-3/static/js/runtime-main.95d1e9b7.js",
-    "runtime-main.js.map": "/ud-cis-scheduler-team-3/static/js/runtime-main.95d1e9b7.js.map",
-    "static/js/2.27ea294e.chunk.js": "/ud-cis-scheduler-team-3/static/js/2.27ea294e.chunk.js",
-    "static/js/2.27ea294e.chunk.js.map": "/ud-cis-scheduler-team-3/static/js/2.27ea294e.chunk.js.map",
-    "static/js/3.0d85bf69.chunk.js": "/ud-cis-scheduler-team-3/static/js/3.0d85bf69.chunk.js",
-    "static/js/3.0d85bf69.chunk.js.map": "/ud-cis-scheduler-team-3/static/js/3.0d85bf69.chunk.js.map",
+    "main.css": "/ud-cis-scheduler-team-3/static/css/main.0a7959ec.chunk.css",
+    "main.js": "/ud-cis-scheduler-team-3/static/js/main.54a250eb.chunk.js",
+    "main.js.map": "/ud-cis-scheduler-team-3/static/js/main.54a250eb.chunk.js.map",
+    "runtime-main.js": "/ud-cis-scheduler-team-3/static/js/runtime-main.81af433f.js",
+    "runtime-main.js.map": "/ud-cis-scheduler-team-3/static/js/runtime-main.81af433f.js.map",
+    "static/js/2.1130a6c7.chunk.js": "/ud-cis-scheduler-team-3/static/js/2.1130a6c7.chunk.js",
+    "static/js/2.1130a6c7.chunk.js.map": "/ud-cis-scheduler-team-3/static/js/2.1130a6c7.chunk.js.map",
+    "static/js/3.d768c2f1.chunk.js": "/ud-cis-scheduler-team-3/static/js/3.d768c2f1.chunk.js",
+    "static/js/3.d768c2f1.chunk.js.map": "/ud-cis-scheduler-team-3/static/js/3.d768c2f1.chunk.js.map",
     "index.html": "/ud-cis-scheduler-team-3/index.html",
-    "static/css/main.78a9196a.chunk.css.map": "/ud-cis-scheduler-team-3/static/css/main.78a9196a.chunk.css.map",
-    "static/js/2.27ea294e.chunk.js.LICENSE.txt": "/ud-cis-scheduler-team-3/static/js/2.27ea294e.chunk.js.LICENSE.txt"
+    "static/css/main.0a7959ec.chunk.css.map": "/ud-cis-scheduler-team-3/static/css/main.0a7959ec.chunk.css.map",
+    "static/js/2.1130a6c7.chunk.js.LICENSE.txt": "/ud-cis-scheduler-team-3/static/js/2.1130a6c7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.95d1e9b7.js",
-    "static/js/2.27ea294e.chunk.js",
-    "static/css/main.78a9196a.chunk.css",
-    "static/js/main.619b7269.chunk.js"
+    "static/js/runtime-main.81af433f.js",
+    "static/js/2.1130a6c7.chunk.js",
+    "static/css/main.0a7959ec.chunk.css",
+    "static/js/main.54a250eb.chunk.js"
   ]
 }
