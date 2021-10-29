@@ -30,6 +30,8 @@ function App (): JSX.Element {
                 <ul>
                     <li>Click Course Selector</li>
                     <li>Choose designated semester which you want to plan</li>
+                    <li>Click buttons below Semester Schedules to view different semesters</li>
+                    <li>Options to start planning session all over will be available</li>
                     <li>To be continued</li>
                 </ul>
             </Tab>
