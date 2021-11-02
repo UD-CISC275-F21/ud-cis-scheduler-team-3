@@ -1,6 +1,5 @@
 import React from "react";
-import { FallTable } from "./Components/Fall-Semester";
-import { SpringTable } from "./Components/Spring-Semester";
+import { Carousel } from "./Components/NextPrev";
 import "./css/App.css";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
@@ -34,8 +33,7 @@ function App (): JSX.Element { //jsx.element is very important return type , fun
             </Tab>
             <Tab title="Course selector">
                 <button className="editButton" onClick = { editCourse }>Edit Course</button>
-                <FallTable></FallTable>
-                <SpringTable></SpringTable>
+                <Carousel></Carousel>
             </Tab>
         </Tabs>
           
