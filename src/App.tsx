@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { FallTable } from "./Components/Fall-Semester";
 import { SpringTable } from "./Components/Spring-Semester";
 import "./css/App.css";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
 import "./css/editButton.css";
-import { editCourse } from "./editCourse";
+import { EditCourse } from "./Components/EditCourse";
 
 function App (): JSX.Element { //jsx.element is very important return type , function has to return jsx.element
+    const [visible, setVisible] = useState<boolean>(false);
     return (
         <><Tabs>
             <Tab title="Welcome and navigating our site">Welcome To Team 3s
@@ -33,7 +34,8 @@ function App (): JSX.Element { //jsx.element is very important return type , fun
                 </ul>
             </Tab>
             <Tab title="Course selector">
-                <button className="editButton" onClick = { editCourse }>Edit Course</button>
+                <EditCourse visible={ visible } setVisible={ setVisible }></EditCourse>
+                <button className="editButton">Edit Course</button>
                 <FallTable></FallTable>
                 <SpringTable></SpringTable>
             </Tab>
