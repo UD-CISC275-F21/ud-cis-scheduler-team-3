@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import COURSES from "./Assets/Courses.json";
 import "./css/App.css";
 import "./css/editButton.css";
-import { FallTable } from "./Components/Fall-Semester";
+import { Course as CourseFF, FallTable } from "./Components/Fall-Semester";
 import { SpringTable } from "./Components/Spring-Semester";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
@@ -9,8 +10,14 @@ import { EditCourse } from "./Components/EditCourse";
 import { ControlPanel } from "./Components/ControlPanel";
 
 
-function App (): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
+function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
+    const [semester, setSemester] = useState<CourseFF[]>(COURSES);
     const [visible, setVisible] = useState<boolean>(false);
+    
+    function editCourse(c: CourseFF): void {
+        setSemester([...semester, c]); // fix this line later
+    }
+    
     return (
         <div>
             <Tabs>
@@ -42,7 +49,7 @@ function App (): JSX.Element { // jsx.element = very important return type, func
                     <SpringTable></SpringTable>
                 </Tab>
             </Tabs>
-            <EditCourse visible={ visible } setVisible={ setVisible }></EditCourse>
+            <EditCourse visible={ visible } setVisible={ setVisible } editCourse={ editCourse }></EditCourse>
         </div>
     );
 }
