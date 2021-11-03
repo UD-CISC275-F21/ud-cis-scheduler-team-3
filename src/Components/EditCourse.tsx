@@ -7,7 +7,6 @@ export function EditCourse({visible, setVisible}: {visible: boolean, setVisible:
     const hideModal = () => setVisible(false);
     
     function editCourse(): void {
-        setVisible(true); 
         console.log("in editCourse()");
     }
     
