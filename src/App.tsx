@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import COURSES from "./Assets/Courses.json";
+import { Carousel } from "./Components/NextPrev";
 import "./css/App.css";
 import "./css/editButton.css";
 import { Course as CourseFF, FallTable } from "./Components/Fall-Semester";
@@ -45,8 +46,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 </Tab>
                 <Tab title="Course selector">
                     <ControlPanel showEditModal={ setVisible }></ControlPanel>
-                    <FallTable></FallTable>
-                    <SpringTable></SpringTable>
+                    <Carousel></Carousel>
                 </Tab>
             </Tabs>
             <EditCourse visible={ visible } setVisible={ setVisible } editCourse={ editCourse }></EditCourse>
