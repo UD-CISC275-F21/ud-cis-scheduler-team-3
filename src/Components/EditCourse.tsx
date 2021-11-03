@@ -4,11 +4,11 @@ import { Course as CourseFF } from "./Fall-Semester";
 
 
 // https://github.com/UD-CISC275-F21/ta-trainer/blob/main/src/components/AddCardModal.tsx
-export function EditCourse({visible, setVisible, editCourse}: {visible: boolean, setVisible: (b: boolean)=>void, editCourse: (c: CourseFF)=>void}): JSX.Element {
+export function EditCourse({visible, setVisible}: {visible: boolean, setVisible: (b: boolean)=>void, editCourse: (c: CourseFF)=>void}): JSX.Element {
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const hideModal = () => setVisible(false);
-    const courseEdit = prompt("Enter course code (ex: \"CISC 108\")");
+    // const courseEdit = prompt("Enter course code (ex: \"CISC 108\")");
     
     /*
     function editCourse(): void {
