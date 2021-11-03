@@ -21,5 +21,71 @@
     "title": "Seminar in Composition",
     "credits": 3,
     "description": "Required of all students. Should be taken first year on campus"
+  }, 
+  {
+    "code": "",
+    "title": "Breath Requirement Elective 1",
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 181", 
+    "title": "Introdction to Computer Science II", 
+    "credits": 3, 
+    "description": "PREREQ: Grade of C- or better in CISC108 or CISC106. COREQ: MATH221, MATH241, or a higher level math course or math placement."
+  },
+  {
+    "code": "CISC 210", 
+    "title": "Introduction to Systems Programming", 
+    "credits": 3, 
+    "description": "PREREQ: A grade of C- or better in CISC106 or CISC108. COREQ: MATH221 or MATH241 or a higher level math course or math placement."
+  },
+  {
+    "code": "MATH 242", 
+    "title": "Analytic Geometry & Calculus B", 
+    "credits": 4, 
+    "description": "PREREQ: MATH232 or MATH241. RESTRICTIONS: Students who received credit in MATH243 are not eligible to take this course without permission."
+  },
+  {
+    "code": "", 
+    "title": "Laboratory Science I", 
+    "credits": 4, 
+    "description": "Required of all students. Any science with a lab"
+  },
+  {
+    "code": "", 
+    "title": "Breath Requirement Elective 2", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 220", 
+    "title": "Data Structures", 
+    "credits": 3, 
+    "description": "PREREQ: A minimum grade of C- in CISC210. COREQ: MATH210 or MATH241."
+  },
+  {
+    "code": "CISC 260", 
+    "title": "Machine Org. & Assembly Language", 
+    "credits": 3, 
+    "description": "PREREQ: A minimum grade of C- in CISC210."
+  },
+  {
+    "code": "MATH 210", 
+    "title": "Discrete Mathematics I", 
+    "credits": 3, 
+    "description": "COREQ: MATH241, MATH242 or MATH232"
+  },
+  {
+    "code": "", 
+    "title": "Laboratory Science 2", 
+    "credits": 4, 
+    "description": "Required of all students. Any science with a lab"
+  },
+  {
+    "code": "", 
+    "title": "Breath Requirement Elective 3", 
+    "credits": 3, 
+    "description": "Required of all students."
   }
 ]
