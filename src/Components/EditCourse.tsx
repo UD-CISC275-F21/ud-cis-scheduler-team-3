@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { Course as CourseFF } from "./Fall-Semester";
+import { Course as CourseFF } from "./SemesterTable";
 
 
 // https://github.com/UD-CISC275-F21/ta-trainer/blob/main/src/components/AddCardModal.tsx
