@@ -1,16 +1,26 @@
 import React from "react";
-import { Form, Modal } from "react-bootstrap";
-import "../css/editButton.css";
+import { Button, Form, Modal } from "react-bootstrap";
+
 
 // https://github.com/UD-CISC275-F21/ta-trainer/blob/main/src/components/AddCardModal.tsx
 export function EditCourse({visible, setVisible}: {visible: boolean, setVisible: (b: boolean)=>void}): JSX.Element {
-    const courseEdit = prompt("Please enter the Course Code. (ex: CISC 108)");
-    const hide = () => setVisible(false);
-    setVisible(true);
+    const hideModal = () => setVisible(false);
+    
+    function editCourse(): void {
+        setVisible(true); 
+        console.log("in editCourse()");
+    }
+    
+    function saveEdit(): void {
+        console.log("in saveEdit()");
+        editCourse();
+        hideModal();
+    }
+    
     return (
-        <Modal show= { visible } onHide = { hide }>
-            <Modal.Header closeButton>
-                <Modal.Title>Edit { courseEdit }</Modal.Title>
+        <Modal show={ visible } onHide={ hideModal }>
+            <Modal.Header>
+                <Modal.Title>Edit Course</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
@@ -32,5 +42,10 @@ export function EditCourse({visible, setVisible}: {visible: boolean, setVisible:
                     </Form.Group>
                 </Form>
             </Modal.Body>
-        </Modal>);
+            <Modal.Footer>
+                <Button variant="secondary" onClick={ hideModal }>Cancel</Button>
+                <Button variant="primary" onClick={ saveEdit }>Save</Button>
+            </Modal.Footer>
+        </Modal>
+    );
 }
