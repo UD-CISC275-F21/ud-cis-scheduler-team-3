@@ -48,7 +48,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <Carousel></Carousel>
                 </Tab>
             </Tabs>
-            <EditCourse visible={ visible } setVisible={ setVisible } editCourse={ editCourse }></EditCourse>
+            <EditCourse visible={ visible } setVisible={ setVisible } editCourse={ editCourse } semester={ semester } setSemester={ setSemester }></EditCourse>
         </div>
     );
 }
