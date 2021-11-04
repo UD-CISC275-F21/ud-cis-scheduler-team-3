@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/editButton.css";
 import { Course as CourseIF } from "./Fall-Semester";
+
 
 // https://github.com/UD-CISC275-F21/ta-trainer/blob/main/src/components/AddCardModal.tsx
 export function EditCourse({visible, setVisible}: // , editCourse, semester, setSemester
@@ -9,24 +11,6 @@ export function EditCourse({visible, setVisible}: // , editCourse, semester, set
     const [title, setTitle] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const hideModal = () => setVisible(false);
-    // const courseEdit = prompt("Enter course code (ex: \"CISC 108\")");
-    
-    /*
-    function editableCourse({course}: {course: CourseIF}): JSX.Element {
-        return (
-            <div>
-                <div>{ course.code }</div>
-                <div>{ course.title }</div>
-                <div>{ course.credits }</div>
-                <div>{ course.description }</div>
-            </div>
-        );
-    }
-
-    function findCourse(): void {
-        console.log("woo!");
-    }
-    */
 
     function saveEdit(): void {
         console.log("in saveEdit()");
