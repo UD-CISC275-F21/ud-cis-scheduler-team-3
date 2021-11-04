@@ -15,7 +15,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     
     return (
         <><Tab>
-            <span title="Welcome and navigating our site">
+            <span title="Welcome">
                 <header>
                     UD CIS Scheduler
                     <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
@@ -37,7 +37,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <li>To be continued</li>
                 </ul>
             </span>
-            <span title="Course selector">
+            <span title="Course Selector">
                 <Carousel showEditModal={setVisible}></Carousel>
             </span>
         </Tab><EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse></>
