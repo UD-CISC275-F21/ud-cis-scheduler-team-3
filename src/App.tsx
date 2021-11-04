@@ -28,6 +28,22 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     {
         courses: [COURSES[15],COURSES[16],COURSES[17],COURSES[18],COURSES[19]],
         title: "Sophmore Spring Semester"
+    },
+    {
+        courses: [COURSES[20],COURSES[21],COURSES[22],COURSES[23],COURSES[24]],
+        title: "Junior Fall Semester"
+    },
+    {
+        courses: [COURSES[25],COURSES[26],COURSES[27],COURSES[28],COURSES[29]],
+        title: "Junior Spring Semester"
+    },
+    {
+        courses: [COURSES[30],COURSES[31],COURSES[32],COURSES[33],COURSES[34]],
+        title: "Senior Fall Semester"
+    },
+    {
+        courses: [COURSES[35],COURSES[36],COURSES[37],COURSES[38],COURSES[39]],
+        title: "Senior Spring Semester"
     }
     ];
 
@@ -65,10 +81,14 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 <Tab title="Course selector">
                     <ControlPanel showEditModal={ setVisible }></ControlPanel>
                     <SemesterTable currentSemester={semester}></SemesterTable>
-                    <button onClick={() => setSemester(semesterList[0])}>1</button>
-                    <button onClick={() => setSemester(semesterList[1])}>2</button>
-                    <button onClick={() => setSemester(semesterList[2])}>3</button>
-                    <button onClick={() => setSemester(semesterList[3])}>4</button>
+                    <a><button onClick={() => setSemester(semesterList[0])}>1</button></a>
+                    <a><button onClick={() => setSemester(semesterList[1])}>2</button></a>
+                    <a><button onClick={() => setSemester(semesterList[2])}>3</button></a>
+                    <a><button onClick={() => setSemester(semesterList[3])}>4</button></a>
+                    <a><button onClick={() => setSemester(semesterList[4])}>5</button></a>
+                    <a><button onClick={() => setSemester(semesterList[5])}>6</button></a>
+                    <a><button onClick={() => setSemester(semesterList[6])}>7</button></a>
+                    <a><button onClick={() => setSemester(semesterList[7])}>8</button></a>
                 </Tab>
             </Tabs>
             { /*<EditCourse visible={ visible } setVisible={ setVisible } editCourse={ EditCourse }></EditCourse> */}
