@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import { Course as CourseIF } from "./Components/Fall-Semester";
-import Tabs from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
 import Tab from "./Components/Tab";
@@ -15,7 +14,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     }
     
     return (
-            <><Tab>
+        <><Tab>
             <span title="Welcome and navigating our site">
                 <header>
                     UD CIS Scheduler
