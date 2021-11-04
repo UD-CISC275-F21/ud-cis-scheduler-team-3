@@ -21,5 +21,221 @@
     "title": "Seminar in Composition",
     "credits": 3,
     "description": "Required of all students. Should be taken first year on campus"
+  }, 
+  {
+    "code": "EDIT1",
+    "title": "Breath Requirement Elective 1",
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 181", 
+    "title": "Introdction to Computer Science II", 
+    "credits": 3, 
+    "description": "PREREQ: Grade of C- or better in CISC108 or CISC106. COREQ: MATH221, MATH241, or a higher level math course or math placement."
+  },
+  {
+    "code": "CISC 210", 
+    "title": "Introduction to Systems Programming", 
+    "credits": 3, 
+    "description": "PREREQ: A grade of C- or better in CISC106 or CISC108. COREQ: MATH221 or MATH241 or a higher level math course or math placement."
+  },
+  {
+    "code": "MATH 242", 
+    "title": "Analytic Geometry & Calculus B", 
+    "credits": 4, 
+    "description": "PREREQ: MATH232 or MATH241. RESTRICTIONS: Students who received credit in MATH243 are not eligible to take this course without permission."
+  },
+  {
+    "code": "EDIT2", 
+    "title": "Laboratory Science I", 
+    "credits": 4, 
+    "description": "Required of all students. Any science with a lab"
+  },
+  {
+    "code": "EDIT3", 
+    "title": "Breath Requirement Elective 2", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 220", 
+    "title": "Data Structures", 
+    "credits": 3, 
+    "description": "PREREQ: A minimum grade of C- in CISC210. COREQ: MATH210 or MATH241."
+  },
+  {
+    "code": "CISC 260", 
+    "title": "Machine Org. & Assembly Language", 
+    "credits": 3, 
+    "description": "PREREQ: A minimum grade of C- in CISC210."
+  },
+  {
+    "code": "MATH 210", 
+    "title": "Discrete Mathematics I", 
+    "credits": 3, 
+    "description": "COREQ: MATH241, MATH242 or MATH232"
+  },
+  {
+    "code": "EDIT4", 
+    "title": "Laboratory Science 2", 
+    "credits": 4, 
+    "description": "Required of all students. Any science with a lab"
+  },
+  {
+    "code": "EDIT5", 
+    "title": "Breath Requirement Elective 3", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 355", 
+    "title": "Computers, Ethics & Society", 
+    "credits": 3, 
+    "description": "Explains relationships among information technology, society and ethics by examining issues raised by increasingly widespread use of computers."
+  },
+  {
+    "code": "CISC 275", 
+    "title": "Introduction to Software Engineering", 
+    "credits": 3, 
+    "description": "Explains relationships among information technology, society and ethics by examining issues raised by increasingly widespread use of computers."
+  },
+  {
+    "code": "MATH 205 (or) MATH 350", 
+    "title": "Statistical Methods (or) Probability Theory and Simulation Methods", 
+    "credits": 3, 
+    "description": ""
+  },
+  {
+    "code": "EDIT6", 
+    "title": "Laboratory Science 3", 
+    "credits": 4, 
+    "description": "Required of all students. Any science with a lab"
+  },
+  {
+    "code": "EDIT7", 
+    "title": "Breath Requirement Elective 4", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 320", 
+    "title": "Introduction to Algorithms", 
+    "credits": 3, 
+    "description": "PREREQ: MATH210 and a minimum grade of C- in CISC220."
+  },
+  {
+    "code": "CISC 361", 
+    "title": "Operating Systems", 
+    "credits": 3, 
+    "description": "PREREQ: A minimum grade of C- in both CISC220 and CISC260. CPEG222 may be substituted for CISC260 RESTRICTIONS: CISC360 recommended as a prerequisite."
+  },
+  {
+    "code": "CISC 304 (or) MATH 349", 
+    "title": "Logic and Programming (or) Elementary Linear Algebra", 
+    "credits": 3, 
+    "description": ""
+  },
+  {
+    "code": "EDIT8", 
+    "title": "Concentration Elective 1", 
+    "credits": 4, 
+    "description": "Required of all students. Concentration courses (Ex. Software Engineering, Cyber Security)"
+  },
+  {
+    "code": "EDIT9", 
+    "title": "General Elective 1", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 372", 
+    "title": "Parallel Computing", 
+    "credits": 3, 
+    "description": "PREREQ: C- or better in both CISC 220 and CISC 260."
+  },
+  {
+    "code": "CISC 303", 
+    "title": "Automata Theory", 
+    "credits": 3, 
+    "description": "PREREQ: A minimum grade of C- in both MATH210 and CISC220."
+  },
+  {
+    "code": "ENGL 312 (or) ENGL 410", 
+    "title": "Written Communication in Business (or) Technical Writing", 
+    "credits": 3, 
+    "description": ""
+  },
+  {
+    "code": "EDIT10", 
+    "title": "Concentration Elective 2", 
+    "credits": 4, 
+    "description": "Required of all students. Concentration courses (Ex. Software Engineering, Cyber Security)"
+  },
+  {
+    "code": "EDIT11", 
+    "title": "General Elective 2", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 498 (or) UNIV 401", 
+    "title": "Computer Science Design Project 1 (or) Senior Thesis (DLE & Capstone)", 
+    "credits": 3, 
+    "description": ""
+  },
+  {
+    "code": "CISC 3XX (1)", 
+    "title": "Computer Science Elective 1", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "EDIT12", 
+    "title": "Concentration Elective 3", 
+    "credits": 4, 
+    "description": "Required of all students. Concentration courses (Ex. Software Engineering, Cyber Security)"
+  },
+  {
+    "code": "EDIT13", 
+    "title": "General Elective 3", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "EDIT14", 
+    "title": "General Elective 4", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 499 (or) UNIV 402", 
+    "title": "Computer Science Design Project 2 (or) Senior Thesis (DLE & Capstone)", 
+    "credits": 3, 
+    "description": ""
+  },
+  {
+    "code": "CISC 3XX (2)", 
+    "title": "Computer Science Elective 2", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "EDIT15", 
+    "title": "Concentration Elective 4", 
+    "credits": 4, 
+    "description": "Required of all students. Concentration courses (Ex. Software Engineering, Cyber Security)"
+  },
+  {
+    "code": "EDIT16", 
+    "title": "General Elective 5", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "EDIT17", 
+    "title": "General Elective 6", 
+    "credits": 3, 
+    "description": "Required of all students."
   }
 ]
