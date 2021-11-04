@@ -4,7 +4,6 @@ import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
-import { ControlPanel } from "./Components/ControlPanel";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
@@ -76,8 +75,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     </ul>
                 </span>
                 <span title="Course selector">
-                    <ControlPanel showEditModal={ setVisible }></ControlPanel>
-                    <SemesterTable currentSemester={addSemester}></SemesterTable>
+                    <SemesterTable currentSemester={addSemester} showEditModal={ setVisible }></SemesterTable>
                     <a><button onClick={() => settingSemester(semesterList[0])}>1</button></a>
                     <a><button onClick={() => settingSemester(semesterList[1])}>2</button></a>
                     <a><button onClick={() => settingSemester(semesterList[2])}>3</button></a>
