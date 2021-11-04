@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Course as CourseFF } from "./Fall-Semester";
 
 
