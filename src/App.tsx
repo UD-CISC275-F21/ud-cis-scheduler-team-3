@@ -88,6 +88,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
             </Tab>
             <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
         </div>
+
     );
 }
 
