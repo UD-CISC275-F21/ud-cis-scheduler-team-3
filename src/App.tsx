@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-import COURSES from "./Assets/Courses.json";
 import "./css/App.css";
 import "./css/editButton.css";
-import { Course as CourseFF } from "./Components/SemesterTable";
-import Tabs from "./Components/tabs/Tabs";
-import Tab from "./Components/tabs/Tab";
+import React, {useState} from "react";
+import { Course as CourseIF } from "./Components/SemesterTable";
+import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
+import COURSES from "./Assets/Courses.json";
 import { ControlPanel } from "./Components/ControlPanel";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 
-
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
-    const [course, setCourse] = useState<CourseFF[]>(COURSES);
+    const [semester, setSemester] = useState<CourseIF[]>(COURSES);
     const [visible, setVisible] = useState<boolean>(false);
     const semesterList: Semester[] = [{
         courses: [COURSES[0],COURSES[1],COURSES[2],COURSES[3],COURSES[4]],
@@ -47,16 +45,16 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     }
     ];
 
-    const [semester, setSemester] = useState<Semester>(semesterList[0]);
+    const [addSemester, settingSemester] = useState<Semester>(semesterList[0]);
     
-    function editCourse(c: CourseFF): void {
-        setCourse([...course, c]); // fix this line later
+    function editCourse(c: CourseIF): void {
+        setSemester([...semester, c]); // fix this line later
     }
     
     return (
         <div>
-            <Tabs>
-                <Tab title="Welcome and navigating our site">Welcome To Team 3s
+            <Tab>
+                <span title="Welcome and navigating our site">Welcome To Team 3s
                     <header>
                         UD CIS Scheduler
                         <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
@@ -77,23 +75,26 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         <li>Options to start planning session all over will be available</li>
                         <li>To be continued</li>
                     </ul>
-                </Tab>
-                <Tab title="Course selector">
+                </span>
+                <span title="Course selector">
                     <ControlPanel showEditModal={ setVisible }></ControlPanel>
-                    <SemesterTable currentSemester={semester}></SemesterTable>
-                    <a><button onClick={() => setSemester(semesterList[0])}>1</button></a>
-                    <a><button onClick={() => setSemester(semesterList[1])}>2</button></a>
-                    <a><button onClick={() => setSemester(semesterList[2])}>3</button></a>
-                    <a><button onClick={() => setSemester(semesterList[3])}>4</button></a>
-                    <a><button onClick={() => setSemester(semesterList[4])}>5</button></a>
-                    <a><button onClick={() => setSemester(semesterList[5])}>6</button></a>
-                    <a><button onClick={() => setSemester(semesterList[6])}>7</button></a>
-                    <a><button onClick={() => setSemester(semesterList[7])}>8</button></a>
+                    <SemesterTable currentSemester={addSemester}></SemesterTable>
+                    <a><button onClick={() => settingSemester(semesterList[0])}>1</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[1])}>2</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[2])}>3</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[3])}>4</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[4])}>5</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[5])}>6</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[6])}>7</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[7])}>8</button></a>
+                </span>
                 </Tab>
-            </Tabs>
-            { /*<EditCourse visible={ visible } setVisible={ setVisible } editCourse={ EditCourse }></EditCourse> */}
+            <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
         </div>
     );
 }
 
-export default App; 
+export default App;
+
+
+

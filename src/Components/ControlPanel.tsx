@@ -1,6 +1,5 @@
 import React from "react";
-import { Col } from "react-bootstrap";
-import "../css/editButton.css";
+import { ToggleButton } from "react-bootstrap";
 
 // https://github.com/UD-CISC275-F21/ta-trainer/blob/main/src/components/ControlPanel.tsx
 export function ControlPanel({showEditModal}: {showEditModal: (b:boolean)=>void}): JSX.Element {
@@ -10,8 +9,8 @@ export function ControlPanel({showEditModal}: {showEditModal: (b:boolean)=>void}
     }
     
     return (
-        <Col>
-            <button className="editButton" onClick={ editCourseModal }>Edit Course</button>
-        </Col>
+        <div>
+            <ToggleButton variant="secondary" value="1" onClick={ editCourseModal }>Edit</ToggleButton>
+        </div>
     );
 }
