@@ -4,9 +4,6 @@ import { SpringTable } from "./Components/Spring-Semester";
 import "./css/App.css";
 import Tab from "./Components/Tab";
 
-
-// import bootstrap
-
 function App (): JSX.Element {
     return (
         <Tab>
@@ -28,8 +25,8 @@ function App (): JSX.Element {
 
             </span>
             <span title="Course Selector">
-                <FallTable></FallTable>
-                <SpringTable></SpringTable>
+                <FallTable disabled={false}></FallTable>
+                <SpringTable disabled={false}></SpringTable>
             </span>
         </Tab>
     );

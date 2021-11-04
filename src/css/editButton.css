@@ -1,0 +1,14 @@
+.editButton {
+    border: solid 1px #abb5b8; /*abb5b8*/
+    font: normal 13px Arial, sans-serif;
+    background-color: #abb5b8;
+    position: fixed;
+    left: 200px;
+    top: 150px;
+    width: 90px;
+    height: 45px;
+}
+
+.editButton:hover {
+    background-color: #8f989b; /*8f989b*/
+}
