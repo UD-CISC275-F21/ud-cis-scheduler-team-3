@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import COURSES from "./Assets/Courses.json";
 import { Carousel } from "./Components/NextPrev";
 import "./css/App.css";
-import "./css/editButton.css";
 import { Course as CourseIF } from "./Components/Fall-Semester";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";

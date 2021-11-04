@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../css/editButton.css";
 import { Course as CourseIF } from "./Fall-Semester";
 
 
