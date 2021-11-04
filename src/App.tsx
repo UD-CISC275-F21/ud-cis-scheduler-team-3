@@ -1,5 +1,4 @@
 import "./css/App.css";
-import "./css/editButton.css";
 import React, {useState} from "react";
 import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
