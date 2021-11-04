@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Course as CourseIF } from "./Fall-Semester";
-
+import { Course as CourseIF } from "./SemesterTable";
 
 // https://github.com/UD-CISC275-F21/ta-trainer/blob/main/src/components/AddCardModal.tsx
 export function EditCourse({visible, setVisible}: // , editCourse, semester, setSemester
