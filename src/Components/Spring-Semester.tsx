@@ -30,3 +30,4 @@ export function SpringTable({disabled, showEditModal}: {disabled: boolean, showE
         })}
     </table>;
 }
+
