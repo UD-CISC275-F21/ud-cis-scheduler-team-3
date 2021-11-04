@@ -18,6 +18,7 @@ export function SemesterTable({currentSemester}: {currentSemester: Semester}): J
     return <table className  = "Table-Header">
         <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th></tr>
         { currentSemester.courses.map((course: Course) => {
+            console.log("LOOK AT THESE:", course.code); 
             return <tr key={course.code}>
                 <td>{course.code}</td>
                 <td>{course.title}</td>

@@ -24,6 +24,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     {
         courses: [COURSES[10],COURSES[11],COURSES[12],COURSES[13],COURSES[14]],
         title: "Sophmore Fall Semester"
+    },
+    {
+        courses: [COURSES[15],COURSES[16],COURSES[17],COURSES[18],COURSES[19]],
+        title: "Sophmore Spring Semester"
     }
     ];
 
@@ -61,8 +65,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 <Tab title="Course selector">
                     <ControlPanel showEditModal={ setVisible }></ControlPanel>
                     <SemesterTable currentSemester={semester}></SemesterTable>
-                    <button onClick={() => setSemester(semesterList[0])}>Prev</button>
-                    <button onClick={() => setSemester(semesterList[1])}>Next</button>
+                    <button onClick={() => setSemester(semesterList[0])}>1</button>
+                    <button onClick={() => setSemester(semesterList[1])}>2</button>
+                    <button onClick={() => setSemester(semesterList[2])}>3</button>
+                    <button onClick={() => setSemester(semesterList[3])}>4</button>
                 </Tab>
             </Tabs>
             { /*<EditCourse visible={ visible } setVisible={ setVisible } editCourse={ EditCourse }></EditCourse> */}

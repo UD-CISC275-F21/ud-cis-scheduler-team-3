@@ -23,7 +23,7 @@
     "description": "Required of all students. Should be taken first year on campus"
   }, 
   {
-    "code": "",
+    "code": "EDIT1",
     "title": "Breath Requirement Elective 1",
     "credits": 3, 
     "description": "Required of all students."
@@ -47,13 +47,13 @@
     "description": "PREREQ: MATH232 or MATH241. RESTRICTIONS: Students who received credit in MATH243 are not eligible to take this course without permission."
   },
   {
-    "code": "", 
+    "code": "EDIT2", 
     "title": "Laboratory Science I", 
     "credits": 4, 
     "description": "Required of all students. Any science with a lab"
   },
   {
-    "code": "", 
+    "code": "EDIT3", 
     "title": "Breath Requirement Elective 2", 
     "credits": 3, 
     "description": "Required of all students."
@@ -77,14 +77,44 @@
     "description": "COREQ: MATH241, MATH242 or MATH232"
   },
   {
-    "code": "", 
+    "code": "EDIT4", 
     "title": "Laboratory Science 2", 
     "credits": 4, 
     "description": "Required of all students. Any science with a lab"
   },
   {
-    "code": "", 
+    "code": "EDIT5", 
     "title": "Breath Requirement Elective 3", 
+    "credits": 3, 
+    "description": "Required of all students."
+  },
+  {
+    "code": "CISC 355", 
+    "title": "Computers, Ethics & Society", 
+    "credits": 3, 
+    "description": "Explains relationships among information technology, society and ethics by examining issues raised by increasingly widespread use of computers."
+  },
+  {
+    "code": "CISC 275", 
+    "title": "Introduction to Software Engineering", 
+    "credits": 3, 
+    "description": "Explains relationships among information technology, society and ethics by examining issues raised by increasingly widespread use of computers."
+  },
+  {
+    "code": "MATH 205 (or) MATH 350", 
+    "title": "Statistical Methods (or) Probability Theory and Simulation Methods", 
+    "credits": 3, 
+    "description": ""
+  },
+  {
+    "code": "EDIT6", 
+    "title": "Laboratory Science 3", 
+    "credits": 4, 
+    "description": "Required of all students. Any science with a lab"
+  },
+  {
+    "code": "EDIT7", 
+    "title": "Breath Requirement Elective 4", 
     "credits": 3, 
     "description": "Required of all students."
   }
