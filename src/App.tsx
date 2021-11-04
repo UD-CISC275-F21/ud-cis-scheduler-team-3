@@ -88,7 +88,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <a><button onClick={() => settingSemester(semesterList[6])}>7</button></a>
                     <a><button onClick={() => settingSemester(semesterList[7])}>8</button></a>
                 </span>
-                </Tab>
+            </Tab>
             <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
         </div>
     );
