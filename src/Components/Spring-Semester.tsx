@@ -28,3 +28,4 @@ export function SpringTable(): JSX.Element {
         })}
     </table>;
 }
+
