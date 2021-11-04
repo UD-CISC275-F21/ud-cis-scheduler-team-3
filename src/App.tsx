@@ -1,14 +1,14 @@
 import "./css/App.css";
 import React, {useState} from "react";
-import { Course as CourseIF } from "./Components/SemesterTable";
+// import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
-    const [semester, setSemester] = useState<CourseIF[]>(COURSES);
-    const [visible, setVisible] = useState<boolean>(false);
+    // const [semester, setSemester] = useState<CourseIF[]>(COURSES);
+    // const [visible, setVisible] = useState<boolean>(false);
     const semesterList: Semester[] = [{
         courses: [COURSES[0],COURSES[1],COURSES[2],COURSES[3],COURSES[4]],
         title: "Freshman Fall Semester"
@@ -44,11 +44,11 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     ];
 
     const [addSemester, settingSemester] = useState<Semester>(semesterList[0]);
-    
+    /*
     function editCourse(c: CourseIF): void {
         setSemester([...semester, c]); // fix this line later
     }
-    
+    */
     return (
         <div>
             <Tab>
@@ -75,7 +75,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     </ul>
                 </span>
                 <span title="Course selector">
-                    <SemesterTable currentSemester={addSemester} showEditModal={ setVisible }></SemesterTable>
+                    <SemesterTable currentSemester={addSemester}></SemesterTable>
                     <a><button onClick={() => settingSemester(semesterList[0])}>1</button></a>
                     <a><button onClick={() => settingSemester(semesterList[1])}>2</button></a>
                     <a><button onClick={() => settingSemester(semesterList[2])}>3</button></a>
@@ -86,7 +86,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <a><button onClick={() => settingSemester(semesterList[7])}>8</button></a>
                 </span>
             </Tab>
-            <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
+            <EditCourse></EditCourse>
         </div>
 
     );
