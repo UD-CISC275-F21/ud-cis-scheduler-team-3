@@ -7,9 +7,6 @@ import { Course as CourseIF } from "./Components/Fall-Semester";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
 import { EditCourse } from "./Components/EditCourse";
-import { MapCourses } from "./Components/MapCourses";
-import { ControlPanel } from "./Components/ControlPanel";
-
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const [semester, setSemester] = useState<CourseIF[]>(COURSES);
@@ -43,11 +40,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         <li>Options to start planning session all over will be available</li>
                         <li>To be continued</li>
                     </ul>
-                    <MapCourses semester = { semester }></MapCourses>
                 </Tab>
                 <Tab title="Course selector">
-                    <ControlPanel showEditModal={ setVisible }></ControlPanel>
-                    <Carousel></Carousel>
+                    <Carousel showEditModal={ setVisible }></Carousel>
                 </Tab>
             </Tabs>
             <EditCourse visible={ visible } setVisible={ setVisible } editCourse={ editCourse } semester={ semester } setSemester={ setSemester }></EditCourse>

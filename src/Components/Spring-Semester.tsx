@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/Semester.css";
+import { ControlPanel } from "./ControlPanel";
 
 export interface Course {
     code: string;
@@ -8,7 +9,7 @@ export interface Course {
     description: string;
 }
 
-export function SpringTable({disabled}: {disabled: boolean}): JSX.Element {
+export function SpringTable({disabled, showEditModal}: {disabled: boolean, showEditModal: (b:boolean)=>void}): JSX.Element {
     const courses: Course[] = [{code: "CISC 181", title: "Introdction to Computer Science II", credits: 3, description: "PREREQ: Grade of C- or better in CISC108 or CISC106. COREQ: MATH221, MATH241, or a higher level math course or math placement."},
         {code: "CISC 210", title: "Introduction to Systems Programming", credits: 3, description: "PREREQ: A grade of C- or better in CISC106 or CISC108. COREQ: MATH221 or MATH241 or a higher level math course or math placement."},
         {code: "MATH 242", title: "Analytic Geometry & Calculus B", credits: 4, description: "PREREQ: MATH232 or MATH241. RESTRICTIONS: Students who received credit in MATH243 are not eligible to take this course without permission."},
@@ -17,13 +18,14 @@ export function SpringTable({disabled}: {disabled: boolean}): JSX.Element {
 
     
     return <table className  = "Table-Header" style={disabled ? {pointerEvents: "none", opacity: "0"} : {}}>
-        <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th></tr>
+        <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th></th></tr>
         { courses.map((course: Course) => {
             return <tr key={course.code} style={disabled ? {pointerEvents: "none", opacity: "0"} : {}}>
                 <td>{course.code}</td>
                 <td>{course.title}</td>
                 <td>{course.credits}</td>
                 <td>{course.description}</td>
+                <td><ControlPanel showEditModal={ showEditModal }></ControlPanel></td>
             </tr>;
         })}
     </table>;
