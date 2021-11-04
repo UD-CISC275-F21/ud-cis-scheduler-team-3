@@ -3,18 +3,19 @@ import COURSES from "./Assets/Courses.json";
 import { Carousel } from "./Components/NextPrev";
 import "./css/App.css";
 import "./css/editButton.css";
-import { Course as CourseFF } from "./Components/Fall-Semester";
+import { Course as CourseIF } from "./Components/Fall-Semester";
 import Tabs from "./Components/tabs/Tabs";
 import Tab from "./Components/tabs/Tab";
 import { EditCourse } from "./Components/EditCourse";
+import { MapCourses } from "./Components/MapCourses";
 import { ControlPanel } from "./Components/ControlPanel";
 
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
-    const [semester, setSemester] = useState<CourseFF[]>(COURSES);
+    const [semester, setSemester] = useState<CourseIF[]>(COURSES);
     const [visible, setVisible] = useState<boolean>(false);
     
-    function editCourse(c: CourseFF): void {
+    function editCourse(c: CourseIF): void {
         setSemester([...semester, c]); // fix this line later
     }
     
@@ -42,6 +43,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         <li>Options to start planning session all over will be available</li>
                         <li>To be continued</li>
                     </ul>
+                    <MapCourses semester = { semester }></MapCourses>
                 </Tab>
                 <Tab title="Course selector">
                     <ControlPanel showEditModal={ setVisible }></ControlPanel>
