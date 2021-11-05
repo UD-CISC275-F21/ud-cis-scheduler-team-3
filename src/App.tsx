@@ -55,7 +55,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 <span title="Welcome And Navigating Our Site">
                     <body>
                         <header>
-                            <p>Welcome to Team 3s UD CISC Schedule Builder</p>
+                            <p>Welcome to Team 3s UD CIS Scheduler</p>
                             <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
                             <p>Our goal is to help CISC students plan out their semesters,
                             by providing templates of potential Fall/Spring semesters and even
