@@ -81,14 +81,14 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 </span>
                 <span title="Course Selector">
                     <SemesterTable currentSemester={addSemester} showEditModal={ setVisible }></SemesterTable>
-                    <a><button onClick={() => settingSemester(semesterList[0])}>1</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[1])}>2</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[2])}>3</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[3])}>4</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[4])}>5</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[5])}>6</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[6])}>7</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[7])}>8</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[0])}>F (Fall)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[1])}>F (Spring)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[2])}>Sp (Fall)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[3])}>Sp (Spring)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[4])}>J (Fall)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[5])}>J (Spring)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[6])}>Se (Fall)</button></a>
+                    <a><button onClick={() => settingSemester(semesterList[7])}>Se (Spring)</button></a>
                 </span>
             </Tab>
             <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
