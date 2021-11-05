@@ -1,16 +1,65 @@
 .li {
     list-style-type: none;
     float: left;
+    background-position:top;
+    
 }
 
 .active>button {
     background: red;
     font-weight: bold;
     background-color: cornflowerblue;
-    font-size: x-large;
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+    margin-left: 400px;
+    background: #256ce1;
+    color: yellow;
+    border: none;
+    
+    cursor: pointer;
+    text-decoration: none;
+    transition: none;
+    display: center;
+    color:yellow;
 
+    @media screen and (max-width: 768px){
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 75%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+  
+
+   
 }
 
-.TabsCSS{
-    font-style: italic;
+
+    
+
+.TabsCSS li{
+    text-align: center;
+    @media screen and (max-width: 768px){
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 75%);
+        font-size: 1.8rem;
+        cursor: pointer;
     }
+}
+
+.TabsCSS {
+    text-align: center;
+    @media screen and (max-width: 1000px){
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-100%, 75%);
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+}
