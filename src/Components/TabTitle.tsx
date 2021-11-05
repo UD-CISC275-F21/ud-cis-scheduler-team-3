@@ -16,9 +16,11 @@ const TabTitle: React.FC<Props> = ({ title, setSelectedTab, index, selectedTab }
     }, [setSelectedTab, index]);
 
     return (
-        <li className={`li ${selectedTab === index ? "active" : ""}`}>
-            <button onClick={onClick}>{title}</button>
-        </li>
+        <div className = "TabsCSS">
+            <li className={`li ${selectedTab === index ? "active" : ""}`}>
+                <button onClick={onClick}>{title}</button>
+            </li>
+        </div>
     );
 };
 export default TabTitle;
