@@ -5,7 +5,7 @@ import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
-import PopUp from "./Components/PopUpInstructions";
+//import PopUp from "./Components/PopUpInstructions";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const [semester, setSemester] = useState<CourseIF[]>(COURSES);
