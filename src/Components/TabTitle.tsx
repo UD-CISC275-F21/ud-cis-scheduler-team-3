@@ -24,3 +24,4 @@ const TabTitle: React.FC<Props> = ({ title, setSelectedTab, index, selectedTab }
     );
 };
 export default TabTitle;
+

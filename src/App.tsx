@@ -5,6 +5,7 @@ import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
+import PopUp from "./Components/PopUpInstructions";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const [semester, setSemester] = useState<CourseIF[]>(COURSES);
@@ -80,11 +81,22 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     function editCourse(c: CourseIF): void {
         setSemester([...semester, c]); // fix this line later
     }
+
+    const [isOpen, setIsOpen] = useState(false);
+    const togglePopUp = () => {
+        setIsOpen(!isOpen);
+    };
     
     return (
         <div>
+            <input type  = "button"
+                value = "Click to View Instructions"
+                onClick={togglePopUp}/> 
+            <p> Step by Step Instructions 
+                To Navigate Our Site </p>
+            {isOpen}
             <Tab>
-                <span title="Welcome And Navigating Our Site">
+                <span title="Welcome">
                     <body>
                         <header>
                             <p>Welcome to Team 3s UD CIS Scheduler</p>
