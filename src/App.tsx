@@ -1,5 +1,6 @@
 import "./css/App.css";
 import React, {useState} from "react";
+import { Checkbox } from "./Components/Hide";
 import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
@@ -119,15 +120,25 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path</a>  
                         to graduate on time (by the University of Delaware). However, the 
                         tables can be manipulated in a way that can fit anyone’s academic needs.</p>
+                    
                     <SemesterTable currentSemester={addSemester} showEditModal={ setVisible }></SemesterTable>
                     <button onClick={() => settingSemester(semesterList[0])}>F (Fall)</button>
-                    <button onClick={() => settingSemester(semesterList[1])}>F (Spring)</button>
-                    <button onClick={() => settingSemester(semesterList[2])}>Sp (Fall)</button>
-                    <button onClick={() => settingSemester(semesterList[3])}>Sp (Spring)</button>
-                    <button onClick={() => settingSemester(semesterList[4])}>J (Fall)</button>
-                    <button onClick={() => settingSemester(semesterList[5])}>J (Spring)</button>
-                    <button onClick={() => settingSemester(semesterList[6])}>Se (Fall)</button>
-                    <button onClick={() => settingSemester(semesterList[7])}>Se (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[1])}>F (Winter)</button>
+                    <button onClick={() => settingSemester(semesterList[2])}>F (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[3])}>F (Summer)</button>
+                    <button onClick={() => settingSemester(semesterList[4])}>Sp (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[5])}>Sp (Winter)</button>
+                    <button onClick={() => settingSemester(semesterList[6])}>Sp (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[7])}>Sp (Summer)</button>
+                    <button onClick={() => settingSemester(semesterList[8])}>J (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[9])}>J (Winter)</button>
+                    <button onClick={() => settingSemester(semesterList[10])}>J (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[11])}>J (Summer)</button>
+                    <button onClick={() => settingSemester(semesterList[12])}>Se (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[13])}>Se (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[14])}>Se (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[15])}>Se (Summer)</button>
+                    <Checkbox></Checkbox>
                 </span>
             </Tab>
             <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
