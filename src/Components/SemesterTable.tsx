@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import "../css/Semester.css";
+import React, { useState } from "react";
 import { OpenEditing, CloseEditing } from "./EditorControlPanel";
 
 export interface Course {
