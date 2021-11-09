@@ -71,7 +71,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     </body>
                 </span>
                 <span title="Course Selector">
-                    <SemesterTable currentSemester={ addSemester }></SemesterTable>
+                    <SemesterTable currentSemester={ addSemester } setCurrentSemester={ settingSemester }></SemesterTable>
                     <a><button onClick={() => settingSemester(semesterList[0])}>F (Fall)</button></a>
                     <a><button onClick={() => settingSemester(semesterList[1])}>F (Spring)</button></a>
                     <a><button onClick={() => settingSemester(semesterList[2])}>Sp (Fall)</button></a>

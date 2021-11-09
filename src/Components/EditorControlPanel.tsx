@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, ToggleButton } from "react-bootstrap";
-import { Course as CourseIF } from "./SemesterTable";
-import COURSES from "../Assets/Courses.json";
+import { Course as CourseIF, Semester } from "./SemesterTable";
+import { TitleForm, DescriptionForm } from "./EditorForms";
 
 export function OpenEditing({course, editing, setEditing}: {course: CourseIF, editing:boolean, setEditing: (b:boolean)=>void}): JSX.Element {
     return (
@@ -18,18 +18,17 @@ export function OpenEditing({course, editing, setEditing}: {course: CourseIF, ed
         </div>);
 }
 
-export function CloseEditing({course, setEditing, newTitle, setTitle, newDescription, setDescription}: 
-    {course: CourseIF, setEditing: (b:boolean)=>void, newTitle: string, setTitle:(newTitle:string)=>void, 
-    newDescription: string, setDescription:(newDescription:string)=>void}): JSX.Element {
+export function CloseEditing({course, setEditing, currentSemester, setCurrentSemester}: 
+    {course: CourseIF, setEditing: (b:boolean)=>void, currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
     
-    const [semester, setSemester] = useState<CourseIF[]>(COURSES);
+    const [newTitle, setTitle] = useState<string>(course.title);
+    const [newDescription, setDescription] = useState<string>(course.description);
     
     function updateSemester(): void {
-        setSemester(semester.map((oldCourse: CourseIF): CourseIF => {
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.map((oldCourse: CourseIF): CourseIF => {
             return course.code === oldCourse.code ? 
-                {...oldCourse, title:newTitle, description: newDescription} :
-                oldCourse;
-        }));
+                {...oldCourse, title:newTitle, description: newDescription} : oldCourse;
+        })});
     }
 
     function resetSemester(): void {
@@ -39,20 +38,23 @@ export function CloseEditing({course, setEditing, newTitle, setTitle, newDescrip
 
     return (
         <div>
-            <Button 
-                variant="outline-danger" 
-                onClick={()=>{
-                    resetSemester();
-                    setEditing(false);
-                }} 
-            >Cancel</Button>
-            <Button 
-                variant="success"
-                onClick={()=>{
-                    updateSemester();
-                    setEditing(false);
-                }}
-            >Done</Button>
-        </div>);
+            <TitleForm newTitle={ newTitle } setTitle={ setTitle }></TitleForm>
+            <DescriptionForm newDescription={ newDescription } setDescription={ setDescription }></DescriptionForm>
+            <div>
+                <Button 
+                    variant="outline-danger" 
+                    onClick={()=>{
+                        resetSemester();
+                        setEditing(false);
+                    }} 
+                >Cancel</Button>
+                <Button 
+                    variant="success"
+                    onClick={()=>{
+                        updateSemester();
+                        setEditing(false);
+                    }}
+                >Done</Button>
+            </div></div>);
 
 }
