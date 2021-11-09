@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 
 type Props = {
     handleClose: () => void;
-    content: string;
+    content: string ;
 }
 
 const PopUp: React.FC<Props> = ({handleClose, content}) => {
