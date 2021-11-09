@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/Semester.css";
-import { ControlPanel } from "./ControlPanel";
+import { OpenEditing, CloseEditing } from "./EditorControlPanel";
 
 export interface Course {
     code: string;
@@ -14,19 +14,33 @@ export interface Semester {
     title: string;
 }
  
-export function SemesterTable({currentSemester, showEditModal}: {currentSemester: Semester, showEditModal: (b:boolean)=>void}): JSX.Element {
+export function SemesterTable({currentSemester, setCurrentSemester}: {currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
+    const [editing, setEditing] = useState<boolean>(false);
     
     return <table className  = "Table-Header">
         <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th></th></tr>
         { currentSemester.courses.map((course: Course) => {
-            console.log("LOOK AT THESE:", course.code); 
-            return <tr key={course.code}>
-                <td>{course.code}</td>
-                <td>{course.title}</td>
-                <td>{course.credits}</td>
-                <td>{course.description}</td>
-                <td><ControlPanel showEditModal= { showEditModal }></ControlPanel></td>
-            </tr>;
+            return editing ? 
+                <tr key={course.code}>
+                    <td>{course.code}</td>
+                    <td>{course.title}</td>
+                    <td>{course.credits}</td>
+                    <td>{course.description}</td>
+                    <td><CloseEditing 
+                        course={ course } 
+                        setEditing={ setEditing } 
+                        currentSemester={ currentSemester }
+                        setCurrentSemester={ setCurrentSemester }
+                    ></CloseEditing></td>
+                </tr> 
+                : 
+                <tr key={course.code}>
+                    <td>{course.code}</td>
+                    <td>{course.title}</td>
+                    <td>{course.credits}</td>
+                    <td>{course.description}</td>
+                    <td><OpenEditing course={ course } editing={ editing } setEditing={ setEditing }></OpenEditing></td>
+                </tr>;
         })}
     </table>;
 }

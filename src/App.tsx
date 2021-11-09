@@ -3,14 +3,11 @@ import React, {useState} from "react";
 import { Checkbox } from "./Components/Hide";
 import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
-import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
-    const [semester, setSemester] = useState<CourseIF[]>(COURSES);
-    const [visible, setVisible] = useState<boolean>(false);
     const semesterList: Semester[] = [{
         courses: [COURSES[0],COURSES[1],COURSES[2],COURSES[3],COURSES[4]],
         title: "Freshman Fall Semester"
@@ -78,16 +75,11 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     ];
 
     const [addSemester, settingSemester] = useState<Semester>(semesterList[0]);
-    
-    function editCourse(c: CourseIF): void {
-        setSemester([...semester, c]); // fix this line later
-    }
-
     const [isOpen, setIsOpen] = useState(false);
     const togglePopUp = () => {
         setIsOpen(!isOpen);
     };
-    
+
     return (
         <div>
             <input type  = "button"
@@ -134,7 +126,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         to graduate on time (by the University of Delaware). However, the 
                         tables can be manipulated in a way that can fit anyone’s academic needs.</p>
                     
-                    <SemesterTable currentSemester={addSemester} showEditModal={ setVisible }></SemesterTable>
+                    <SemesterTable currentSemester={addSemester} setCurrentSemester={ settingSemester }></SemesterTable>
                     <button onClick={() => settingSemester(semesterList[0])}>F (Fall)</button>
                     <button onClick={() => settingSemester(semesterList[1])}>F (Winter)</button>
                     <button onClick={() => settingSemester(semesterList[2])}>F (Spring)</button>
@@ -154,7 +146,6 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <Checkbox></Checkbox>
                 </span>
             </Tab>
-            <EditCourse visible={visible} setVisible={setVisible} editCourse={editCourse} semester={semester} setSemester={setSemester}></EditCourse>
         </div>
 
     );
