@@ -5,7 +5,7 @@ import Tab from "./Components/Tab";
 import { EditCourse } from "./Components/EditCourse";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
-//import PopUp from "./Components/PopUpInstructions";
+import PopUp from "./Components/PopUpInstructions";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const [semester, setSemester] = useState<CourseIF[]>(COURSES);
@@ -92,11 +92,12 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
             <input type  = "button"
                 value = "Click to View Instructions"
                 onClick={togglePopUp}/> 
-            <p> Step by Step Instructions 
-                To Navigate Our Site </p>
-            {isOpen}
+            <p> Step by Step Instructions To Navigate Our Site </p>
+            {isOpen && <PopUp content={"hello"} handleClose={function (): void {
+                throw new Error("Function not implemented.");
+            } }/>}
             <Tab>
-                <span title="Welcome">
+                <span title="Welcome And Navigating Our Site">
                     <body>
                         <header>
                             <p>Welcome to Team 3s UD CIS Scheduler</p>
