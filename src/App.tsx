@@ -1,7 +1,6 @@
 import "./css/App.css";
 import React, {useState} from "react";
 import { Checkbox } from "./Components/Hide";
-import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
