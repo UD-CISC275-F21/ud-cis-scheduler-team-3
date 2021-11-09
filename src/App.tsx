@@ -1,47 +1,94 @@
 import "./css/App.css";
 import React, {useState} from "react";
+import { Checkbox } from "./Components/Hide";
+import { Course as CourseIF } from "./Components/SemesterTable";
 import Tab from "./Components/Tab";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
+import PopUp from "./Components/PopUpInstructions";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const semesterList: Semester[] = [{
         courses: [COURSES[0],COURSES[1],COURSES[2],COURSES[3],COURSES[4]],
         title: "Freshman Fall Semester"
-    }, 
+    },
+    {
+        courses: [],
+        title: "Freshman Winter Semseter"
+    },
     {    
         courses: [COURSES[5],COURSES[6],COURSES[7],COURSES[8],COURSES[9]],
         title: "Freshman Spring Semester"
+    },
+    {
+        courses: [],
+        title: "Freshman Summer Semseter"
     },
     {
         courses: [COURSES[10],COURSES[11],COURSES[12],COURSES[13],COURSES[14]],
         title: "Sophmore Fall Semester"
     },
     {
+        courses: [],
+        title: "Sophmore Winter Semseter"
+    },
+    {
         courses: [COURSES[15],COURSES[16],COURSES[17],COURSES[18],COURSES[19]],
         title: "Sophmore Spring Semester"
+    },
+    {
+        courses: [],
+        title: "Sophmore Summer Semseter"
     },
     {
         courses: [COURSES[20],COURSES[21],COURSES[22],COURSES[23],COURSES[24]],
         title: "Junior Fall Semester"
     },
     {
+        courses: [],
+        title: "Junior Winter Semseter"
+    },
+    {
         courses: [COURSES[25],COURSES[26],COURSES[27],COURSES[28],COURSES[29]],
         title: "Junior Spring Semester"
+    },
+    {
+        courses: [],
+        title: "Junior Summer Semseter"
     },
     {
         courses: [COURSES[30],COURSES[31],COURSES[32],COURSES[33],COURSES[34]],
         title: "Senior Fall Semester"
     },
     {
+        courses: [],
+        title: "Senior Winter Semseter"
+    },
+    {
         courses: [COURSES[35],COURSES[36],COURSES[37],COURSES[38],COURSES[39]],
         title: "Senior Spring Semester"
-    }
+    },
+    {
+        courses: [],
+        title: "Senior Summer Semseter"
+    },
     ];
 
     const [addSemester, settingSemester] = useState<Semester>(semesterList[0]);
+    const [isOpen, setIsOpen] = useState(false);
+    const togglePopUp = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div>
+            <input type  = "button"
+                value = "Click to View Instructions"
+                onClick={togglePopUp}/> 
+            <p> Step by Step Instructions To Navigate Our Site </p>
+            {isOpen && <PopUp content={"hello"} handleClose={function (): void {
+                throw new Error("Function not implemented.");
+            } }/>}
             <Tab>
                 <span title="Welcome And Navigating Our Site">
                     <body>
@@ -71,15 +118,32 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     </body>
                 </span>
                 <span title="Course Selector">
-                    <SemesterTable currentSemester={ addSemester } setCurrentSemester={ settingSemester }></SemesterTable>
-                    <a><button onClick={() => settingSemester(semesterList[0])}>F (Fall)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[1])}>F (Spring)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[2])}>Sp (Fall)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[3])}>Sp (Spring)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[4])}>J (Fall)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[5])}>J (Spring)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[6])}>Se (Fall)</button></a>
-                    <a><button onClick={() => settingSemester(semesterList[7])}>Se (Spring)</button></a>
+                    <p>The table below is a structured set of data made up of courses that 
+                        most Computer Science B.S. majors have to take. This table allows 
+                        you to quickly and easily look through all the semesters (Freshman 
+                        to Senior). These semesters default to courses that are recommended 
+                        by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path</a>  
+                        to graduate on time (by the University of Delaware). However, the 
+                        tables can be manipulated in a way that can fit anyone’s academic needs.</p>
+                    
+                    <SemesterTable currentSemester={addSemester} setCurrentSemester={ settingSemester }></SemesterTable>
+                    <button onClick={() => settingSemester(semesterList[0])}>F (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[1])}>F (Winter)</button>
+                    <button onClick={() => settingSemester(semesterList[2])}>F (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[3])}>F (Summer)</button>
+                    <button onClick={() => settingSemester(semesterList[4])}>Sp (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[5])}>Sp (Winter)</button>
+                    <button onClick={() => settingSemester(semesterList[6])}>Sp (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[7])}>Sp (Summer)</button>
+                    <button onClick={() => settingSemester(semesterList[8])}>J (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[9])}>J (Winter)</button>
+                    <button onClick={() => settingSemester(semesterList[10])}>J (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[11])}>J (Summer)</button>
+                    <button onClick={() => settingSemester(semesterList[12])}>Se (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[13])}>Se (Fall)</button>
+                    <button onClick={() => settingSemester(semesterList[14])}>Se (Spring)</button>
+                    <button onClick={() => settingSemester(semesterList[15])}>Se (Summer)</button>
+                    <Checkbox></Checkbox>
                 </span>
             </Tab>
         </div>
