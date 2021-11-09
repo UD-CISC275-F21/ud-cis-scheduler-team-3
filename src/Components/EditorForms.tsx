@@ -7,7 +7,7 @@ export function TitleForm({newTitle, setTitle}: {newTitle:string, setTitle:(newT
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseTitle'>
                 <Form.Label>Course Title</Form.Label>
-                <Form.Control as="textarea" rows={1} value={ newTitle } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
+                <Form.Control as="textarea" rows={5} value={ newTitle } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
             </Form.Group>
         </Form>
     );
@@ -18,7 +18,7 @@ export function DescriptionForm({newDescription, setDescription}: {newDescriptio
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseDescription'>
                 <Form.Label>Course Description</Form.Label>
-                <Form.Control as="textarea" rows={3} value={ newDescription } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(ev.target.value)} />
+                <Form.Control as="textarea" rows={5} value={ newDescription } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(ev.target.value)} />
             </Form.Group>
         </Form>
     );

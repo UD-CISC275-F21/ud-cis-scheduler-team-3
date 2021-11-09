@@ -23,6 +23,9 @@ export function SemesterTable({currentSemester, setCurrentSemester}: {currentSem
             return editing ? 
                 <tr key={course.code}>
                     <td>{course.code}</td>
+                    <td>{course.title}</td>
+                    <td>{course.credits}</td>
+                    <td>{course.description}</td>
                     <td><CloseEditing 
                         course={ course } 
                         setEditing={ setEditing } 
