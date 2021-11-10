@@ -24,10 +24,11 @@ export function CloseEditing({course, setEditing, currentSemester, setCurrentSem
     const [newTitle, setTitle] = useState<string>(course.title);
     const [newDescription, setDescription] = useState<string>(course.description);
     
+    // the following function includes guidance from Cameron Thakar (Team 4)
     function updateSemester(): void {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.map((oldCourse: CourseIF): CourseIF => {
             return course.code === oldCourse.code ? 
-                {...oldCourse, title:newTitle, description: newDescription} : oldCourse;
+                {...oldCourse, title: newTitle, description: newDescription} : oldCourse;
         })});
     }
 
@@ -37,24 +38,27 @@ export function CloseEditing({course, setEditing, currentSemester, setCurrentSem
     }
 
     return (
-        <div>
-            <TitleForm newTitle={ newTitle } setTitle={ setTitle }></TitleForm>
-            <DescriptionForm newDescription={ newDescription } setDescription={ setDescription }></DescriptionForm>
-            <div>
-                <Button 
-                    variant="outline-danger" 
-                    onClick={()=>{
-                        resetSemester();
-                        setEditing(false);
-                    }} 
-                >Cancel</Button>
-                <Button 
-                    variant="success"
-                    onClick={()=>{
-                        updateSemester();
-                        setEditing(false);
-                    }}
-                >Done</Button>
-            </div></div>);
+        <div><table className  = "Table-Header">
+            <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th>Panel</th></tr>
+            <tr><td></td>
+                <td><TitleForm newTitle={ newTitle } setTitle={ setTitle }></TitleForm></td>
+                <td></td>
+                <td><DescriptionForm newDescription={ newDescription } setDescription={ setDescription }></DescriptionForm></td>
+                <td>
+                    <Button 
+                        variant="outline-danger" 
+                        onClick={()=>{
+                            resetSemester();
+                            setEditing(false);
+                        }} 
+                    >Cancel</Button>
+                    <Button 
+                        variant="success"
+                        onClick={()=>{
+                            updateSemester();
+                            setEditing(false);
+                        }}
+                    >Done</Button>
+                </td></tr></table></div>);
 
 }
