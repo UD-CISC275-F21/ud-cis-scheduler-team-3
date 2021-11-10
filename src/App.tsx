@@ -85,9 +85,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 value = "Click to View Instructions"
                 onClick={togglePopUp}/> 
             <p> Step by Step Instructions To Navigate Our Site </p>
-            {isOpen && <PopUp content={"hello"} handleClose={function (): void {
-                throw new Error("Function not implemented.");
-            } }/>}
+            {isOpen && <PopUp content={"<li>Click Course Selector</li>"} handleClose={() => setIsOpen(false)} />}         
             <Tab>
                 <span title="Welcome And Navigating Our Site">
                     <body>
@@ -151,6 +149,4 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 }
 
 export default App;
-
-
 
