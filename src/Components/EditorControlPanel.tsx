@@ -39,10 +39,10 @@ export function CloseEditing({course, setEditing, currentSemester, setCurrentSem
 
     return (
         <div><table className  = "Table-Header">
-            <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th>Panel</th></tr>
-            <tr><td></td>
+            <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th>Panel</th></tr> 
+            <tr><td>{ course.code }</td>
                 <td><TitleForm newTitle={ newTitle } setTitle={ setTitle }></TitleForm></td>
-                <td></td>
+                <td>{ course.credits }</td>
                 <td><DescriptionForm newDescription={ newDescription } setDescription={ setDescription }></DescriptionForm></td>
                 <td>
                     <Button 
