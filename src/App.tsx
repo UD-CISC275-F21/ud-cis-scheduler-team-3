@@ -1,11 +1,10 @@
 import "./css/App.css";
 import React, { useState } from "react";
-import { Checkbox } from "./Components/Hide";
 import Tab from "./Components/Tab";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
-import { Dropdown, DropdownButton, DropdownButtonProps } from "react-bootstrap";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const semesterList: Semester[] = [{
