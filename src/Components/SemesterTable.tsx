@@ -16,31 +16,30 @@ export interface Semester {
  
 export function SemesterTable({currentSemester, setCurrentSemester}: {currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
     const [editing, setEditing] = useState<boolean>(false);
-    
-    return <table className  = "Table-Header">
-        <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th></th></tr>
-        { currentSemester.courses.map((course: Course) => {
-            return editing ? 
-                <tr key={course.code}>
+
+    return !editing ? 
+        <table className  = "Table-Header">
+            <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th>Panel</th></tr> 
+            { currentSemester.courses.map((course: Course) => {
+                return <tr key={course.code}>
                     <td>{course.code}</td>
                     <td>{course.title}</td>
                     <td>{course.credits}</td>
                     <td>{course.description}</td>
-                    <td><CloseEditing 
-                        course={ course } 
-                        setEditing={ setEditing } 
-                        currentSemester={ currentSemester }
-                        setCurrentSemester={ setCurrentSemester }
-                    ></CloseEditing></td>
-                </tr> 
-                : 
-                <tr key={course.code}>
-                    <td>{course.code}</td>
-                    <td>{course.title}</td>
-                    <td>{course.credits}</td>
-                    <td>{course.description}</td>
-                    <td><OpenEditing course={ course } editing={ editing } setEditing={ setEditing }></OpenEditing></td>
+                    <OpenEditing course={ course } editing={ editing } setEditing={ setEditing }></OpenEditing>
                 </tr>;
-        })}
-    </table>;
+            })}
+        </table>
+        :
+        <div>
+            { currentSemester.courses.map((course: Course) => {
+                return <CloseEditing 
+                    key={ course.code }
+                    course={ course } 
+                    setEditing={ setEditing } 
+                    currentSemester={ currentSemester }
+                    setCurrentSemester={ setCurrentSemester }
+                ></CloseEditing>;
+            })}
+        </div>;
 }
