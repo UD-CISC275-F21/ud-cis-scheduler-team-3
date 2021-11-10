@@ -1,4 +1,6 @@
 import React, { useCallback } from "react";
+import "../css/PopUp.css";
+
 
 type Props = {
     handleClose: () => void;
@@ -10,17 +12,20 @@ const PopUp: React.FC<Props> = ({handleClose, content}) => {
     const onClick = useCallback(()=>{
         handleClose();
     },
-    [handleClose, content]);
+    [handleClose]);
 
     return (
-        <div>
-            <span className = "popup"> {onClick}{handleClose}
-            [x]
-            </span>
-            {content}
+        <div className = "PopUpBox">
+            <div className = "box">
+                <span className = "close" onClick={onClick}>
+                 x
+                </span>
+                {content}
+            </div>
         </div>
     );
 };
 
 export default PopUp;
     
+
