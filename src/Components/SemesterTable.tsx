@@ -1,6 +1,6 @@
 import "../css/Semester.css";
-import React, { useState } from "react";
-import { OpenEditing, CloseEditing } from "./EditorControlPanel";
+import React from "react";
+import { CloseEditing } from "./ControlPanel";
 
 export interface Course {
     code: string;
@@ -14,19 +14,18 @@ export interface Semester {
     title: string;
 }
  
-export function SemesterTable({currentSemester, setCurrentSemester}: {currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
-    const [editing, setEditing] = useState<boolean>(false);
-
+export function SemesterTable({editing, setEditing, currentSemester, setCurrentSemester}: 
+    {editing: boolean, setEditing: (b:boolean)=>void,currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
+    
     return !editing ? 
         <table className  = "Table-Header">
-            <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th>Panel</th></tr> 
+            <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th></tr> 
             { currentSemester.courses.map((course: Course) => {
                 return <tr key={course.code}>
                     <td>{course.code}</td>
                     <td>{course.title}</td>
                     <td>{course.credits}</td>
                     <td>{course.description}</td>
-                    <OpenEditing course={ course } editing={ editing } setEditing={ setEditing }></OpenEditing>
                 </tr>;
             })}
         </table>

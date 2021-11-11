@@ -6,6 +6,7 @@ import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { CloseButton, Dropdown, DropdownButton } from "react-bootstrap";
+import { ControlPanelButtons } from "./Components/ControlPanel";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const defaultSemesters: Semester[] = [{
@@ -41,9 +42,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         title: "Senior Spring Semester"
     },
     ];
-
     const [semesterList, setSemesterList] = useState(defaultSemesters);
     const [currentSemester, setCurrentSemester] = useState<Semester>(semesterList[0]);
+    const [editing, setEditing] = useState<boolean>(false);
     const [isOpen, setIsOpen] = useState(false);
     const togglePopUp = () => {
         setIsOpen(!isOpen);
@@ -121,7 +122,8 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
                     <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
-                    <SemesterTable currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
+                    <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
+                    <ControlPanelButtons setEditing={ setEditing }></ControlPanelButtons>
                 </span>
             </Tab>
         </div>
