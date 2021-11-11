@@ -9,6 +9,7 @@ import { CloseButton, Dropdown, DropdownButton } from "react-bootstrap";
 import { ControlPanelButtons } from "./Components/ControlPanel";
 import { AddCourseModal, RemoveCourseModal } from "./Components/Modals&Forms";
 
+
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const defaultSemesters: Semester[] = [{
         courses: [COURSES[0], COURSES[1], COURSES[2], COURSES[3], COURSES[4]],
@@ -77,7 +78,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     */
 
     function clearSemester() {
-        setSemesterList([]);
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
     }
 
     function addCourse(newCourse: Course): void {
@@ -130,13 +131,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
-                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
-                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
-                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
-
+                    <button className="btn btn-secondary" onClick={() => clearSemester()}>Clear Semester</button>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
                     <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
@@ -149,4 +147,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 }
 
 export default App;
+/*
+function current( title: string, COURSES: { code: string; title: string; credits: string; description: string; }[], current: any, arg4: any) {
+    throw new Error("Function not implemented.");
+}
+*/
 
