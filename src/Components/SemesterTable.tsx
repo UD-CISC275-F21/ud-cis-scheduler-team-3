@@ -1,19 +1,8 @@
 import "../css/Semester.css";
 import React from "react";
 import { CloseEditing } from "./ControlPanel";
-
-export interface Course {
-    code: string;
-    title: string;
-    credits: string;
-    description: string;
-}
-
-export interface Semester {
-    courses: Course[];
-    title: string;
-}
- 
+import { Semester } from "../Interfaces/Semester";
+import { Course } from "../Interfaces/Course";
 
 
 export function SemesterTable({editing, setEditing, currentSemester, setCurrentSemester}: 

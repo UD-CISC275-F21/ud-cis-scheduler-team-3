@@ -1,14 +1,14 @@
 import "./css/App.css";
 import React, { useState } from "react";
-import { AddSemesterModal } from "./Components/AddSemesterModal";
 import Tab from "./Components/Tab";
 import COURSES from "./Assets/Courses.json";
-import { Course, Semester, SemesterTable } from "./Components/SemesterTable";
+import { SemesterTable } from "./Components/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { CloseButton, Dropdown, DropdownButton } from "react-bootstrap";
 import { ControlPanelButtons } from "./Components/ControlPanel";
-import { AddCourseModal, RemoveCourseModal } from "./Components/Modals&Forms";
-
+import { AddCourseModal, AddSemesterModal, RemoveCourseModal } from "./Components/Modals&Forms";
+import { Course } from "./Interfaces/Course";
+import { Semester } from "./Interfaces/Semester";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const defaultSemesters: Semester[] = [{
