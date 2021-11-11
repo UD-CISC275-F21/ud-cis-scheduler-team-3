@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Course as CourseIF, Semester } from "./SemesterTable";
+import { Course, Semester } from "./SemesterTable";
 import { TitleForm, DescriptionForm } from "./Modals&Forms";
 
 
-export function ControlPanelButtons({setShowModal, setEditing}: {setShowModal: (b:boolean)=>void, setEditing: (b:boolean)=>void}): JSX.Element {
+export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing}: 
+    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void}): JSX.Element {
 
     return <div>
         <Button
             variant="secondary"
             className="me-3"
             onClick={()=>{
-                setShowModal(true);
+                setShowAddModal(true);
             }}
         >Add Course</Button>
         <Button
             variant="secondary"
             className="me-3"
             onClick={()=>{
-                console.log("remove course");
+                setShowRemoveModal(true);
             }}
         >Remove Course</Button>
         <Button 
@@ -32,14 +33,14 @@ export function ControlPanelButtons({setShowModal, setEditing}: {setShowModal: (
 }
 
 export function CloseEditing({course, setEditing, currentSemester, setCurrentSemester}: 
-    {course: CourseIF, setEditing: (b:boolean)=>void, currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
+    {course: Course, setEditing: (b:boolean)=>void, currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
     
     const [newTitle, setTitle] = useState<string>(course.title);
     const [newDescription, setDescription] = useState<string>(course.description);
     
     // the following function includes guidance from Cameron Thakar (Team 4)
     function updateSemester(): void {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.map((oldCourse: CourseIF): CourseIF => {
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.map((oldCourse: Course): Course => {
             return course.code === oldCourse.code ? 
                 {...oldCourse, title: newTitle, description: newDescription} : oldCourse;
         })});

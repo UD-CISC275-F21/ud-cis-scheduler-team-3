@@ -7,7 +7,7 @@ import { Course, Semester, SemesterTable } from "./Components/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { CloseButton, Dropdown, DropdownButton } from "react-bootstrap";
 import { ControlPanelButtons } from "./Components/ControlPanel";
-import { AddCourseModal } from "./Components/Modals&Forms";
+import { AddCourseModal, RemoveCourseModal } from "./Components/Modals&Forms";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const defaultSemesters: Semester[] = [{
@@ -46,7 +46,8 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     const [semesterList, setSemesterList] = useState(defaultSemesters);
     const [currentSemester, setCurrentSemester] = useState<Semester>(semesterList[0]);
     const [editing, setEditing] = useState<boolean>(false);
-    const [showModal, setShowModal] = useState<boolean>(false);
+    const [showAddModal, setShowAddModal] = useState<boolean>(false);
+    const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
     const [isOpen, setIsOpen] = useState(false);
     const togglePopUp = () => {
         setIsOpen(!isOpen);
@@ -72,8 +73,11 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     }
 
     function addCourse(newCourse: Course): void {
-        console.log({ newCourse });
         setCurrentSemester({title: currentSemester.title, courses: [...currentSemester.courses, newCourse]});
+    }
+
+    function removeCourse(removeCode: string): void {
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(course => course.code != removeCode)});
     }
     
     return (
@@ -130,8 +134,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowModal={ setShowModal } setEditing={ setEditing }></ControlPanelButtons>
-                    <AddCourseModal showModal={ showModal } setShowModal={ setShowModal } addCourse={ addCourse }></AddCourseModal>
+                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing }></ControlPanelButtons>
+                    <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
+                    <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
                 </span>
             </Tab>
         </div>
