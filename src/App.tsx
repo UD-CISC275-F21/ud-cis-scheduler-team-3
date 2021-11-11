@@ -63,7 +63,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     */
     
     function clearSemester() {
-        setSemesterList(new Array<Semester>());
+        setSemesterList([]);
     }
 
 
