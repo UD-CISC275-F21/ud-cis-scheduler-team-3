@@ -1,13 +1,14 @@
 import "./css/App.css";
 import React, { useState } from "react";
+import { AddSemesterModal } from "./Components/AddSemesterModal";
 import Tab from "./Components/Tab";
 import COURSES from "./Assets/Courses.json";
 import { Semester, SemesterTable } from "./Components/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { CloseButton, Dropdown, DropdownButton } from "react-bootstrap";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
-    const semesterList: Semester[] = [{
+    const defaultSemesters: Semester[] = [{
         courses: [COURSES[0], COURSES[1], COURSES[2], COURSES[3], COURSES[4]],
         title: "Freshman Fall Semester"
     },
@@ -41,11 +42,30 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     },
     ];
 
+    const [semesterList, setSemesterList] = useState(defaultSemesters);
     const [currentSemester, setCurrentSemester] = useState<Semester>(semesterList[0]);
     const [isOpen, setIsOpen] = useState(false);
     const togglePopUp = () => {
         setIsOpen(!isOpen);
     };
+
+    function removeSemester() {
+        const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
+        setSemesterList(newSemesterList);
+        setCurrentSemester(newSemesterList[0]);
+    }
+    /*
+    function addSemester() {
+        const newSemesterList = semesterList.filter(sem => sem);
+        setSemesterList(newSemesterList);
+        setCurrentSemester(newSemesterList[0]);
+    }
+    */
+    
+    function clearSemester() {
+        setSemesterList(new Array<Semester>());
+    }
+
 
     return (
         <div>
@@ -87,7 +107,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         most Computer Science B.S. majors have to take. This table allows
                         you to quickly and easily look through all the semesters (Freshman
                         to Senior). These semesters default to courses that are recommended
-                        by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path</a>
+                        by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path </a>
                         to graduate on time (by the University of Delaware). However, the
                         tables can be manipulated in a way that can fit anyone’s academic needs.</p>
 
@@ -98,6 +118,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
+                    <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
+                    <AddSemesterModal />
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <SemesterTable currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
                 </span>
             </Tab>
