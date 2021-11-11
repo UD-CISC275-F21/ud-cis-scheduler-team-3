@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import "../css/Tabs.css";
+import "../../css/Tabs.css";
 
 
 type Props = {

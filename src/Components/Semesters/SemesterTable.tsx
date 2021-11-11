@@ -1,9 +1,8 @@
-import "../css/Semester.css";
+import "../../css/Semester.css";
 import React from "react";
 import { CloseEditing } from "../ControlPanel";
 import { Semester } from "../../Interfaces/Semester";
 import { Course } from "../../Interfaces/Course";
-
 
 export function SemesterTable({editing, setEditing, currentSemester, setCurrentSemester}: 
     {editing: boolean, setEditing: (b:boolean)=>void,currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
@@ -33,5 +32,3 @@ export function SemesterTable({editing, setEditing, currentSemester, setCurrentS
             })}
         </div>;
 }
-
-export default Semester;

@@ -1,6 +1,6 @@
 import React, {ReactElement, useState} from "react";
 import TabTitle from "./TabTitle";
-import "../css/Tabs.css";
+import "../../css/Tabs.css";
 
 
 type Props = {
