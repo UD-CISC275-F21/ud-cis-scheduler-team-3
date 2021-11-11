@@ -54,11 +54,20 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     };
 
     
+
+    //reset/set default semester components
+    const [Semester, setDefaultSemester] = useState(semesterList);
+
+
+
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
+
+
+    
 
     /*
     function addSemester() {
@@ -67,7 +76,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setCurrentSemester(newSemesterList[0]);
     }
     */
-   
+
     function clearSemester() {
         setSemesterList([]);
     }
@@ -133,6 +142,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
+
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
+                    <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
+
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
                     <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
