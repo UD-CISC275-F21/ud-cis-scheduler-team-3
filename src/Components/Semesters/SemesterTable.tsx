@@ -1,8 +1,8 @@
 import "../css/Semester.css";
 import React from "react";
-import { CloseEditing } from "./ControlPanel";
-import { Semester } from "../Interfaces/Semester";
-import { Course } from "../Interfaces/Course";
+import { CloseEditing } from "../ControlPanel";
+import { Semester } from "../../Interfaces/Semester";
+import { Course } from "../../Interfaces/Course";
 
 
 export function SemesterTable({editing, setEditing, currentSemester, setCurrentSemester}: 
