@@ -29,16 +29,17 @@ export function AddCourseModal({showModal, setShowModal, addCourse}:
     const [title, setTitle] = useState<string>("");
     const [credits, setCredits] = useState<string>("");
     const [description, setDescription] = useState<string>("");
+    const hideModal = () => setShowModal(false);
 
     function saveCourse() {
         addCourse({
             code, title, credits, description
         });
-        setShowModal(false);
+        hideModal();
     }
     
     return (
-        <Modal show={ showModal } onHide={ setShowModal(false) }>
+        <Modal show={ showModal } onHide={ hideModal }>
             <Modal.Header closeButton>
                 <Modal.Title>Add New Course</Modal.Title>
             </Modal.Header>
