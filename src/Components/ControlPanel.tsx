@@ -1,21 +1,34 @@
 import React, { useState } from "react";
-import { Button, ToggleButton } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Course as CourseIF, Semester } from "./SemesterTable";
 import { TitleForm, DescriptionForm } from "./Modals&Forms";
 
-export function OpenEditing({course, editing, setEditing}: {course: CourseIF, editing:boolean, setEditing: (b:boolean)=>void}): JSX.Element {
-    return (
-        <div>
-            <ToggleButton 
-                variant="secondary" 
-                id={ `toggle-editing-${ course.code }` }
-                checked={ editing } 
-                value="1" 
-                onClick={()=>{
-                    setEditing(true);
-                }}
-            >Edit</ToggleButton>
-        </div>);
+
+export function ControlPanelButtons({setEditing}: {setEditing: (b:boolean)=>void}): JSX.Element {
+    
+    return <div>
+        <Button
+            variant="secondary"
+            className="me-3"
+            onClick={()=>{
+                console.log("add course");
+            }}
+        >Add Course</Button>
+        <Button
+            variant="secondary"
+            className="me-3"
+            onClick={()=>{
+                console.log("remove course");
+            }}
+        >Remove Course</Button>
+        <Button 
+            variant="secondary" 
+            className="me-3"
+            onClick={()=>{
+                setEditing(true);
+            }}
+        >Edit Course</Button>
+    </div>;
 }
 
 export function CloseEditing({course, setEditing, currentSemester, setCurrentSemester}: 
@@ -60,5 +73,4 @@ export function CloseEditing({course, setEditing, currentSemester, setCurrentSem
                         }}
                     >Done</Button>
                 </td></tr></table></div>);
-
 }
