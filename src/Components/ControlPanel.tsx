@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Course as CourseIF, Semester } from "./SemesterTable";
-import { TitleForm, DescriptionForm } from "./Modals&Forms";
+import { Course, Semester } from "./SemesterTable";
+import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
 
 
-export function ControlPanelButtons({setEditing}: {setEditing: (b:boolean)=>void}): JSX.Element {
-    
+export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing}: 
+    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void}): JSX.Element {
+
     return <div>
         <Button
             variant="secondary"
             className="me-3"
             onClick={()=>{
-                console.log("add course");
+                setShowAddModal(true);
             }}
         >Add Course</Button>
         <Button
             variant="secondary"
             className="me-3"
             onClick={()=>{
-                console.log("remove course");
+                setShowRemoveModal(true);
             }}
         >Remove Course</Button>
         <Button 
@@ -32,30 +33,34 @@ export function ControlPanelButtons({setEditing}: {setEditing: (b:boolean)=>void
 }
 
 export function CloseEditing({course, setEditing, currentSemester, setCurrentSemester}: 
-    {course: CourseIF, setEditing: (b:boolean)=>void, currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
-    
+    {course: Course, setEditing: (b:boolean)=>void, currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
+    const [newCode, setCode] = useState<string>(course.code);
     const [newTitle, setTitle] = useState<string>(course.title);
+    const [newCredits, setCredits] = useState<string>(course.credits);
     const [newDescription, setDescription] = useState<string>(course.description);
     
     // the following function includes guidance from Cameron Thakar (Team 4)
     function updateSemester(): void {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.map((oldCourse: CourseIF): CourseIF => {
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.map((oldCourse: Course): Course => {
             return course.code === oldCourse.code ? 
-                {...oldCourse, title: newTitle, description: newDescription} : oldCourse;
+                {...oldCourse, code: newCode, title: newTitle, credits: newCredits, description: newDescription} 
+                : oldCourse;
         })});
     }
 
     function resetSemester(): void {
+        setCode(course.code);
         setTitle(course.title);
+        setCredits(course.credits);
         setDescription(course.description);
     }
 
     return (
         <div><table className  = "Table-Header">
             <tr><th>Course</th><th>Title</th><th>Credits</th><th>Description</th><th>Panel</th></tr> 
-            <tr><td>{ course.code }</td>
+            <tr><td><CodeForm newCode={ newCode } setCode={ setCode }></CodeForm></td>
                 <td><TitleForm newTitle={ newTitle } setTitle={ setTitle }></TitleForm></td>
-                <td>{ course.credits }</td>
+                <td><CreditsForm newCredits={ newCredits } setCredits={ setCredits }></CreditsForm></td>
                 <td><DescriptionForm newDescription={ newDescription } setDescription={ setDescription }></DescriptionForm></td>
                 <td>
                     <Button 
