@@ -23,13 +23,12 @@ export function DescriptionForm({newDescription, setDescription}: {newDescriptio
     );
 }
 
-export function AddCourseModal({addCourse}: {addCourse: (c: Course)=>void}): JSX.Element{
+export function AddCourseModal({showModal, setShowModal, addCourse}: 
+    {showModal: boolean, setShowModal: (b:boolean)=>void, addCourse: (c: Course)=>void}): JSX.Element{
     const [code, setCode] = useState<string>("");
     const [title, setTitle] = useState<string>("");
     const [credits, setCredits] = useState<string>("");
     const [description, setDescription] = useState<string>("");
-    
-    const [showModal, setShowModal] = useState<boolean>(false);
 
     function saveCourse() {
         addCourse({
