@@ -67,6 +67,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     }
 
 
+
     /*
     function addSemester() {
         const newSemesterList = semesterList.filter(sem => sem);
@@ -142,6 +143,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <AddSemesterModal />
                     <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
+                    <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
+
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
                     <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
