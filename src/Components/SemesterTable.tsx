@@ -5,7 +5,7 @@ import { OpenEditing, CloseEditing } from "./EditorControlPanel";
 export interface Course {
     code: string;
     title: string;
-    credits: number;
+    credits: string;
     description: string;
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, ToggleButton } from "react-bootstrap";
 import { Course as CourseIF, Semester } from "./SemesterTable";
-import { TitleForm, DescriptionForm } from "./EditorForms";
+import { TitleForm, DescriptionForm } from "./Modals&Forms";
 
 export function OpenEditing({course, editing, setEditing}: {course: CourseIF, editing:boolean, setEditing: (b:boolean)=>void}): JSX.Element {
     return (
