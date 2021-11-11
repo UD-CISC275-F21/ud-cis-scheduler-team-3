@@ -67,7 +67,6 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     }
 
 
-    
 
     /*
     function addSemester() {
@@ -95,7 +94,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 value="Click to View Instructions"
                 onClick={togglePopUp} />
             <p> Step by Step Instructions To Navigate Our Site </p>
-            {isOpen && <PopUp content={"<li>Click Course Selector</li>"} handleClose={() => setIsOpen(false)} />}         
+            {isOpen && <PopUp content={"Course Selector -> Choose Semester -> Make Necessary Semester Changes -> Add/Remove If Necessary"} handleClose={() => setIsOpen(false)} />}         
             <Tab>
                 <span title="Welcome And Navigating Our Site">
                     <body>
@@ -142,7 +141,8 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
-
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
+                    <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
                     <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
 
