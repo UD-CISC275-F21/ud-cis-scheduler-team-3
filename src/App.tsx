@@ -73,8 +73,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 
     function addCourse(newCourse: Course): void {
         console.log({ newCourse });
-        //currentSemester.courses;
-        //setCurrentSemester([...currentSemester.courses, newCourse]);
+        setCurrentSemester({title: currentSemester.title, courses: [...currentSemester.courses, newCourse]});
     }
     
     return (

@@ -25,10 +25,10 @@ export function DescriptionForm({newDescription, setDescription}: {newDescriptio
 
 export function AddCourseModal({showModal, setShowModal, addCourse}: 
     {showModal: boolean, setShowModal: (b:boolean)=>void, addCourse: (c: Course)=>void}): JSX.Element{
-    const [code, setCode] = useState<string>("");
-    const [title, setTitle] = useState<string>("");
-    const [credits, setCredits] = useState<string>("");
-    const [description, setDescription] = useState<string>("");
+    const [code, setCode] = useState<string>("EX: CISC 275");
+    const [title, setTitle] = useState<string>("EX: Introduction to Software Engineering");
+    const [credits, setCredits] = useState<string>("EX: 3");
+    const [description, setDescription] = useState<string>("EX: Hi Dr. Bart");
     const hideModal = () => setShowModal(false);
 
     function saveCourse() {
