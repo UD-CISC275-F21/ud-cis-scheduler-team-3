@@ -3,11 +3,31 @@ import { Button, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Course } from "./SemesterTable";
 
+export function CodeForm({newCode, setCode}: {newCode:string, setCode:(newCode:string)=>void}): JSX.Element {
+    return (
+        <Form>
+            <Form.Group className='mb-3' id='editCourse.courseTitle'>
+                <Form.Control as="textarea" rows={ 1 } value={ newCode } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCode(ev.target.value)} />
+            </Form.Group>
+        </Form>
+    );
+}
+
 export function TitleForm({newTitle, setTitle}: {newTitle:string, setTitle:(newTitle:string)=>void}): JSX.Element {
     return (
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseTitle'>
-                <Form.Control as="textarea" rows={ 1 } value={ newTitle } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
+                <Form.Control as="textarea" rows={ 3 } value={ newTitle } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
+            </Form.Group>
+        </Form>
+    );
+}
+
+export function CreditsForm({newCredits, setCredits}: {newCredits:string, setCredits:(newCredits:string)=>void}): JSX.Element {
+    return (
+        <Form>
+            <Form.Group className='mb-3' id='editCourse.courseTitle'>
+                <Form.Control as="textarea" rows={ 1 } value={ newCredits } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCredits(ev.target.value)} />
             </Form.Group>
         </Form>
     );
