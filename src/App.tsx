@@ -54,7 +54,8 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setIsOpen(!isOpen);
     };
 
-    
+
+    // To Ahi: to reset to default, we think there should be a call to setSemesterList and setCurrentSemester
 
     //reset/set default semester components
     const [Semester, setDefaultSemester] = useState(semesterList);
@@ -64,14 +65,13 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
-
     /*
     function addSemester() {
-        const newSemesterList = semesterList.filter(sem => sem);
+        const newSemesterList = semesterList.(sem => sem);
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
-    */
+    */   
 
     function clearSemester() {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});

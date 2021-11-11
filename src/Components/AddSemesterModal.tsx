@@ -10,7 +10,7 @@ export function AddSemesterModal(): JSX.Element {
 
     return (
         <>
-            <Button variant="outline-dark" onClick={handleShow}>Add</Button>
+            <Button variant="outline-primary" onClick={handleShow}>+</Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

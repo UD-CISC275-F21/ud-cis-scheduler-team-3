@@ -35,7 +35,7 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
             onClick={()=>{
                 clearSemester();
             }}
-        >Clear Semester</Button>
+        >Clear Courses</Button>
         <Button 
             variant="secondary"
             className="me-3" 
