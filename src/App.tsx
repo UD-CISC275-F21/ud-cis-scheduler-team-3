@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Tab from "./Components/Tabs/Tab";
 import { SemesterTable } from "./Components/Semesters/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
-import { CloseButton, Dropdown, DropdownButton } from "react-bootstrap";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 import { ControlPanelButtons } from "./Components/ControlPanel";
 import { AddCourseModal, AddSemesterModal, RemoveCourseModal } from "./Components/Modals&Forms";
 import { Course } from "./Interfaces/Course";
@@ -21,28 +21,24 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setIsOpen(!isOpen);
     };
 
-    
+
+    // To Ahi: to reset to default, we think there should be a call to setSemesterList and setCurrentSemester
 
     //reset/set default semester components
     const [Semester, setDefaultSemester] = useState(semesterList);
-
-
 
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
-
-
-
     /*
     function addSemester() {
-        const newSemesterList = semesterList.filter(sem => sem);
+        const newSemesterList = semesterList.(sem => sem);
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
-    */
+    */   
 
     function clearSemester() {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
@@ -98,12 +94,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
-                    <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
                     <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
-                    <button className="btn btn-secondary" onClick={() => clearSemester()}>Clear Semester</button>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing }></ControlPanelButtons>
+                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
                     <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
                 </span>
