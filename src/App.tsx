@@ -67,6 +67,8 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setCurrentSemester(newSemesterList[0]);
     }
 
+
+
     /*
     function addSemester() {
         const newSemesterList = semesterList.filter(sem => sem);
@@ -90,15 +92,15 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     return (
         <div>
             <input type="button"
-                value="Click to View Instructions"
+                value="Instructions"
                 onClick={togglePopUp} />
-            <p> Step by Step Instructions To Navigate Our Site </p>
-            {isOpen && <PopUp content={"<li>Click Course Selector</li>"} handleClose={() => setIsOpen(false)} />}         
+            <p>Navigating Our Site</p>
+            {isOpen && <PopUp content={"Course Selector -> Choose Semester -> Make Necessary Semester Changes -> Add/Remove If Necessary"} handleClose={() => setIsOpen(false)} />}         
             <Tab>
-                <span title="Welcome And Navigating Our Site">
+                <span title="Welcome">
                     <body>
                         <header>
-                            <p>Welcome to Team 3s UD CIS Scheduler</p>
+                            <h1>Team 3s UD Cis Scheduler</h1>
                             <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
                             <p>Our goal is to help CISC students plan out their semesters,
                                 by providing templates of potential Fall/Spring semesters and even
@@ -110,15 +112,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             <p>Students will get the option to remove a Semester if they are not pleased with their schedule</p>
                             <p>Students will be able to edit in classes in case our default schedules dont match theirs</p>
                             <p>Recommended 4 Year Path To Graduate on Time: <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">Suggested Plan</a></p>
-
-                            <h1>Getting Started</h1>
-                            <ul>
-                                <li>Click Course Selector</li>
-                                <li>Choose designated semester which you want to plan</li>
-                                <li>Click buttons below Semester Schedules to view different semesters</li>
-                                <li>Options to start planning session all over will be available</li>
-                                <li>To be continued</li>
-                            </ul>
+                            <h2>Created by: Ren Ross, Abel Juarez and Ahilyn Dipre</h2>
                         </header>
                     </body>
                 </span>
@@ -140,7 +134,8 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
-
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
 
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
