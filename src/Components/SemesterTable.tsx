@@ -14,6 +14,8 @@ export interface Semester {
     title: string;
 }
  
+
+
 export function SemesterTable({editing, setEditing, currentSemester, setCurrentSemester}: 
     {editing: boolean, setEditing: (b:boolean)=>void,currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
     
@@ -42,3 +44,5 @@ export function SemesterTable({editing, setEditing, currentSemester, setCurrentS
             })}
         </div>;
 }
+
+export default Semester;
