@@ -4,8 +4,8 @@ import { Course, Semester } from "./SemesterTable";
 import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
 
 
-export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing}: 
-    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void}): JSX.Element {
+export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, clearSemester}: 
+    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, clearSemester: VoidFunction}): JSX.Element {
 
     return <div>
         <Button
@@ -29,6 +29,13 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
                 setEditing(true);
             }}
         >Edit Course</Button>
+        <Button 
+            variant="secondary" 
+            className="me-3"
+            onClick={()=>{
+                clearSemester();
+            }}
+        >Clear Semester</Button>
     </div>;
 }
 
