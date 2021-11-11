@@ -1,8 +1,14 @@
 .li {
     list-style-type: none;
-    float: left;
-    background-position:top;
+    display: flex;
+    float: center;
     
+}
+
+.ul{
+    list-style-type: none;
+    display: flex;
+    float: center;
 }
 
 .active>button {
