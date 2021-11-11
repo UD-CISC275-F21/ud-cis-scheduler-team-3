@@ -4,14 +4,14 @@ import { Course as CourseIF, Semester } from "./SemesterTable";
 import { TitleForm, DescriptionForm } from "./Modals&Forms";
 
 
-export function ControlPanelButtons({setEditing}: {setEditing: (b:boolean)=>void}): JSX.Element {
-    
+export function ControlPanelButtons({setShowModal, setEditing}: {setShowModal: (b:boolean)=>void, setEditing: (b:boolean)=>void}): JSX.Element {
+
     return <div>
         <Button
             variant="secondary"
             className="me-3"
             onClick={()=>{
-                console.log("add course");
+                setShowModal(true);
             }}
         >Add Course</Button>
         <Button
