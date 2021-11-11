@@ -1,18 +1,16 @@
+//import { render } from "@testing-library/react";
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 
 
-
-export function AddSemesterModal() {
+export function AddSemesterModal(): JSX.Element {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
         <>
-            <Button variant="bi bi-plus" onClick={handleShow}>
-                Add
-            </Button>
+            <Button variant="outline-dark" onClick={handleShow}>Add</Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -41,3 +39,5 @@ export function AddSemesterModal() {
         </>
     );
 }
+
+//render(<AddSemesterModal />);

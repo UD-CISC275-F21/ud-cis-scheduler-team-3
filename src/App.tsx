@@ -54,12 +54,18 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
-
+    /*
     function addSemester() {
         const newSemesterList = semesterList.filter(sem => sem);
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
+    */
+    
+    function clearSemester() {
+        setSemesterList(new Array<Semester>());
+    }
+
 
     return (
         <div>
@@ -101,7 +107,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         most Computer Science B.S. majors have to take. This table allows
                         you to quickly and easily look through all the semesters (Freshman
                         to Senior). These semesters default to courses that are recommended
-                        by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path</a>
+                        by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path </a>
                         to graduate on time (by the University of Delaware). However, the
                         tables can be manipulated in a way that can fit anyone’s academic needs.</p>
 
@@ -114,6 +120,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     </DropdownButton>
                     <CloseButton className="Close-Button" onClick={() => removeSemester()}/>
                     <AddSemesterModal />
+                    <button className="Clear-Semester" onClick={() => clearSemester()}>Clear</button>
                     <SemesterTable currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
                 </span>
             </Tab>
