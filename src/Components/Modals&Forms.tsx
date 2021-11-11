@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Course } from "./SemesterTable";
-import { isCaseOrDefaultClause } from "typescript";
 
 export function TitleForm({newTitle, setTitle}: {newTitle:string, setTitle:(newTitle:string)=>void}): JSX.Element {
     return (
