@@ -32,13 +32,11 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
-    /*
-    function addSemester() {
-        const newSemesterList = semesterList.(sem => sem);
-        setSemesterList(newSemesterList);
-        setCurrentSemester(newSemesterList[0]);
+
+    function addSemester(newSemester: string) {
+        setSemesterList([...semesterList, {title: newSemester, courses: []}]);
     }
-    */   
+
 
     function clearSemester() {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
@@ -94,7 +92,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
-                    <AddSemesterModal />
+                    <AddSemesterModal addSemester={addSemester}/>
                     <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
                     <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester }></ControlPanelButtons>
