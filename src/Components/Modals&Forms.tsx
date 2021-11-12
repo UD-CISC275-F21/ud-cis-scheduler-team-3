@@ -3,52 +3,60 @@ import { Button, Form, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Course } from "../Interfaces/Course";
 
-export function CodeForm({ newCode, setCode }: { newCode: string, setCode: (newCode: string) => void }): JSX.Element {
+export function CodeForm({course, newCode, setCode}: {course: Course, newCode:string, setCode:(newCode:string)=>void}): JSX.Element {
     return (
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseTitle'>
-                <Form.Control as="textarea" rows={1} value={newCode} onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCode(ev.target.value)} />
+                <Form.Control as="textarea" placeholder={ course.code } rows={ 1 } 
+                    value={ newCode } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCode(ev.target.value)} />
+                <Form.Text className="text-muted">Please enter the course&#39;s code here.</Form.Text>
             </Form.Group>
         </Form>
     );
 }
 
-export function TitleForm({ newTitle, setTitle }: { newTitle: string, setTitle: (newTitle: string) => void }): JSX.Element {
+export function TitleForm({course, newTitle, setTitle}: {course: Course, newTitle:string, setTitle:(newTitle:string)=>void}): JSX.Element {
     return (
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseTitle'>
-                <Form.Control as="textarea" rows={3} value={newTitle} onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
+                <Form.Control as="textarea" placeholder={ course.title } rows={ 3 } 
+                    value={ newTitle } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
+                <Form.Text className="text-muted">Please enter the course&#39;s title here.</Form.Text>
             </Form.Group>
         </Form>
     );
 }
 
-export function CreditsForm({ newCredits, setCredits }: { newCredits: string, setCredits: (newCredits: string) => void }): JSX.Element {
+export function CreditsForm({course, newCredits, setCredits}: {course: Course, newCredits:string, setCredits:(newCredits:string)=>void}): JSX.Element {
     return (
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseTitle'>
-                <Form.Control as="textarea" rows={1} value={newCredits} onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCredits(ev.target.value)} />
+                <Form.Control as="textarea" placeholder={ course.credits } rows={ 1 } 
+                    value={ newCredits } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCredits(ev.target.value)} />
+                <Form.Text className="text-muted">Please enter the course&#39;s credits here.</Form.Text>
             </Form.Group>
         </Form>
     );
 }
 
-export function DescriptionForm({ newDescription, setDescription }: { newDescription: string, setDescription: (newDescription: string) => void }): JSX.Element {
+export function DescriptionForm({course, newDescription, setDescription}: {course: Course, newDescription:string, setDescription:(newDescription:string)=>void}): JSX.Element {
     return (
         <Form>
             <Form.Group className='mb-3' id='editCourse.courseDescription'>
-                <Form.Control as="textarea" rows={5} value={newDescription} onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(ev.target.value)} />
+                <Form.Control as="textarea" placeholder={ course.description } rows={ 5 } 
+                    value={ newDescription } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(ev.target.value)} />
+                <Form.Text className="text-muted">Please enter the course&#39;s description here.</Form.Text>
             </Form.Group>
         </Form>
     );
 }
 
-export function AddCourseModal({ showAddModal, setShowAddModal, addCourse }:
-    { showAddModal: boolean, setShowAddModal: (b: boolean) => void, addCourse: (c: Course) => void }): JSX.Element {
-    const [code, setCode] = useState<string>("EX: CISC 275");
-    const [title, setTitle] = useState<string>("EX: Introduction to Software Engineering");
-    const [credits, setCredits] = useState<string>("EX: 3");
-    const [description, setDescription] = useState<string>("EX: Hi Dr. Bart");
+export function AddCourseModal({showAddModal, setShowAddModal, addCourse}: 
+    {showAddModal: boolean, setShowAddModal: (b:boolean)=>void, addCourse: (c: Course)=>void}): JSX.Element{
+    const [code, setCode] = useState<string>("");
+    const [title, setTitle] = useState<string>("");
+    const [credits, setCredits] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
     const hideAddModal = () => setShowAddModal(false);
 
     function saveCourse() {
@@ -67,27 +75,27 @@ export function AddCourseModal({ showAddModal, setShowAddModal, addCourse }:
                 <Form>
                     <Form.Group className="mb-3" controlId="addCourseForm.promptTextArea">
                         <Form.Label>Course Code</Form.Label>
-                        <Form.Control as="textarea" rows={1}
-                            value={code}
-                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCode(ev.target.value)} />
+                        <Form.Control as="textarea" placeholder={ "CISC 275" } rows={1}
+                            value={ code } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCode(ev.target.value)}/>
+                        <Form.Text className="text-muted">Please enter the course&#39;s code here.</Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="addCourseForm.promptTextArea">
                         <Form.Label>Course Title</Form.Label>
-                        <Form.Control as="textarea" rows={3}
-                            value={title}
-                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)} />
+                        <Form.Control as="textarea" placeholder={ "Introduction to Software Enginerring" } rows={3}
+                            value={ title } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setTitle(ev.target.value)}/>
+                        <Form.Text className="text-muted">Please enter the course&#39;s title here.</Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="addCourseForm.promptTextArea">
                         <Form.Label>Course Credits</Form.Label>
-                        <Form.Control as="textarea" rows={1}
-                            value={credits}
-                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCredits(ev.target.value)} />
+                        <Form.Control as="textarea" placeholder={ "3" } rows={1}
+                            value={ credits } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setCredits(ev.target.value)}/>
+                        <Form.Text className="text-muted">Please enter the course&#39;s credits here.</Form.Text>
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="addCourseForm.promptTextArea">
                         <Form.Label>Course Description</Form.Label>
-                        <Form.Control as="textarea" rows={5}
-                            value={description}
-                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(ev.target.value)} />
+                        <Form.Control as="textarea" placeholder={ "Object oriented software design and development through use of an object oriented programming language." } rows={5}
+                            value={ description } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(ev.target.value)}/>
+                        <Form.Text className="text-muted">Please enter the course&#39;s description here.</Form.Text>
                     </Form.Group>
                 </Form>
             </Modal.Body>
@@ -98,9 +106,9 @@ export function AddCourseModal({ showAddModal, setShowAddModal, addCourse }:
         </Modal>);
 }
 
-export function RemoveCourseModal({ showRemoveModal, setShowRemoveModal, removeCourse }:
-    { showRemoveModal: boolean, setShowRemoveModal: (b: boolean) => void, removeCourse: (s: string) => void }): JSX.Element {
-    const [removeCode, setRemoveCode] = useState<string>("EX: CISC 108");
+export function RemoveCourseModal({showRemoveModal, setShowRemoveModal, removeCourse}:
+    {showRemoveModal: boolean, setShowRemoveModal: (b:boolean)=>void, removeCourse: (s:string)=>void}): JSX.Element {
+    const [removeCode, setRemoveCode] = useState<string>("");
     const hideRemoveModal = () => setShowRemoveModal(false);
 
     function saveCode() {
@@ -111,15 +119,15 @@ export function RemoveCourseModal({ showRemoveModal, setShowRemoveModal, removeC
     return (
         <Modal show={showRemoveModal} onHide={hideRemoveModal}>
             <Modal.Header closeButton>
-                <Modal.Title>Add New Course</Modal.Title>
+                <Modal.Title>Remove Course</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3" controlId="addCourseForm.promptTextArea">
                         <Form.Label>Enter Course Code</Form.Label>
-                        <Form.Control as="textarea" rows={1}
-                            value={removeCode}
-                            onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setRemoveCode(ev.target.value)} />
+                        <Form.Control as="textarea" placeholder={ "CISC 108" } rows={1}
+                            value={ removeCode } onChange={(ev: React.ChangeEvent<HTMLTextAreaElement>) => setRemoveCode(ev.target.value)}/>
+                        <Form.Text className="text-muted">Please enter the course&#39;s code here.</Form.Text>
                     </Form.Group>
                 </Form>
             </Modal.Body>
