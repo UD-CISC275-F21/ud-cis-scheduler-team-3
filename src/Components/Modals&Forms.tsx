@@ -150,11 +150,11 @@ export function AddSemesterModal({addSemester}: {addSemester: (s: string) => voi
 
     return (
         <>
-            <Button variant="outline-dark" onClick={handleShow}>Add</Button>
+            <Button variant="outline-dark" onClick={handleShow}>+</Button>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>More school ugh</Modal.Title>
+                    <Modal.Title>Add a Semester</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
@@ -166,13 +166,18 @@ export function AddSemesterModal({addSemester}: {addSemester: (s: string) => voi
                                     e => {
                                         setSemester(e.target.value);
                                     }}>
-                                <option value="1">Freshman Winter Semester</option>
-                                <option value="2">Freshman Summer Semester</option>
-                                <option value="3">Sophmore Winter Semester</option>
-                                <option value="4">Sophmore Summer Semester</option>
+                                <option value="">Select A Semester</option>
+                                <option value="Freshman Winter Semester">Freshman Winter Semester</option>
+                                <option value="Freshman Summer Semester">Freshman Summer Semester</option>
+                                <option value="Sophmore Winter Semester">Sophmore Winter Semester</option>
+                                <option value="Sophmore Summer Semester">Sophmore Summer Semester</option>
+                                <option value="Junior Winter Semester">Junior Winter Semester</option>
+                                <option value="Junior Summmer Semester">Junior Summer Semester</option>
+                                <option value="Senior Winter Semester">Senior Winter Semester</option>
+                                <option value="Senior Summer Semester">Senior Summer Semester</option>
                             </Form.Control>
                             <Form.Text className="text-muted">
-                                Please add a semester here...
+                                Please choose a semester you would like to add here...
                             </Form.Text>
                         </Form.Group>
                     </Form>
