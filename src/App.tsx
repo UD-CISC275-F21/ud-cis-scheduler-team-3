@@ -5,7 +5,7 @@ import { SemesterTable } from "./Components/Semesters/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { ControlPanelButtons } from "./Components/ControlPanel";
-import { AddCourseModal, AddSemesterModal, RemoveCourseModal } from "./Components/Modals&Forms";
+import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Components/Modals&Forms";
 import { Course } from "./Interfaces/Course";
 import { Semester } from "./Interfaces/Semester";
 import { defaultSemesters } from "./Components/Semesters/DefaultSemesters";
@@ -24,8 +24,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 
     // To Ahi: to reset to default, we think there should be a call to setSemesterList and setCurrentSemester
 
-    //reset/set default semester components
-    const [Semester, setDefaultSemester] = useState(semesterList);
+    function hardReset() {
+        setSemesterList(defaultSemesters);
+    }
 
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
@@ -93,9 +94,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                         })}
                     </DropdownButton>
                     <AddSemesterModal addSemester={addSemester}/>
-                    <button className="Set Default Semetester" onClick={() => setDefaultSemester(Semester)}>Reset</button>
+                    <RemoveSemesterModal removeSemester={removeSemester}/>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester }></ControlPanelButtons>
+                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
                     <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
                 </span>
@@ -106,9 +107,4 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 }
 
 export default App;
-/*
-function current( title: string, COURSES: { code: string; title: string; credits: string; description: string; }[], current: any, arg4: any) {
-    throw new Error("Function not implemented.");
-}
-*/
 
