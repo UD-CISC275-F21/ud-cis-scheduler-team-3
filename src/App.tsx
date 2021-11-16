@@ -21,12 +21,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setIsOpen(!isOpen);
     };
 
-
-    // To Ahi: to reset to default, we think there should be a call to setSemesterList and setCurrentSemester
-
     function hardReset() {
         setSemesterList(defaultSemesters);
     }
+
 
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
