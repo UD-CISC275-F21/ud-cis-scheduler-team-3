@@ -4,7 +4,7 @@ import Tab from "./Components/Tabs/Tab";
 import { SemesterTable } from "./Components/Semesters/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import { ControlPanelButtons } from "./Components/ControlPanel";
+import { ControlPanelButtons, LOCAL_STORAGE } from "./Components/ControlPanel";
 import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Components/Modals&Forms";
 import { Course } from "./Interfaces/Course";
 import { Semester } from "./Interfaces/Semester";
@@ -20,6 +20,22 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     const togglePopUp = () => {
         setIsOpen(!isOpen);
     };
+
+    function hardSave() {
+        localStorage.setItem(LOCAL_STORAGE, JSON.stringify(semesterList));
+    }
+    
+
+    function hardLoad() {
+        const scheduleJSON = localStorage.getItem(LOCAL_STORAGE);
+        if (scheduleJSON !== null) {
+            const parsed = JSON.parse(scheduleJSON);
+            setSemesterList(parsed);
+        }  else {
+            const parsed = JSON.parse("[]");
+            setSemesterList(parsed);
+        }
+    }
 
     function hardReset() {
         setSemesterList(defaultSemesters);
@@ -94,7 +110,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <AddSemesterModal addSemester={addSemester}/>
                     <RemoveSemesterModal removeSemester={removeSemester}/>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset }></ControlPanelButtons>
+                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
                     <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
                 </span>
