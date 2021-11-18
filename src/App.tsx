@@ -4,14 +4,11 @@ import Tab from "./Components/Tabs/Tab";
 import { SemesterTable } from "./Components/Semesters/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import { ControlPanelButtons } from "./Components/ControlPanel";
-import { AddCourseModal, AddSemesterModal, RemoveCourseModal } from "./Components/Modals&Forms";
+import { ControlPanelButtons, LOCAL_STORAGE } from "./Components/ControlPanel";
+import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Components/Modals&Forms";
 import { Course } from "./Interfaces/Course";
 import { Semester } from "./Interfaces/Semester";
 import { defaultSemesters } from "./Components/Semesters/DefaultSemesters";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-//import CoursesCard from "./Components/DragDrop/DragCourses";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -24,26 +21,36 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         setIsOpen(!isOpen);
     };
 
+    function hardSave() {
+        localStorage.setItem(LOCAL_STORAGE, JSON.stringify(semesterList));
+    }
+    
+
+    function hardLoad() {
+        const scheduleJSON = localStorage.getItem(LOCAL_STORAGE);
+        if (scheduleJSON !== null) {
+            const parsed = JSON.parse(scheduleJSON);
+            setSemesterList(parsed);
+        }  else {
+            const parsed = JSON.parse("[]");
+            setSemesterList(parsed);
+        }
+    }
+
+    function hardReset() {
+        setSemesterList(defaultSemesters);
+    }
+
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
         setSemesterList(newSemesterList);
         setCurrentSemester(newSemesterList[0]);
     }
 
-    function removeAllSemesters(){
-        const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
-        setSemesterList(newSemesterList);
-        setCurrentSemester(newSemesterList[0]);
+    function addSemester(newSemester: string) {
+        setSemesterList([...semesterList, {title: newSemester, courses: []}]);
     }
-    
-    
-    /*
-    function addSemester() {
-        const newSemesterList = semesterList.(sem => sem);
-        setSemesterList(newSemesterList);
-        setCurrentSemester(newSemesterList[0]);
-    }
-    */   
+
 
     function clearSemester() {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
@@ -68,7 +75,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 <span title="Welcome">
                     <body>
                         <header>
-                            <h1>Team 3s UD CIS Scheduler</h1>
+                            <h1>Team 3s UD Cis Scheduler</h1>
                             <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
                             <p>Our goal is to help CISC students plan out their semesters,
                                 by providing templates of potential Fall/Spring semesters and even
@@ -99,20 +106,17 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
-                    <AddSemesterModal />
+                    <AddSemesterModal addSemester={addSemester}/>
+                    <RemoveSemesterModal removeSemester={removeSemester}/>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester }></ControlPanelButtons>
+                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
                     <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
                 </span>
             </Tab>
-            <DndProvider backend={HTML5Backend}>
-                {}
-            </DndProvider>
         </div>
 
     );
 }
 
 export default App;
-

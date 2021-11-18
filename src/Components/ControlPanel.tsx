@@ -4,9 +4,11 @@ import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
 
+export const LOCAL_STORAGE = "schedule";
 
-export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, clearSemester, removeSemester}: 
-    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, clearSemester: VoidFunction, removeSemester: VoidFunction}): JSX.Element {
+export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, clearSemester, hardReset, hardSave, hardLoad}: 
+    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, clearSemester: VoidFunction, 
+        removeSemester: VoidFunction, hardReset: VoidFunction, hardSave: VoidFunction, hardLoad: VoidFunction}): JSX.Element {
 
     return <div>
         <Button
@@ -37,15 +39,30 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
                 clearSemester();
             }}
         >Clear Courses</Button>
-        <Button 
-            variant="secondary"
+        <Button
+            variant="secondary" 
             className="me-3" 
-            onClick={() => { 
-                removeSemester(); 
+            onClick={() => {
+                hardReset();
             }}
-        >Delete Semester</Button>
+        >Reset</Button>
+        <Button
+            variant="secondary" 
+            className="me-3" 
+            onClick={() => {
+                hardSave();
+            }}
+        >Save</Button>
+        <Button
+            variant="secondary" 
+            className="me-3" 
+            onClick={() => {
+                hardLoad();
+            }}
+        >Load</Button>
     </div>;
 }
+
 
 export function CloseEditing({course, setEditing, currentSemester, setCurrentSemester}: 
     {course: Course, setEditing: (b:boolean)=>void, currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
