@@ -25,18 +25,17 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         localStorage.setItem(LOCAL_STORAGE, JSON.stringify(semesterList));
     }
     
-    /*
-    function hardLoad(selectedKey: string) {
-        const scheduleJSON = localStorage.getItem(selectedKey);
+
+    function hardLoad() {
+        const scheduleJSON = localStorage.getItem(LOCAL_STORAGE);
         if (scheduleJSON !== null) {
             const parsed = JSON.parse(scheduleJSON);
             setSemesterList(parsed);
         }  else {
-            const parsed = JSON.parse("");
+            const parsed = JSON.parse("[]");
             setSemesterList(parsed);
         }
     }
-    */
 
     function hardReset() {
         setSemesterList(defaultSemesters);
@@ -110,7 +109,7 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     <AddSemesterModal addSemester={addSemester}/>
                     <RemoveSemesterModal removeSemester={removeSemester}/>
                     <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset } hardSave={ hardSave }></ControlPanelButtons>
+                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
                     <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
                     <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
                 </span>
