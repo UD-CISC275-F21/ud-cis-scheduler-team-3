@@ -45,21 +45,21 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
             onClick={() => {
                 hardReset();
             }}
-        >Reset</Button>
+        >Reset to Default</Button>
         <Button
             variant="secondary" 
             className="me-3" 
             onClick={() => {
                 hardSave();
             }}
-        >Save</Button>
+        >Save Changes</Button>
         <Button
             variant="secondary" 
             className="me-3" 
             onClick={() => {
                 hardLoad();
             }}
-        >Load</Button>
+        >Load Changes</Button>
     </div>;
 }
 
