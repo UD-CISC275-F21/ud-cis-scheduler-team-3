@@ -4,7 +4,7 @@ import Tab from "./Components/Tabs/Tab";
 import { SemesterTable } from "./Components/Semesters/SemesterTable";
 import PopUp from "./Components/PopUpInstructions";
 import { Dropdown, DropdownButton } from "react-bootstrap";
-import { ControlPanelButtons, LOCAL_STORAGE } from "./Components/ControlPanel";
+import { ControlPanelButtons, LOCAL_STORAGE_SEMESTERLIST, LOCAL_STORAGE_CURRENTSEMESTER } from "./Components/ControlPanel";
 import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Components/Modals&Forms";
 import { Course } from "./Interfaces/Course";
 import { Semester } from "./Interfaces/Semester";
@@ -22,21 +22,27 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
     };
 
     function hardSave() {
-        localStorage.setItem(LOCAL_STORAGE, JSON.stringify(semesterList));
+        localStorage.setItem(LOCAL_STORAGE_CURRENTSEMESTER, JSON.stringify(currentSemester));
+        localStorage.setItem(LOCAL_STORAGE_SEMESTERLIST, JSON.stringify(semesterList));
     }
     
-
     function hardLoad() {
-        const scheduleJSON = localStorage.getItem(LOCAL_STORAGE);
-        if (scheduleJSON !== null) {
-            const parsed = JSON.parse(scheduleJSON);
-            setSemesterList(parsed);
+        const scheduler_currentSemester = localStorage.getItem(LOCAL_STORAGE_CURRENTSEMESTER);
+        const scheduler_semesterList = localStorage.getItem(LOCAL_STORAGE_SEMESTERLIST);
+        
+        if (scheduler_currentSemester !== null && scheduler_semesterList !== null) {
+            const parsedCurrentSemester = JSON.parse(scheduler_currentSemester);
+            const parsedSemesterList = JSON.parse(scheduler_semesterList);
+            setCurrentSemester(parsedCurrentSemester);
+            setSemesterList(parsedSemesterList);
         }  else {
-            const parsed = JSON.parse("[]");
-            setSemesterList(parsed);
+            const parsedCurrentSemester = JSON.parse("[]");
+            const parsedSemesterList = JSON.parse("[]");
+            setCurrentSemester(parsedCurrentSemester);
+            setSemesterList(parsedSemesterList);
         }
     }
-    
+
     function hardReset() {
         setSemesterList(defaultSemesters);
         setCurrentSemester({title: defaultSemesters[0].title, courses: defaultSemesters[0].courses});
@@ -108,12 +114,25 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
-                    <AddSemesterModal addSemester={addSemester}/>
-                    <RemoveSemesterModal removeSemester={removeSemester}/>
-                    <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
-                    <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
-                    <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
+                    <AddSemesterModal 
+                        addSemester={addSemester}/>
+                    <RemoveSemesterModal 
+                        removeSemester={removeSemester}/>
+                    <SemesterTable 
+                        editing={editing} setEditing={setEditing} 
+                        currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
+                    <ControlPanelButtons 
+                        setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
+                        setEditing={ setEditing } clearSemester={ clearSemester } 
+                        removeSemester={ removeSemester } 
+                        hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
+                    <AddCourseModal 
+                        showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } 
+                        addCourse={ addCourse }></AddCourseModal>
+                    <RemoveCourseModal 
+                        showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
+                        removeCourse={ removeCourse } 
+                        currentSemester= { currentSemester }></RemoveCourseModal>
                 </span>
             </Tab>
         </div>
