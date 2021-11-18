@@ -36,9 +36,10 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
             setSemesterList(parsed);
         }
     }
-
+    
     function hardReset() {
         setSemesterList(defaultSemesters);
+        setCurrentSemester({title: defaultSemesters[0].title, courses: defaultSemesters[0].courses});
     }
 
     function removeSemester() {
