@@ -4,7 +4,8 @@ import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
 
-export const LOCAL_STORAGE = "schedule";
+export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
+export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
 
 export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, clearSemester, hardReset, hardSave, hardLoad}: 
     {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, clearSemester: VoidFunction, 
