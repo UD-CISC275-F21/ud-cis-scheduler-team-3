@@ -121,4 +121,3 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 }
 
 export default App;
-
