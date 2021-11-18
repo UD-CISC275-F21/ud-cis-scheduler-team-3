@@ -107,12 +107,25 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                             );
                         })}
                     </DropdownButton>
-                    <AddSemesterModal addSemester={addSemester}/>
-                    <RemoveSemesterModal removeSemester={removeSemester}/>
-                    <SemesterTable editing={editing} setEditing={setEditing} currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } setEditing={ setEditing } clearSemester={ clearSemester } removeSemester={ removeSemester } hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
-                    <AddCourseModal showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } addCourse={ addCourse }></AddCourseModal>
-                    <RemoveCourseModal showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } removeCourse={ removeCourse }></RemoveCourseModal>
+                    <AddSemesterModal 
+                        addSemester={addSemester}/>
+                    <RemoveSemesterModal 
+                        removeSemester={removeSemester}/>
+                    <SemesterTable 
+                        editing={editing} setEditing={setEditing} 
+                        currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
+                    <ControlPanelButtons 
+                        setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
+                        setEditing={ setEditing } clearSemester={ clearSemester } 
+                        removeSemester={ removeSemester } 
+                        hardReset={ hardReset } hardSave={ hardSave } hardLoad={ hardLoad }></ControlPanelButtons>
+                    <AddCourseModal 
+                        showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } 
+                        addCourse={ addCourse }></AddCourseModal>
+                    <RemoveCourseModal 
+                        showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
+                        removeCourse={ removeCourse } 
+                        currentSemester= { currentSemester }></RemoveCourseModal>
                 </span>
             </Tab>
         </div>
