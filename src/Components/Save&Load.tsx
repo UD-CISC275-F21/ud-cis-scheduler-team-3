@@ -14,7 +14,7 @@ export function SaveData({currentSemester, semesterList}: {currentSemester: Seme
     
     return <Button
         variant="outline-success"
-        className="me-3" 
+        className="m-3" 
         onClick={() => {
             hardSave();
         }}
@@ -41,7 +41,7 @@ export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemes
     }
     return <Button
         variant="outline-warning" 
-        className="me-3" 
+        className="m-3" 
         onClick={() => {
             hardLoad(); 
         }}
