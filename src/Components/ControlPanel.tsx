@@ -3,13 +3,14 @@ import { Button } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
+import { SaveData, LoadData } from "./Save&Load";
 
-export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
-export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
-
-export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, clearSemester, hardReset, hardSave, hardLoad}: 
-    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, clearSemester: VoidFunction, 
-        removeSemester: VoidFunction, hardReset: VoidFunction, hardSave: VoidFunction, hardLoad: VoidFunction}): JSX.Element {
+export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, 
+    clearSemester, hardReset, currentSemester, setCurrentSemester, semesterList, setSemesterList}: 
+    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, 
+    clearSemester: VoidFunction, removeSemester: VoidFunction, hardReset: VoidFunction, 
+    currentSemester: Semester, setCurrentSemester: (s:Semester)=>void, 
+    semesterList: Semester[], setSemesterList: (s:Semester[])=>void}): JSX.Element {
 
     return <div>
         <Button
@@ -51,14 +52,14 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
             variant="secondary" 
             className="me-3" 
             onClick={() => {
-                hardSave();
+                <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>;
             }}
         >Save Changes</Button>
         <Button
             variant="secondary" 
             className="me-3" 
             onClick={() => {
-                hardLoad();
+                <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>;
             }}
         >Load Changes</Button>
     </div>;
