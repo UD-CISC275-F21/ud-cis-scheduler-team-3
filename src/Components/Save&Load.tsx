@@ -1,8 +1,9 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 import { Semester } from "../Interfaces/Semester";
 
-export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
 export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
+export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
 
 export function SaveData({currentSemester, semesterList}: {currentSemester: Semester, semesterList: Semester[]}): JSX.Element {
     
@@ -10,7 +11,14 @@ export function SaveData({currentSemester, semesterList}: {currentSemester: Seme
         localStorage.setItem(LOCAL_STORAGE_CURRENTSEMESTER, JSON.stringify(currentSemester));
         localStorage.setItem(LOCAL_STORAGE_SEMESTERLIST, JSON.stringify(semesterList));
     }
-    return <div>{ hardSave()} </div>;
+    
+    return <Button
+        variant="secondary" 
+        className="me-3" 
+        onClick={() => {
+            hardSave();
+        }}
+    >Save Changes</Button>;
 }
 
 export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemester: (s:Semester)=>void, setSemesterList: (s:Semester[])=>void}): JSX.Element {
@@ -31,5 +39,11 @@ export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemes
             setSemesterList(parsedSemesterList);
         }
     }
-    return <div>{ hardLoad()} </div>;
+    return <Button
+        variant="secondary" 
+        className="me-3" 
+        onClick={() => {
+            hardLoad(); 
+        }}
+    >Load Changes</Button>;
 }

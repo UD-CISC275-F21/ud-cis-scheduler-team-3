@@ -48,20 +48,8 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
                 hardReset();
             }}
         >Reset to Default</Button>
-        <Button
-            variant="secondary" 
-            className="me-3" 
-            onClick={() => {
-                <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>;
-            }}
-        >Save Changes</Button>
-        <Button
-            variant="secondary" 
-            className="me-3" 
-            onClick={() => {
-                <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>;
-            }}
-        >Load Changes</Button>
+        <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>
+        <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>
     </div>;
 }
 
