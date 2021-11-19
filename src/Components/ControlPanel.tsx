@@ -12,45 +12,47 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
     currentSemester: Semester, setCurrentSemester: (s:Semester)=>void, 
     semesterList: Semester[], setSemesterList: (s:Semester[])=>void}): JSX.Element {
 
-    return <div>
+    return <div><div>
         <Button
             variant="secondary"
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 setShowAddModal(true);
             }}
         >Add Course</Button>
         <Button
             variant="secondary"
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 setShowRemoveModal(true);
             }}
         >Remove Course</Button>
         <Button 
             variant="secondary" 
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 setEditing(true);
             }}
         >Edit Course</Button>
         <Button 
             variant="secondary" 
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 clearSemester();
             }}
         >Clear Courses</Button>
+    </div>
+    <div>
+        <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>
+        <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>
         <Button
-            variant="secondary" 
-            className="me-3" 
+            variant="outline-danger" 
+            className="m-3" 
             onClick={() => {
                 hardReset();
             }}
         >Reset to Default</Button>
-        <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>
-        <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>
-    </div>;
+    </div></div>;
 }
 
 
