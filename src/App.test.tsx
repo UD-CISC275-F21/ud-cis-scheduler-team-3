@@ -44,7 +44,7 @@ test("all PopUpInstructions Props are getting used", () => {
     render(<PopUp content="Hello World" handleClose={() => null}/>);
 });
 
-test("properties of TabTitle are being used", () => {
+test("properties of the TabTitle are being used", () => {
     render(<TabTitle title="Name of tab" index={0} setSelectedTab={() => null} selectedTab={0}/>);
 });
 
