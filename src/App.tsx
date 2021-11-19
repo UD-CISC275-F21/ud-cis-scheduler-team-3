@@ -1,123 +1,31 @@
 import "./css/App.css";
-import React, { useState } from "react";
-import Tab from "./Components/Tabs/Tab";
-import { SemesterTable } from "./Components/Semesters/SemesterTable";
-import PopUp from "./Components/PopUpInstructions";
-import { Dropdown, DropdownButton } from "react-bootstrap";
-import { ControlPanelButtons } from "./Components/ControlPanel";
-import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Components/Modals&Forms";
-import { Course } from "./Interfaces/Course";
-import { Semester } from "./Interfaces/Semester";
-import { defaultSemesters } from "./Components/Semesters/DefaultSemesters";
+import "./css/Tabs.css";
+import React from "react";
+import { Nav, Navbar } from "react-bootstrap";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { WelcomeMessage } from "./Components/PopUpMessages";
+import { CourseScheduler } from "./Components/CourseScheduler";
+
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
-    const [semesterList, setSemesterList] = useState(defaultSemesters);
-    const [currentSemester, setCurrentSemester] = useState<Semester>(semesterList[0]);
-    const [editing, setEditing] = useState<boolean>(false);
-    const [showAddModal, setShowAddModal] = useState<boolean>(false);
-    const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const togglePopUp = () => {
-        setIsOpen(!isOpen);
-    };
+    //  NavBar Source: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
 
-    function hardReset() {
-        setSemesterList(defaultSemesters);
-        setCurrentSemester({title: defaultSemesters[0].title, courses: defaultSemesters[0].courses});
-    }
-
-
-    function removeSemester() {
-        const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
-        setSemesterList(newSemesterList);
-        setCurrentSemester(newSemesterList[0]);
-    }
-
-    function addSemester(newSemester: string) {
-        setSemesterList([...semesterList, {title: newSemester, courses: []}]);
-    }
-
-
-    function clearSemester() {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
-    }
-
-    function addCourse(newCourse: Course): void {
-        setCurrentSemester({title: currentSemester.title, courses: [...currentSemester.courses, newCourse]});
-    }
-
-    function removeCourse(removeCode: string): void {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(course => course.code != removeCode)});
-    }
-    
-    return (
-        <div>
-            <input type="button"
-                value="Instructions"
-                onClick={togglePopUp} />
-            <p>Navigating Our Site</p>
-            {isOpen && <PopUp content={"Course Selector -> Choose Semester -> Make Necessary Semester Changes -> Add/Remove If Necessary"} handleClose={() => setIsOpen(false)} />}         
-            <Tab>
-                <span title="Welcome">
-                    <body>
-                        <header>
-                            <h1>Team 3s UD Cis Scheduler</h1>
-                            <p>Authors: Ren Ross, Abel Juarez, and Ahilyn Dipre</p>
-                            <p>Our goal is to help CISC students plan out their semesters,
-                                by providing templates of potential Fall/Spring semesters and even
-                                Winter and Summer.</p>
-                            <p>This site will serve as a way for students
-                                to keep track of the classes they have taken and which ones
-                                they need to take next.
-                            </p>
-                            <p>Students will get the option to remove a Semester if they are not pleased with their schedule</p>
-                            <p>Students will be able to edit in classes in case our default schedules dont match theirs</p>
-                            <p>Recommended 4 Year Path To Graduate on Time: <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">Suggested Plan</a></p>
-                            <h2>Created by: Ren Ross, Abel Juarez and Ahilyn Dipre</h2>
-                        </header>
-                    </body>
-                </span>
-                <span title="Course Selector">
-                    <p>The table below is a structured set of data made up of courses that
-                        most Computer Science B.S. majors have to take. This table allows
-                        you to quickly and easily look through all the semesters (Freshman
-                        to Senior). These semesters default to courses that are recommended
-                        by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path </a>
-                        to graduate on time (by the University of Delaware). However, the
-                        tables can be manipulated in a way that can fit anyone’s academic needs.</p>
-                    <DropdownButton id="dropdown-basic-button" title="Semesters">
-                        {semesterList.map(semi => {
-                            return (
-                                <Dropdown.Item onClick={() => setCurrentSemester(semi)} key={semi.title}>{semi.title}</Dropdown.Item>
-                            );
-                        })}
-                    </DropdownButton>
-                    <AddSemesterModal 
-                        addSemester={addSemester}/>
-                    <RemoveSemesterModal 
-                        removeSemester={removeSemester}/>
-                    <SemesterTable 
-                        editing={editing} setEditing={setEditing} 
-                        currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-                    <ControlPanelButtons 
-                        setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
-                        setEditing={ setEditing } clearSemester={ clearSemester } 
-                        removeSemester={ removeSemester } 
-                        hardReset={ hardReset }
-                        currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
-                        semesterList={ semesterList } setSemesterList={ setSemesterList }></ControlPanelButtons>
-                    <AddCourseModal 
-                        showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } 
-                        addCourse={ addCourse }></AddCourseModal>
-                    <RemoveCourseModal 
-                        showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
-                        removeCourse={ removeCourse } 
-                        currentSemester= { currentSemester }></RemoveCourseModal>
-                </span>
-            </Tab>
-        </div>
-
-    );
+    return <div>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand>Team 3 UD CIS Scheduler</Navbar.Brand>
+            <Nav className="mr-auto">
+                <Nav.Link href="/welcome">Welcome</Nav.Link>
+                <Nav.Link href="/course-scheduler">Course Scheduler</Nav.Link>
+            </Nav>
+        </Navbar>
+        <Router>
+            <Switch>
+                <Route path="/course-scheduler"><CourseScheduler/></Route>
+                <Route path="/welcome"><WelcomeMessage></WelcomeMessage></Route>
+                <Route path=""><WelcomeMessage></WelcomeMessage></Route>
+            </Switch>
+        </Router>
+    </div>;
 }
 
 export default App;
