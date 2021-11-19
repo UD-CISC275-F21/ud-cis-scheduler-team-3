@@ -154,7 +154,7 @@ export function AddSemesterModal({ addSemester }: { addSemester: (s: string) => 
     }
 
     return (
-        <>
+        <div>
             <Button variant="outline-dark" className="m-3" onClick={handleShow}>+</Button>
 
             <Modal show={show} onHide={handleClose}>
@@ -196,7 +196,7 @@ export function AddSemesterModal({ addSemester }: { addSemester: (s: string) => 
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </div>
     );
 }
 
