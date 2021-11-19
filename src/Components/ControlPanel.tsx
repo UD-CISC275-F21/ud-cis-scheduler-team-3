@@ -45,8 +45,12 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
         >Clear Courses</Button>
     </div>
     <div>
-        <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>
-        <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>
+        <SaveData 
+            currentSemester={ currentSemester } 
+            semesterList={ semesterList }></SaveData>
+        <LoadData 
+            currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester } 
+            semesterList={ semesterList } setSemesterList={ setSemesterList }></LoadData>
         <Button
             variant="outline-danger" 
             className="m-3" 
@@ -122,7 +126,8 @@ export function SaveData({currentSemester, semesterList}: {currentSemester: Seme
     >Save Changes</Button>;
 }
 
-export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemester: (s:Semester)=>void, setSemesterList: (s:Semester[])=>void}): JSX.Element {
+export function LoadData({currentSemester, setCurrentSemester, semesterList, setSemesterList}: 
+    {currentSemester: Semester, setCurrentSemester: (s:Semester)=>void, semesterList: Semester[], setSemesterList: (s:Semester[])=>void}): JSX.Element {
     
     function hardLoad() {
         const scheduler_currentSemester = localStorage.getItem(LOCAL_STORAGE_CURRENTSEMESTER);
@@ -134,8 +139,8 @@ export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemes
             setCurrentSemester(parsedCurrentSemester);
             setSemesterList(parsedSemesterList);
         }  else {
-            const parsedCurrentSemester = JSON.parse("[]");
-            const parsedSemesterList = JSON.parse("[]");
+            const parsedCurrentSemester = JSON.parse(JSON.stringify(currentSemester));
+            const parsedSemesterList = JSON.parse(JSON.stringify(semesterList));
             setCurrentSemester(parsedCurrentSemester);
             setSemesterList(parsedSemesterList);
         }
