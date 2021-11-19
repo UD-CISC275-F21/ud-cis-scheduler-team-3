@@ -139,10 +139,8 @@ export function LoadData({currentSemester, setCurrentSemester, semesterList, set
             setCurrentSemester(parsedCurrentSemester);
             setSemesterList(parsedSemesterList);
         }  else {
-            const parsedCurrentSemester = JSON.parse(JSON.stringify(currentSemester));
-            const parsedSemesterList = JSON.parse(JSON.stringify(semesterList));
-            setCurrentSemester(parsedCurrentSemester);
-            setSemesterList(parsedSemesterList);
+            setCurrentSemester(currentSemester);
+            setSemesterList(semesterList);
         }
     }
     return <Button
