@@ -4,64 +4,57 @@ import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
 
-export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
 export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
+export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
 
-export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, clearSemester, hardReset, hardSave, hardLoad}: 
-    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, clearSemester: VoidFunction, 
-        removeSemester: VoidFunction, hardReset: VoidFunction, hardSave: VoidFunction, hardLoad: VoidFunction}): JSX.Element {
+export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, 
+    clearSemester, hardReset, currentSemester, setCurrentSemester, semesterList, setSemesterList}: 
+    {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, 
+    clearSemester: VoidFunction, removeSemester: VoidFunction, hardReset: VoidFunction, 
+    currentSemester: Semester, setCurrentSemester: (s:Semester)=>void, 
+    semesterList: Semester[], setSemesterList: (s:Semester[])=>void}): JSX.Element {
 
-    return <div>
+    return <div><div>
         <Button
             variant="secondary"
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 setShowAddModal(true);
             }}
         >Add Course</Button>
         <Button
             variant="secondary"
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 setShowRemoveModal(true);
             }}
         >Remove Course</Button>
         <Button 
             variant="secondary" 
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 setEditing(true);
             }}
         >Edit Course</Button>
         <Button 
             variant="secondary" 
-            className="me-3"
+            className="m-3"
             onClick={()=>{
                 clearSemester();
             }}
         >Clear Courses</Button>
+    </div>
+    <div>
+        <SaveData currentSemester={ currentSemester } semesterList={ semesterList }></SaveData>
+        <LoadData setCurrentSemester={ setCurrentSemester } setSemesterList={ setSemesterList }></LoadData>
         <Button
-            variant="secondary" 
-            className="me-3" 
+            variant="outline-danger" 
+            className="m-3" 
             onClick={() => {
                 hardReset();
             }}
         >Reset to Default</Button>
-        <Button
-            variant="secondary" 
-            className="me-3" 
-            onClick={() => {
-                hardSave();
-            }}
-        >Save Changes</Button>
-        <Button
-            variant="secondary" 
-            className="me-3" 
-            onClick={() => {
-                hardLoad();
-            }}
-        >Load Changes</Button>
-    </div>;
+    </div></div>;
 }
 
 
@@ -113,4 +106,45 @@ export function CloseEditing({course, setEditing, currentSemester, setCurrentSem
                 </td></tr></table></div>);
 }
 
+export function SaveData({currentSemester, semesterList}: {currentSemester: Semester, semesterList: Semester[]}): JSX.Element {
+    
+    function hardSave() {
+        localStorage.setItem(LOCAL_STORAGE_CURRENTSEMESTER, JSON.stringify(currentSemester));
+        localStorage.setItem(LOCAL_STORAGE_SEMESTERLIST, JSON.stringify(semesterList));
+    }
+    
+    return <Button
+        variant="outline-success"
+        className="m-3" 
+        onClick={() => {
+            hardSave();
+        }}
+    >Save Changes</Button>;
+}
 
+export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemester: (s:Semester)=>void, setSemesterList: (s:Semester[])=>void}): JSX.Element {
+    
+    function hardLoad() {
+        const scheduler_currentSemester = localStorage.getItem(LOCAL_STORAGE_CURRENTSEMESTER);
+        const scheduler_semesterList = localStorage.getItem(LOCAL_STORAGE_SEMESTERLIST);
+        
+        if (scheduler_currentSemester !== null && scheduler_semesterList !== null) {
+            const parsedCurrentSemester = JSON.parse(scheduler_currentSemester);
+            const parsedSemesterList = JSON.parse(scheduler_semesterList);
+            setCurrentSemester(parsedCurrentSemester);
+            setSemesterList(parsedSemesterList);
+        }  else {
+            const parsedCurrentSemester = JSON.parse("[]");
+            const parsedSemesterList = JSON.parse("[]");
+            setCurrentSemester(parsedCurrentSemester);
+            setSemesterList(parsedSemesterList);
+        }
+    }
+    return <Button
+        variant="outline-warning" 
+        className="m-3" 
+        onClick={() => {
+            hardLoad(); 
+        }}
+    >Load Changes</Button>;
+}
