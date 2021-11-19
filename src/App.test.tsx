@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, getByRole } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 import PopUp from "./Components/PopUpInstructions";
 import TabTitle from "./Components/Tabs/TabTitle";
@@ -41,14 +41,6 @@ it("users can click button to get rid of courses", async () => {
     expect(removeCode).toBeInTheDocument;
 });
 
-
-it("users can click button to get rid of courses", async () => {
-    const removeCourse = screen.getByTestId
-    const removeCode = screen.getByTestId
-    expect(removeCode).toBeInTheDocument
-})
-
-
 test("all PopUpInstructions Props are getting used", () => {
     render(<PopUp content="Hello World" handleClose={() => null}/>);
 });
@@ -69,5 +61,3 @@ test("hardLoad loads after changes", () => {
     const hardLoad = screen.getByTestId;
     expect(hardLoad).toBeInTheDocument; 
 });
-
-
