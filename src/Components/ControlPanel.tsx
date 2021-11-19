@@ -3,7 +3,9 @@ import { Button } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
-import { SaveData, LoadData } from "./Save&Load";
+
+export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
+export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
 
 export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEditing, 
     clearSemester, hardReset, currentSemester, setCurrentSemester, semesterList, setSemesterList}: 
@@ -104,4 +106,45 @@ export function CloseEditing({course, setEditing, currentSemester, setCurrentSem
                 </td></tr></table></div>);
 }
 
+export function SaveData({currentSemester, semesterList}: {currentSemester: Semester, semesterList: Semester[]}): JSX.Element {
+    
+    function hardSave() {
+        localStorage.setItem(LOCAL_STORAGE_CURRENTSEMESTER, JSON.stringify(currentSemester));
+        localStorage.setItem(LOCAL_STORAGE_SEMESTERLIST, JSON.stringify(semesterList));
+    }
+    
+    return <Button
+        variant="outline-success"
+        className="m-3" 
+        onClick={() => {
+            hardSave();
+        }}
+    >Save Changes</Button>;
+}
 
+export function LoadData({setCurrentSemester, setSemesterList}: {setCurrentSemester: (s:Semester)=>void, setSemesterList: (s:Semester[])=>void}): JSX.Element {
+    
+    function hardLoad() {
+        const scheduler_currentSemester = localStorage.getItem(LOCAL_STORAGE_CURRENTSEMESTER);
+        const scheduler_semesterList = localStorage.getItem(LOCAL_STORAGE_SEMESTERLIST);
+        
+        if (scheduler_currentSemester !== null && scheduler_semesterList !== null) {
+            const parsedCurrentSemester = JSON.parse(scheduler_currentSemester);
+            const parsedSemesterList = JSON.parse(scheduler_semesterList);
+            setCurrentSemester(parsedCurrentSemester);
+            setSemesterList(parsedSemesterList);
+        }  else {
+            const parsedCurrentSemester = JSON.parse("[]");
+            const parsedSemesterList = JSON.parse("[]");
+            setCurrentSemester(parsedCurrentSemester);
+            setSemesterList(parsedSemesterList);
+        }
+    }
+    return <Button
+        variant="outline-warning" 
+        className="m-3" 
+        onClick={() => {
+            hardLoad(); 
+        }}
+    >Load Changes</Button>;
+}
