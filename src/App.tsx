@@ -3,7 +3,7 @@ import "./css/Tabs.css";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { WelcomeMessage } from "./Components/PopUpMessages";
+import { WelcomeMessage } from "./Components/WebsiteText";
 import { CourseScheduler } from "./Components/CourseScheduler";
 
 

@@ -4,7 +4,7 @@ import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { ControlPanelButtons } from "./ControlPanel";
 import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Modals&Forms";
-import { CourseSchedulerMessage } from "./PopUpMessages";
+import { CourseSchedulerMessage } from "./WebsiteText";
 import { defaultSemesters } from "./Semesters/DefaultSemesters";
 import { SemesterTable } from "./Semesters/SemesterTable";
 //import PopUp from "./Components/PopUpInstructions";
