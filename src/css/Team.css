@@ -1,0 +1,11 @@
+.Team {
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-right: 1%;
+}
+
+.Team:hover {
+    background-color:WhiteSmoke;
+    border: 1px solid black;
+  }
+  

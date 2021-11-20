@@ -1,36 +1,66 @@
 import React, { useState } from "react";
-import { Toast } from "react-bootstrap";
-import "../css/Tabs.css";
+import "../css/Team.css";
+import { Alert, Toast, Nav, Navbar, Image } from "react-bootstrap";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import { CourseScheduler } from "./CourseScheduler";
+import Team3Logo from "../Images/Team3_Logo.svg";
+import AJ_pic  from "../Images/Team/abeljuarez.png";
+import AD_pic  from "../Images/Team/ahilyndipre.png";
+import RR_pic  from "../Images/Team/renross.png";
+
+export function Header(): JSX.Element {
+    //  NavBar Source: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
+    return <div>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand><img
+                alt="Team 3 Logo"
+                src={ Team3Logo }
+                width="100"
+                height="100"
+                className="d-inline-block align-top"
+            ></img></Navbar.Brand>
+            <Navbar.Brand>{"UD CIS Semester Planner"}</Navbar.Brand>
+            <Nav className="mr-auto">
+                <Nav.Link href="/ud-cis-scheduler-team-3/#/">Welcome</Nav.Link>
+                <Nav.Link href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
+            </Nav>
+        </Navbar>
+        <Router basename="/ud-cis-scheduler-team-3">
+            <Switch>
+                <Route exact path="/course-scheduler"><CourseScheduler></CourseScheduler></Route>
+                <Route exact path=""><WelcomeMessage></WelcomeMessage></Route>
+            </Switch>
+        </Router>
+    </div>;
+}
 
 export function WelcomeMessage(): JSX.Element {
     return (
-        <div>
-            <h1 className="me-auto" style={{display: "flex", justifyContent:"center"}}>Welcome to Team 3&#39;s UD CIS Scheduler!</h1>
-            
-            <p style={{display: "flex", justifyContent:"center"}}>
-                Our goal is to help CISC students plan out their semesters 
-                by providing templates of potential Fall/Spring semesters, 
+        <div><div>
+            <h1 className="m-5" style={{ display: "flex", justifyContent: "center" }}>Welcome to Team 3&#39;s UD CIS Scheduler!</h1>
+
+            <p style={{ display: "flex", justifyContent: "center" }}>
+                Our goal is to help CISC students plan out their semesters
+                by providing templates of potential Fall/Spring semesters,
                 and even Winter and Summer!</p>
 
-            <p style={{display: "flex", justifyContent:"center"}}>
-                This website will serve as a way for students to keep track of the 
+            <p style={{ display: "flex", justifyContent: "center" }}>
+                This website will serve as a way for students to keep track of the
                 classes they have taken and which ones they need to take next.</p>
 
-            <p style={{display: "flex", justifyContent:"center"}}>
-                Students will get the option to remove a semester 
+            <p style={{ display: "flex", justifyContent: "center" }}>
+                Students will get the option to remove a semester
                 if they are not pleased with their schedule</p>
 
-            <p style={{display: "flex", justifyContent:"center"}}>
-                Students will be able to edit in classes in case 
+            <p style={{ display: "flex", justifyContent: "center" }}>
+                Students will be able to edit in classes in case
                 our default schedules dont match theirs</p>
 
-            <p style={{display: "flex", justifyContent:"center"}}>
-                Recommended 4 Year Path To Graduate on Time: 
+            <p style={{ display: "flex", justifyContent: "center" }}>
+                Recommended 4 Year Path To Graduate on Time:
                 <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf"
                 >Suggested Plan</a></p>
-
-            <h2 style={{display: "flex", justifyContent:"center"}}>Created by: Ren Ross, Abel Juarez and Ahilyn Dipre</h2>
-        </div>
+        </div></div>
     );
 }
 
@@ -60,4 +90,50 @@ export function CourseSchedulerMessage(): JSX.Element {
             </Toast></div>
     );
 
+}
+
+export function Footer(): JSX.Element {
+    return <div>
+        <Alert variant="light" style={{position: "fixed", bottom: "0", left: "0", right: "0"}}><hr/>
+            <h5 style={{display: "flex", justifyContent:"center"}}>Meet The Team!</h5><hr/>
+            <div style={{display: "flex", justifyContent:"center"}}>
+                <div 
+                    className="Team" 
+                    onClick={() => window.open("https://github.com/ahilynd", "_blank")}>
+                    <Image
+                        alt="Ahilyn Dipre GitHub Profile Picture"
+                        src={ AD_pic }
+                        width="30"
+                        height="30"
+                        className="mx-3"
+                        roundedCircle
+                    ></Image>
+                    Ahilyn Dipre</div>
+                <div 
+                    className="Team" 
+                    onClick={()=> window.open("https://github.com/TheMexicanChico", "_blank")}>
+                    <Image
+                        alt="Abel Juarez GitHub Profile Picture"
+                        src={ AJ_pic }
+                        width="30"
+                        height="30"
+                        className="mx-3"
+                        roundedCircle
+                    ></Image>
+                    Abel Juarez</div>
+                <div 
+                    className="Team" 
+                    onClick={()=> window.open("https://github.com/renross", "_blank")}>
+                    <Image
+                        alt="Ren Ross GitHub Profile Picture"
+                        src={ RR_pic }
+                        width="30"
+                        height="30"
+                        className="mx-3"
+                        roundedCircle
+                    ></Image>
+                    Ren Ross</div>
+            </div>
+        </Alert>
+    </div>;
 }
