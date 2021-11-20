@@ -200,16 +200,21 @@ export function AddSemesterModal({  showAddSemesterModal, setShowAddSemesterModa
     );
 }
 
-export function RemoveSemesterModal({ removeSemester }: { removeSemester: () => void }): JSX.Element {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+export function RemoveSemesterModal({  showRemoveSemesterModal, setRemoveSemesterModal, removeSemester }: 
+    { showRemoveSemesterModal: boolean, setRemoveSemesterModal: (b: boolean) => void, removeSemester: () => void }): JSX.Element {
+    const hideRemoveModal = () => setRemoveSemesterModal(false);
+    const handleShow = () => setRemoveSemesterModal(true);
+
+    function deleteSemester() {
+        removeSemester();
+        hideRemoveModal();
+    }
 
     return (
         <>
             <Button variant="outline-dark" className="m-3" onClick={handleShow}>-</Button>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showRemoveSemesterModal} onHide={hideRemoveModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Please Read Carefully</Modal.Title>
                 </Modal.Header>
@@ -218,10 +223,10 @@ export function RemoveSemesterModal({ removeSemester }: { removeSemester: () => 
                     click <b>Delete</b> Semester 
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                    <Button variant="secondary" onClick={() => setRemoveSemesterModal(false)}>
                         Cancel
                     </Button>
-                    <Button variant="danger" onClick={removeSemester}>
+                    <Button variant="danger" onClick={deleteSemester}>
                         Delete Semester
                     </Button>
                 </Modal.Footer>
