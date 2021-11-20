@@ -42,17 +42,21 @@ export function CourseSchedulerMessage(): JSX.Element {
         <div style={{display: "flex", justifyContent:"center"}}>
             <Toast show={ showMessage } onClose={ hideMessage }>
                 <Toast.Header>
-                    <strong className="me-auto">Instructions</strong>
+                    <strong className="me-auto">Getting Started</strong>
                 </Toast.Header>
-                <Toast.Body>
-                    <p>The table below is a structured set of data made up of courses that
-                    most Computer Science B.S. majors have to take. This table allows
-                    you to quickly and easily look through all the semesters (Freshman
-                    to Senior). These semesters default to courses that are recommended
-                    by the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">4 Year Path </a>
-                    to graduate on time (by the University of Delaware). However, the
-                    tables can be manipulated in a way that can fit anyone’s academic needs.</p>
-                </Toast.Body>
+                <Toast.Body><p> 
+                    The semester table below, and all semesters currently in the drop-down menu, are structured after 
+                    the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">
+                    default Computer Science B.S plan</a> as designated by the UD College of Engineering.
+                        
+                    The blue <b>Semesters</b> drop-down menu below will display all the semesters currently added 
+                    to your plan, and you can select any of them to view the courses currently in that semester.
+                    
+                    Though the semesters — and the courses in them — are currently set to the default plan for a 
+                    Computer Science B.S student, they can easily be manipulated to fit anyone’s academic needs.
+
+                    For more information about how to use the scheduler, click on the help buttons below!
+                </p></Toast.Body>
             </Toast></div>
     );
 

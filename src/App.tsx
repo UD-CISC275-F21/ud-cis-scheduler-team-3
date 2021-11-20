@@ -13,14 +13,14 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
 
     return <div>
         <Navbar bg="dark" variant="dark">
-            <Navbar.Brand>
-                <img
-                    alt="Team 3 Logo"
-                    src={ Team3Logo }
-                    width="30"
-                    height="30"
-                    className="d-inline-block align-top"
-                />Team 3 UD CIS Scheduler</Navbar.Brand>
+            <Navbar.Brand><img
+                alt="Team 3 Logo"
+                src={ Team3Logo }
+                width="100"
+                height="100"
+                className="d-inline-block align-top"
+            ></img></Navbar.Brand>
+            <Navbar.Brand>UD CIS Semester Planner</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/ud-cis-scheduler-team-3/#/welcome">Welcome</Nav.Link>
                 <Nav.Link href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
