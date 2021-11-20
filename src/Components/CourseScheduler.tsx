@@ -16,6 +16,7 @@ export function CourseScheduler(): JSX.Element {
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
     const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
     const [showAddSemesterModal, setShowAddSemesterModal] = useState<boolean>(false);
+    const [showRemoveSemesterModal, setRemoveSemesterModal] = useState<boolean>(false);
 
     /*
     const [isOpen, setIsOpen] = useState(false);
@@ -65,9 +66,11 @@ export function CourseScheduler(): JSX.Element {
             </DropdownButton></div>
         <div className="CenterText">
             <AddSemesterModal 
-                addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} setShowAddSemesterModal={setShowAddSemesterModal}/>
+                addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
+                setShowAddSemesterModal={setShowAddSemesterModal}/>
             <RemoveSemesterModal 
-                removeSemester={removeSemester}/></div>
+                removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
+                setRemoveSemesterModal={setRemoveSemesterModal}/></div>
         <SemesterTable 
             editing={editing} setEditing={setEditing} 
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
