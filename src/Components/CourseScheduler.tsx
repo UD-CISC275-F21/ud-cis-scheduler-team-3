@@ -54,7 +54,7 @@ export function CourseScheduler(): JSX.Element {
     
     return <div>
         <CourseSchedulerMessage></CourseSchedulerMessage>
-        <div style={{display: "flex", justifyContent:"center"}}>
+        <div className="CenterText">
             <DropdownButton id="dropdown-basic-button" title="Semesters" className="m-3">
                 {semesterList.map(semi => {
                     return (
@@ -62,7 +62,7 @@ export function CourseScheduler(): JSX.Element {
                     );
                 })}
             </DropdownButton></div>
-        <div style={{display: "flex", justifyContent:"center"}}>
+        <div className="CenterText">
             <AddSemesterModal 
                 addSemester={addSemester}/>
             <RemoveSemesterModal 
