@@ -14,7 +14,7 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
     currentSemester: Semester, setCurrentSemester: (s:Semester)=>void, 
     semesterList: Semester[], setSemesterList: (s:Semester[])=>void}): JSX.Element {
 
-    return <div><div style={{display: "flex", justifyContent:"center"}}>
+    return <div><div className="CenterText">
         <Button
             variant="secondary"
             className="m-3"
@@ -44,7 +44,7 @@ export function ControlPanelButtons({setShowAddModal, setShowRemoveModal, setEdi
             }}
         >Clear Courses</Button>
     </div>
-    <div style={{display: "flex", justifyContent:"center"}}>
+    <div className="CenterText">
         <SaveData 
             currentSemester={ currentSemester } 
             semesterList={ semesterList }></SaveData>
