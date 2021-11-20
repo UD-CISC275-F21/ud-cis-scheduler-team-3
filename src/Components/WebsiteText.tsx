@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../css/Team.css";
-import { Alert, Toast, Nav, Navbar, Image } from "react-bootstrap";
+import "../css/CenterElement.css";
+import { Alert, Toast, Nav, Navbar } from "react-bootstrap";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { CourseScheduler } from "./CourseScheduler";
 import Team3Logo from "../Images/Team3_Logo.svg";
@@ -37,26 +38,26 @@ export function Header(): JSX.Element {
 export function WelcomeMessage(): JSX.Element {
     return (
         <div><div>
-            <h1 className="m-5" style={{ display: "flex", justifyContent: "center" }}>Welcome to Team 3&#39;s UD CIS Scheduler!</h1>
+            <h1 className="CenterTitle">Welcome to Team 3&#39;s UD CIS Scheduler!</h1>
 
-            <p style={{ display: "flex", justifyContent: "center" }}>
+            <p className="CenterText">
                 Our goal is to help CISC students plan out their semesters
                 by providing templates of potential Fall/Spring semesters,
                 and even Winter and Summer!</p>
 
-            <p style={{ display: "flex", justifyContent: "center" }}>
+            <p className="CenterText">
                 This website will serve as a way for students to keep track of the
                 classes they have taken and which ones they need to take next.</p>
 
-            <p style={{ display: "flex", justifyContent: "center" }}>
+            <p className="CenterText">
                 Students will get the option to remove a semester
                 if they are not pleased with their schedule</p>
 
-            <p style={{ display: "flex", justifyContent: "center" }}>
+            <p className="CenterText">
                 Students will be able to edit in classes in case
                 our default schedules dont match theirs</p>
 
-            <p style={{ display: "flex", justifyContent: "center" }}>
+            <p className="CenterText">
                 Recommended 4 Year Path To Graduate on Time:
                 <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf"
                 >Suggested Plan</a></p>
@@ -69,7 +70,7 @@ export function CourseSchedulerMessage(): JSX.Element {
     const hideMessage = () => setShowMessage(false);
 
     return (
-        <div style={{display: "flex", justifyContent:"center"}}>
+        <div className="CenterText">
             <Toast show={ showMessage } onClose={ hideMessage }>
                 <Toast.Header>
                     <strong className="me-auto">Getting Started</strong>
@@ -95,43 +96,22 @@ export function CourseSchedulerMessage(): JSX.Element {
 export function Footer(): JSX.Element {
     return <div>
         <Alert variant="light" style={{position: "fixed", bottom: "0", left: "0", right: "0"}}><hr/>
-            <h5 style={{display: "flex", justifyContent:"center"}}>Meet The Team!</h5><hr/>
-            <div style={{display: "flex", justifyContent:"center"}}>
+            <h5 className="CenterText">Meet The Team!</h5><hr/>
+            <div className="CenterText">
                 <div 
                     className="Team" 
                     onClick={() => window.open("https://github.com/ahilynd", "_blank")}>
-                    <Image
-                        alt="Ahilyn Dipre GitHub Profile Picture"
-                        src={ AD_pic }
-                        width="30"
-                        height="30"
-                        className="mx-3"
-                        roundedCircle
-                    ></Image>
+                    <img className="TeamImage" alt="Ahilyn Dipre GitHub Profile Picture" src={ AD_pic }></img>
                     Ahilyn Dipre</div>
                 <div 
                     className="Team" 
                     onClick={()=> window.open("https://github.com/TheMexicanChico", "_blank")}>
-                    <Image
-                        alt="Abel Juarez GitHub Profile Picture"
-                        src={ AJ_pic }
-                        width="30"
-                        height="30"
-                        className="mx-3"
-                        roundedCircle
-                    ></Image>
+                    <img className="TeamImage" alt="Abel Juarez GitHub Profile Picture" src={ AJ_pic }></img>
                     Abel Juarez</div>
                 <div 
                     className="Team" 
                     onClick={()=> window.open("https://github.com/renross", "_blank")}>
-                    <Image
-                        alt="Ren Ross GitHub Profile Picture"
-                        src={ RR_pic }
-                        width="30"
-                        height="30"
-                        className="mx-3"
-                        roundedCircle
-                    ></Image>
+                    <img className="TeamImage" alt="Ren Ross GitHub Profile Picture" src={ RR_pic }></img>
                     Ren Ross</div>
             </div>
         </Alert>
