@@ -20,16 +20,15 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                 height="100"
                 className="d-inline-block align-top"
             ></img></Navbar.Brand>
-            <Navbar.Brand>UD CIS Semester Planner</Navbar.Brand>
+            <Navbar.Brand>{ "UD CIS Semester Planner" }</Navbar.Brand>
             <Nav className="mr-auto">
-                <Nav.Link href="/ud-cis-scheduler-team-3/#/welcome">Welcome</Nav.Link>
+                <Nav.Link href="/ud-cis-scheduler-team-3/#/">Welcome</Nav.Link>
                 <Nav.Link href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
             </Nav>
         </Navbar>
         <Router basename="/ud-cis-scheduler-team-3">
             <Switch>
                 <Route exact path="/course-scheduler"><CourseScheduler></CourseScheduler></Route>
-                <Route exact path="/welcome"><WelcomeMessage></WelcomeMessage></Route>
                 <Route exact path=""><WelcomeMessage></WelcomeMessage></Route>
             </Switch>
         </Router>
