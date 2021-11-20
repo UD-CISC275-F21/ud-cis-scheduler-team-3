@@ -2,9 +2,9 @@ import "./css/App.css";
 import "./css/Tabs.css";
 import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { WelcomeMessage } from "./Components/WebsiteText";
 import { CourseScheduler } from "./Components/CourseScheduler";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
@@ -20,9 +20,9 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
         </Navbar>
         <Router>
             <Switch>
-                <Route path="/ud-cis-scheduler-team-3/course-scheduler"><CourseScheduler/></Route>
-                <Route path="/ud-cis-scheduler-team-3/welcome"><WelcomeMessage></WelcomeMessage></Route>
-                <Route path=""><WelcomeMessage></WelcomeMessage></Route>
+                <Route exact path="/ud-cis-scheduler-team-3/course-scheduler"><CourseScheduler/></Route>
+                <Route exact path="/ud-cis-scheduler-team-3/welcome"><WelcomeMessage></WelcomeMessage></Route>
+                <Route exact path=""><WelcomeMessage></WelcomeMessage></Route>
             </Switch>
         </Router>
     </div>;
