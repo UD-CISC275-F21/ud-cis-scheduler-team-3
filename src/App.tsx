@@ -22,15 +22,15 @@ function App(): JSX.Element { // jsx.element = very important return type, funct
                     className="d-inline-block align-top"
                 />Team 3 UD CIS Scheduler</Navbar.Brand>
             <Nav className="mr-auto">
-                <Nav.Link href="https://ud-cisc275-f21.github.io/ud-cis-scheduler-team-3/#/welcome">Welcome</Nav.Link>
-                <Nav.Link href="https://ud-cisc275-f21.github.io/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
+                <Nav.Link href="/ud-cis-scheduler-team-3/#/welcome">Welcome</Nav.Link>
+                <Nav.Link href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
             </Nav>
         </Navbar>
         <Router basename="/ud-cis-scheduler-team-3">
             <Switch>
-                <Route path="/course-scheduler" component={ CourseScheduler }/>
-                <Route path="/welcome" component={ WelcomeMessage }/>
-                <Route exact path="/" component={ WelcomeMessage }/>
+                <Route exact path="/course-scheduler"><CourseScheduler></CourseScheduler></Route>
+                <Route exact path="/welcome"><WelcomeMessage></WelcomeMessage></Route>
+                <Route exact path=""><WelcomeMessage></WelcomeMessage></Route>
             </Switch>
         </Router>
     </div>;
