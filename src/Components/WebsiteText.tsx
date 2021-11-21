@@ -10,7 +10,7 @@ import AD_pic  from "../Images/Team/ahilyndipre.png";
 import RR_pic  from "../Images/Team/renross.png";
 
 export function Header(): JSX.Element {
-    //  NavBar Source: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
+    //  NavBar Reference: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
     return <div>
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand><img
@@ -18,8 +18,7 @@ export function Header(): JSX.Element {
                 src={ Team3Logo }
                 width="100"
                 height="100"
-                className="d-inline-block align-top"
-            ></img></Navbar.Brand>
+                className="d-inline-block align-top"/></Navbar.Brand>
             <Navbar.Brand>{"UD CIS Semester Planner"}</Navbar.Brand>
             <Nav className="mr-auto">
                 <Nav.Link href="/ud-cis-scheduler-team-3/#/">Welcome</Nav.Link>
