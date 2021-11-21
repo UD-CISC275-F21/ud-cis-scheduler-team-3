@@ -57,7 +57,7 @@ export function CourseScheduler(): JSX.Element {
     return <div>
         <CourseSchedulerMessage></CourseSchedulerMessage>
         <div className="CenterText">
-            <DropdownButton id="dropdown-basic-button" title="Semesters" className="m-3">
+            <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
                 {semesterList.map(semi => {
                     return (
                         <Dropdown.Item onClick={() => setCurrentSemester(semi)} key={semi.title}>{semi.title}</Dropdown.Item>
