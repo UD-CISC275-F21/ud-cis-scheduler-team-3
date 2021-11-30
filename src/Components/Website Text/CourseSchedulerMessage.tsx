@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../css/CenterElement.css";
+import "../../css/CenterElement.css";
 import { Toast } from "react-bootstrap";
 
 export function CourseSchedulerMessage(): JSX.Element {

@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/CenterElement.css";
+import "../../css/CenterElement.css";
 
 
 export function WelcomeMessage(): JSX.Element {
