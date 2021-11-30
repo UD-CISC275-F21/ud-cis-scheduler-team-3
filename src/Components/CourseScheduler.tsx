@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
-import { ControlPanelButtons } from "./ControlPanel";
-import { CourseSchedulerMessage } from "./WebsiteText";
+import { ControlPanel } from "./ControlPanel";
 import { defaultSemesters } from "./Semesters/DefaultSemesters";
 import { SemesterTable } from "./Semesters/SemesterTable";
 import { AddSemesterModal } from "./Modals/AddSemesterModal";
 import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
+import { CourseSchedulerMessage } from "./Website Text/CourseSchedulerMessage";
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -69,13 +69,13 @@ export function CourseScheduler(): JSX.Element {
         <SemesterTable 
             editing={editing} setEditing={setEditing} 
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-        <ControlPanelButtons 
+        <ControlPanel 
             setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
             setEditing={ setEditing } clearSemester={ clearSemester } 
             removeSemester={ removeSemester } 
             hardReset={ hardReset }
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
-            semesterList={ semesterList } setSemesterList={ setSemesterList }></ControlPanelButtons>
+            semesterList={ semesterList } setSemesterList={ setSemesterList }></ControlPanel>
         <AddCourseModal 
             showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } 
             addCourse={ addCourse }></AddCourseModal>
