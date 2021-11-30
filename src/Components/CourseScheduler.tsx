@@ -3,10 +3,13 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { ControlPanelButtons } from "./ControlPanel";
-import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Modals";
 import { CourseSchedulerMessage } from "./WebsiteText";
 import { defaultSemesters } from "./Semesters/DefaultSemesters";
 import { SemesterTable } from "./Semesters/SemesterTable";
+import { AddSemesterModal } from "./Modals/AddSemesterModal";
+import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
+import { AddCourseModal } from "./Modals/AddCourseModal";
+import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
