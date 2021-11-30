@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
-import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals&Forms";
+import { CodeForm, TitleForm, CreditsForm, DescriptionForm } from "./Modals";
 
 export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
 export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
