@@ -1,12 +1,13 @@
-import "./css/App.css";
 import React from "react";
-import { Footer, Header } from "./Components/WebsiteText";
+import "./css/App.css";
+import { MeetTheTeam }  from "./Components/MeetTheTeam";
+import { NavBar } from "./Components/NavBar";
 
 function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
 
     return <div>
-        <Header></Header>
-        <Footer></Footer>
+        <NavBar></NavBar>
+        <MeetTheTeam></MeetTheTeam>
     </div>;
 }
 
