@@ -9,7 +9,7 @@ import { AddSemesterModal } from "./Modals/AddSemesterModal";
 import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
-import { CourseSchedulerMessage } from "./Website Text/CourseSchedulerMessage";
+import { GetStartedModal } from "./Modals/GetStartedModal";
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -19,6 +19,7 @@ export function CourseScheduler(): JSX.Element {
     const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
     const [showAddSemesterModal, setShowAddSemesterModal] = useState<boolean>(false);
     const [showRemoveSemesterModal, setRemoveSemesterModal] = useState<boolean>(false);
+    const [showGetStartedModal, setShowGetStartedModal] = useState<boolean>(false);
 
     function hardReset() {
         setSemesterList(defaultSemesters);
@@ -50,7 +51,6 @@ export function CourseScheduler(): JSX.Element {
     }
     
     return <div>
-        <CourseSchedulerMessage></CourseSchedulerMessage>
         <div className="CenterText">
             <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
                 {semesterList.map(semi => {
@@ -60,12 +60,15 @@ export function CourseScheduler(): JSX.Element {
                 })}
             </DropdownButton></div>
         <div className="CenterText">
-            <AddSemesterModal 
-                addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
-                setShowAddSemesterModal={setShowAddSemesterModal}/>
             <RemoveSemesterModal 
                 removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
-                setRemoveSemesterModal={setRemoveSemesterModal}/></div>
+                setRemoveSemesterModal={setRemoveSemesterModal}/>
+            <GetStartedModal 
+                showGetStartedModal={showGetStartedModal} 
+                setShowGetStartedModal={setShowGetStartedModal}/>
+            <AddSemesterModal 
+                addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
+                setShowAddSemesterModal={setShowAddSemesterModal}/></div>
         <SemesterTable 
             editing={editing} setEditing={setEditing} 
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
