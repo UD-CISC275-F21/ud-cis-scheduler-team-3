@@ -3,11 +3,13 @@ import { Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
 import { ControlPanelButtons } from "./ControlPanel";
-import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Modals&Forms";
 import { CourseSchedulerMessage } from "./WebsiteText";
 import { defaultSemesters } from "./Semesters/DefaultSemesters";
 import { SemesterTable } from "./Semesters/SemesterTable";
-//import PopUp from "./Components/PopUpInstructions";
+import { AddSemesterModal } from "./Modals/AddSemesterModal";
+import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
+import { AddCourseModal } from "./Modals/AddCourseModal";
+import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -17,13 +19,6 @@ export function CourseScheduler(): JSX.Element {
     const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
     const [showAddSemesterModal, setShowAddSemesterModal] = useState<boolean>(false);
     const [showRemoveSemesterModal, setRemoveSemesterModal] = useState<boolean>(false);
-
-    /*
-    const [isOpen, setIsOpen] = useState(false);
-    const togglePopUp = () => {
-        setIsOpen(!isOpen);
-    };
-    */
 
     function hardReset() {
         setSemesterList(defaultSemesters);
