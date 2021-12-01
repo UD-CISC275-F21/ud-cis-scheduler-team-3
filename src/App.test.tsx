@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
+import userEvent from "@testing-library/user-event";
 // import PopUp from "./Components/PopUpInstructions";
 // import TabTitle from "./Components/Tabs/TabTitle";
 
@@ -48,6 +49,7 @@ test("properties of TabTitle are being used", () => {
 });
 */
 
+/** These two below are the same and aren't testing what it's supposed too*/
 test("hardReset is visible", () => {
     render(<App />);
     const hardReset = screen.getByTestId;
@@ -59,3 +61,17 @@ test("hardLoad loads after changes", () => {
     const hardLoad = screen.getByTestId;
     expect(hardLoad).toBeInTheDocument; 
 });
+
+ 
+test("Cancel buttons for Add Semester Modal", () => {
+    render(<App />);
+    expect(screen.getByText("Course Scheduler")).toBeVisible;
+    expect(screen.getByText("Welcome")).toBeVisible;
+    const courseschedulerlink = screen.getByText(/Course Scheduler/);
+    userEvent.click(courseschedulerlink);
+    //const AddSemesterButton = screen.getByRole('button', {name: "+"});
+    //const AddSemesterButton = screen.getByText(/Description/i); 
+    //expect(screen.getByText(/Credits/i)).toBeInTheDocument;
+});
+
+
