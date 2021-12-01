@@ -49,10 +49,10 @@ export function AddSemesterModal({  showAddSemesterModal, setShowAddSemesterModa
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => setShowAddSemesterModal(false)}>
-                        Close
+                        Cancel
                     </Button>
                     <Button variant="primary" onClick={saveSemester}>
-                        Save Changes
+                        Add Semester
                     </Button>
                 </Modal.Footer>
             </Modal>
