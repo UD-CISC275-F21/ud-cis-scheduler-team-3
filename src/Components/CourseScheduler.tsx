@@ -86,6 +86,5 @@ export function CourseScheduler(): JSX.Element {
             showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
             removeCourse={ removeCourse } 
             currentSemester= { currentSemester }></RemoveCourseModal>
-
     </div>;
 }
