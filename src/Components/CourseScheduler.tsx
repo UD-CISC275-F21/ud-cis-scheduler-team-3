@@ -10,6 +10,10 @@ import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 import { GetStartedModal } from "./Modals/GetStartedModal";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DropBox } from "./DragDrop/DropBox";
+
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -51,6 +55,9 @@ export function CourseScheduler(): JSX.Element {
     }
     
     return <div>
+        <DndProvider backend={HTML5Backend}>
+            <DropBox />
+        </DndProvider>
         <div className="CenterText">
             <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
                 {semesterList.map(semi => {
