@@ -64,7 +64,7 @@ export function CourseScheduler(): JSX.Element {
             <RemoveSemesterModal 
                 removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
                 setRemoveSemesterModal={setRemoveSemesterModal}/>
-            <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
+            <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-3">
                 {semesterList.map(semi => {
                     return (
                         <Dropdown.Item onClick={() => setCurrentSemester(semi)} key={semi.title}>{semi.title}</Dropdown.Item>
