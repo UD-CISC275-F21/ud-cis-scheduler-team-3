@@ -55,9 +55,6 @@ export function CourseScheduler(): JSX.Element {
     }
     
     return <div>
-        <DndProvider backend={HTML5Backend}>
-            <DropBox />
-        </DndProvider>
         <div className="CenterText">
             <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
                 {semesterList.map(semi => {
@@ -93,5 +90,8 @@ export function CourseScheduler(): JSX.Element {
             showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
             removeCourse={ removeCourse } 
             currentSemester= { currentSemester }></RemoveCourseModal>
+        <DndProvider backend={HTML5Backend}>
+            <DropBox />
+        </DndProvider>
     </div>;
 }
