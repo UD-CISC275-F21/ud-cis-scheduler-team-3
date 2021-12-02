@@ -22,8 +22,9 @@ export function RemoveCourseModal({ showRemoveModal, setShowRemoveModal, removeC
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3" controlId="addCourseForm.promptTextArea">
-                        <Form.Control placeholder={"Select a course to remove."} readOnly />
+                        <Form.Label>Select a course to remove.</Form.Label>
                         <Form.Select value={ removeCode } onChange={(ev: React.ChangeEvent<HTMLSelectElement>) => setRemoveCode(ev.target.value)}>
+                            <option>---</option>
                             {currentSemester.courses.map((course: Course): JSX.Element => {
                                 return <option key={ course.code }>{ course.code }</option>;
                             })};
