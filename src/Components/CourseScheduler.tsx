@@ -10,6 +10,10 @@ import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 import { GetStartedModal } from "./Modals/GetStartedModal";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DropBox } from "./DragDrop/DropBox";
+
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -49,23 +53,24 @@ export function CourseScheduler(): JSX.Element {
     function removeCourse(removeCode: string): void {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(course => course.code != removeCode)});
     }
-    
+     
     return <div>
         <div className="CenterText">
-            <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
+            <GetStartedModal 
+                showGetStartedModal={showGetStartedModal} 
+                setShowGetStartedModal={setShowGetStartedModal}/>
+        </div>
+        <div className="CenterText">
+            <RemoveSemesterModal 
+                removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
+                setRemoveSemesterModal={setRemoveSemesterModal}/>
+            <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-3">
                 {semesterList.map(semi => {
                     return (
                         <Dropdown.Item onClick={() => setCurrentSemester(semi)} key={semi.title}>{semi.title}</Dropdown.Item>
                     );
                 })}
-            </DropdownButton></div>
-        <div className="CenterText">
-            <RemoveSemesterModal 
-                removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
-                setRemoveSemesterModal={setRemoveSemesterModal}/>
-            <GetStartedModal 
-                showGetStartedModal={showGetStartedModal} 
-                setShowGetStartedModal={setShowGetStartedModal}/>
+            </DropdownButton>
             <AddSemesterModal 
                 addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
                 setShowAddSemesterModal={setShowAddSemesterModal}/></div>
@@ -86,6 +91,8 @@ export function CourseScheduler(): JSX.Element {
             showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
             removeCourse={ removeCourse } 
             currentSemester= { currentSemester }></RemoveCourseModal>
-
+        <DndProvider backend={HTML5Backend}>
+            <DropBox />
+        </DndProvider>
     </div>;
 }
