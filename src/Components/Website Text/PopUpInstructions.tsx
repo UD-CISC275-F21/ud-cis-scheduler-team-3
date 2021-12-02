@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import "../css/PopUp.css";
+import "../../css/PopUp.css";
 
 
 type Props = {

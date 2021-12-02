@@ -1,8 +1,8 @@
 import "../../css/Semester.css";
 import React from "react";
-import { CloseEditing } from "../ControlPanel";
 import { Semester } from "../../Interfaces/Semester";
 import { Course } from "../../Interfaces/Course";
+import { Editor } from "../Editor";
 
 export function SemesterTable({editing, setEditing, currentSemester, setCurrentSemester}: 
     {editing: boolean, setEditing: (b:boolean)=>void,currentSemester: Semester, setCurrentSemester: (s:Semester)=>void}): JSX.Element {
@@ -22,13 +22,13 @@ export function SemesterTable({editing, setEditing, currentSemester, setCurrentS
         :
         <div>
             { currentSemester.courses.map((course: Course) => {
-                return <CloseEditing 
+                return <Editor 
                     key={ course.code }
                     course={ course } 
                     setEditing={ setEditing } 
                     currentSemester={ currentSemester }
                     setCurrentSemester={ setCurrentSemester }
-                ></CloseEditing>;
+                ></Editor>;
             })}
         </div>;
 }

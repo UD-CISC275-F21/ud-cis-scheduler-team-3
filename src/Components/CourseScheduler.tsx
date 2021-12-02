@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { Course } from "../Interfaces/Course";
 import { Semester } from "../Interfaces/Semester";
-import { ControlPanelButtons } from "./ControlPanel";
-import { AddCourseModal, AddSemesterModal, RemoveCourseModal, RemoveSemesterModal } from "./Modals&Forms";
-import { CourseSchedulerMessage } from "./WebsiteText";
+import { ControlPanel } from "./ControlPanel";
 import { defaultSemesters } from "./Semesters/DefaultSemesters";
 import { SemesterTable } from "./Semesters/SemesterTable";
+import { AddSemesterModal } from "./Modals/AddSemesterModal";
+import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
+import { AddCourseModal } from "./Modals/AddCourseModal";
+import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
+import { GetStartedModal } from "./Modals/GetStartedModal";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DropBox } from "./DragDrop/DropBox";
+
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -19,13 +23,7 @@ export function CourseScheduler(): JSX.Element {
     const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
     const [showAddSemesterModal, setShowAddSemesterModal] = useState<boolean>(false);
     const [showRemoveSemesterModal, setRemoveSemesterModal] = useState<boolean>(false);
-
-    /*
-    const [isOpen, setIsOpen] = useState(false);
-    const togglePopUp = () => {
-        setIsOpen(!isOpen);
-    };
-    */
+    const [showGetStartedModal, setShowGetStartedModal] = useState<boolean>(false);
 
     function hardReset() {
         setSemesterList(defaultSemesters);
@@ -60,7 +58,6 @@ export function CourseScheduler(): JSX.Element {
         <DndProvider backend={HTML5Backend}>
             <DropBox />
         </DndProvider>
-        <CourseSchedulerMessage></CourseSchedulerMessage>
         <div className="CenterText">
             <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
                 {semesterList.map(semi => {
@@ -70,22 +67,25 @@ export function CourseScheduler(): JSX.Element {
                 })}
             </DropdownButton></div>
         <div className="CenterText">
-            <AddSemesterModal 
-                addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
-                setShowAddSemesterModal={setShowAddSemesterModal}/>
             <RemoveSemesterModal 
                 removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
-                setRemoveSemesterModal={setRemoveSemesterModal}/></div>
+                setRemoveSemesterModal={setRemoveSemesterModal}/>
+            <GetStartedModal 
+                showGetStartedModal={showGetStartedModal} 
+                setShowGetStartedModal={setShowGetStartedModal}/>
+            <AddSemesterModal 
+                addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
+                setShowAddSemesterModal={setShowAddSemesterModal}/></div>
         <SemesterTable 
             editing={editing} setEditing={setEditing} 
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
-        <ControlPanelButtons 
+        <ControlPanel 
             setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
             setEditing={ setEditing } clearSemester={ clearSemester } 
             removeSemester={ removeSemester } 
             hardReset={ hardReset }
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
-            semesterList={ semesterList } setSemesterList={ setSemesterList }></ControlPanelButtons>
+            semesterList={ semesterList } setSemesterList={ setSemesterList }></ControlPanel>
         <AddCourseModal 
             showAddModal={ showAddModal } setShowAddModal={ setShowAddModal } 
             addCourse={ addCourse }></AddCourseModal>
@@ -93,6 +93,5 @@ export function CourseScheduler(): JSX.Element {
             showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
             removeCourse={ removeCourse } 
             currentSemester= { currentSemester }></RemoveCourseModal>
-
     </div>;
 }
