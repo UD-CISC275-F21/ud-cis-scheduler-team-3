@@ -49,23 +49,24 @@ export function CourseScheduler(): JSX.Element {
     function removeCourse(removeCode: string): void {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(course => course.code != removeCode)});
     }
-    
+     
     return <div>
         <div className="CenterText">
+        <GetStartedModal 
+                showGetStartedModal={showGetStartedModal} 
+                setShowGetStartedModal={setShowGetStartedModal}/>
+        </div>
+        <div className="CenterText">
+            <RemoveSemesterModal 
+                removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
+                setRemoveSemesterModal={setRemoveSemesterModal}/>
             <DropdownButton id="dropdown-basic-button" title="Semesters" className="mt-5">
                 {semesterList.map(semi => {
                     return (
                         <Dropdown.Item onClick={() => setCurrentSemester(semi)} key={semi.title}>{semi.title}</Dropdown.Item>
                     );
                 })}
-            </DropdownButton></div>
-        <div className="CenterText">
-            <RemoveSemesterModal 
-                removeSemester={removeSemester} showRemoveSemesterModal={showRemoveSemesterModal} 
-                setRemoveSemesterModal={setRemoveSemesterModal}/>
-            <GetStartedModal 
-                showGetStartedModal={showGetStartedModal} 
-                setShowGetStartedModal={setShowGetStartedModal}/>
+            </DropdownButton>
             <AddSemesterModal 
                 addSemester={addSemester} showAddSemesterModal={showAddSemesterModal} 
                 setShowAddSemesterModal={setShowAddSemesterModal}/></div>
