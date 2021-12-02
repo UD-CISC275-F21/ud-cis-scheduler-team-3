@@ -10,6 +10,7 @@ const style = {
     marginBOttom: ".5rem",
     backgroundColor: "lightblue",
     cursor: "move",
+    display: "middle"
 };
 
 export interface CardProps {
