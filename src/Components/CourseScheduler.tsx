@@ -52,7 +52,7 @@ export function CourseScheduler(): JSX.Element {
      
     return <div>
         <div className="CenterText">
-        <GetStartedModal 
+            <GetStartedModal 
                 showGetStartedModal={showGetStartedModal} 
                 setShowGetStartedModal={setShowGetStartedModal}/>
         </div>
