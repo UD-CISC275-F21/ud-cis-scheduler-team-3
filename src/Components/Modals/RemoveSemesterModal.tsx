@@ -28,7 +28,7 @@ export function RemoveSemesterModal({  showRemoveSemesterModal, setRemoveSemeste
                     <Button aria-label="Cancel" variant="secondary" onClick={() => setRemoveSemesterModal(false)}>
                         Cancel
                     </Button>
-                    <Button variant="danger" onClick={deleteSemester}>
+                    <Button aria-label="Delete Semester" variant="danger" onClick={deleteSemester}>
                         Delete Semester
                     </Button>
                 </Modal.Footer>
