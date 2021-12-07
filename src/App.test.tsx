@@ -129,3 +129,31 @@ test("Delete Semester Cancel Button", () => {
     userEvent.click(deleteSemesterCancelButton);
 });
 
+test("Reset when Semeseter is Added", () => {
+    render(<CourseScheduler />);
+    const addSemesterButton = screen.getByRole("button", {name: "+"});
+    userEvent.click(addSemesterButton);
+    const addSemester = screen.getByRole("button", {name: "Add Semester"});
+    userEvent.click(addSemester);
+    const reset = screen.getByRole("button", {name: "reset"});
+    userEvent.click(reset);
+});
+
+test("Reset when Semeseter is Deleted", () => {
+    render(<CourseScheduler />);
+    const deleteSemesterButton = screen.getByRole("button", {name: "-"});
+    userEvent.click(deleteSemesterButton);
+    const deleteSemester = screen.getByRole("button", {name: "Delete Semester"});
+    userEvent.click(deleteSemester);
+    const reset = screen.getByRole("button", {name: "reset"});
+    userEvent.click(reset);
+});
+
+test("Reset when Semeseter is Cleared", () => {
+    render(<CourseScheduler />);
+    const clearCoursesButton = screen.getByRole("button", {name: "clear"});
+    userEvent.click(clearCoursesButton);
+    const reset = screen.getByRole("button", {name: "reset"});
+    userEvent.click(reset);
+});
+
