@@ -63,22 +63,22 @@ test("hardLoad loads after changes", () => {
     expect(hardLoad).toBeInTheDocument; 
 });
 
- 
-test("Cancel buttons for Add Semester Modal", () => {
+test("Getting Started", () => {
     render(<CourseScheduler />);
-    const addSemesterButton = screen.getByRole("button", {name: "+"});
-    userEvent.click(addSemesterButton);
-    const addSemesterCancelButton = screen.getByRole("button", {name: "Cancel"});
-    userEvent.click(addSemesterCancelButton); 
+    const getStartedButton = screen.getByRole("button", {name: "Getting Started"});
+    userEvent.click(getStartedButton);
+    const getStartedClose = screen.getByRole("button", {name: "Close"});
+    userEvent.click(getStartedClose); 
 });
 
-test("Cancel buttons for Delete Semester Modal", () => {
+test("Getting Started Link", async () => {
     render(<CourseScheduler />);
-    const deleteSemesterButton = screen.getByRole("button", {name: "-"});
-    userEvent.click(deleteSemesterButton);
-    const deleteSemesterCancelButton = screen.getByRole("button", {name: "Cancel"});
-    userEvent.click(deleteSemesterCancelButton);
+    const getStartedButton = screen.getByRole("button", {name: "Getting Started"});
+    userEvent.click(getStartedButton);
+    const getStartedText = await screen.findByText("Default Computer Science B.S plan");
+    userEvent.click(getStartedText); 
 });
+ 
 
 // Still need to add a semester to choose
 test("Add Semester", () => {
@@ -89,6 +89,22 @@ test("Add Semester", () => {
     userEvent.click(addSemester);
 });
 
+test("Add Semester Close Button", () => {
+    render(<CourseScheduler />);
+    const addSemesterButton = screen.getByRole("button", {name: "+"});
+    userEvent.click(addSemesterButton);
+    const addSemester = screen.getByRole("button", {name: "Add Semester"});
+    userEvent.click(addSemester);
+});
+
+test("Add Semester Cancel Button", () => {
+    render(<CourseScheduler />);
+    const addSemesterButton = screen.getByRole("button", {name: "+"});
+    userEvent.click(addSemesterButton);
+    const addSemesterCancelButton = screen.getByRole("button", {name: "Cancel"});
+    userEvent.click(addSemesterCancelButton); 
+});
+
 test("Delete Semester", () => {
     render(<CourseScheduler />);
     const deleteSemesterButton = screen.getByRole("button", {name: "-"});
@@ -96,3 +112,20 @@ test("Delete Semester", () => {
     const deleteSemester = screen.getByRole("button", {name: "Delete Semester"});
     userEvent.click(deleteSemester);
 });
+
+test("Delete Semester Close Button", () => {
+    render(<CourseScheduler />);
+    const deleteSemesterButton = screen.getByRole("button", {name: "-"});
+    userEvent.click(deleteSemesterButton);
+    const deleteSemesterCloseButton = screen.getByRole("button", {name: "Close"});
+    userEvent.click(deleteSemesterCloseButton);
+});
+
+test("Delete Semester Cancel Button", () => {
+    render(<CourseScheduler />);
+    const deleteSemesterButton = screen.getByRole("button", {name: "-"});
+    userEvent.click(deleteSemesterButton);
+    const deleteSemesterCancelButton = screen.getByRole("button", {name: "Cancel"});
+    userEvent.click(deleteSemesterCancelButton);
+});
+

@@ -9,7 +9,7 @@ export function GetStartedModal({  showGetStartedModal, setShowGetStartedModal }
 
     return (
         <div>
-            <Button variant="warning" className="m-3" onClick={handleShow}>Getting Started</Button>
+            <Button aria-label="Getting Started" variant="warning" className="m-3" onClick={handleShow}>Getting Started</Button>
 
             <Modal show={ showGetStartedModal } onHide={ hideGetStarted }>
                 <Modal.Header closeButton>
