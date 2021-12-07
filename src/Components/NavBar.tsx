@@ -17,8 +17,8 @@ export function NavBar(): JSX.Element {
                 className="d-inline-block align-top"/></Navbar.Brand>
             <Navbar.Brand>{"UD CIS Semester Planner"}</Navbar.Brand>
             <Nav className="mr-auto">
-                <Nav.Link href="/ud-cis-scheduler-team-3/#/">Welcome</Nav.Link>
-                <Nav.Link href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
+                <Nav.Link aria-label="Welcome Tab" href="/ud-cis-scheduler-team-3/#/">Welcome</Nav.Link>
+                <Nav.Link aria-label="Course Tab" href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
             </Nav>
         </Navbar>
         <Router basename="/ud-cis-scheduler-team-3">

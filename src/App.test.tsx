@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
+import {MemoryRouter} from 'react-router-dom';
+import { CourseScheduler } from "./Components/CourseScheduler";
 // import PopUp from "./Components/PopUpInstructions";
 // import TabTitle from "./Components/Tabs/TabTitle";
 
@@ -64,14 +66,19 @@ test("hardLoad loads after changes", () => {
 
  
 test("Cancel buttons for Add Semester Modal", () => {
-    render(<App />);
-    expect(screen.getByText("Course Scheduler")).toBeVisible;
-    expect(screen.getByText("Welcome")).toBeVisible;
-    const courseschedulerlink = screen.getByText(/Course Scheduler/);
-    userEvent.click(courseschedulerlink);
-    //const AddSemesterButton = screen.getByRole('button', {name: "+"});
-    //const AddSemesterButton = screen.getByText(/Description/i); 
-    //expect(screen.getByText(/Credits/i)).toBeInTheDocument;
+    render(<CourseScheduler />);
+    const addSemesterButton = screen.getByRole('button', {name: "+"});
+    userEvent.click(addSemesterButton);
+    const addSemesterCancelButton = screen.getByRole('button', {name: "Cancel"});
+    userEvent.click(addSemesterCancelButton); 
+});
+
+test("Cancel buttons for Delete Semester Modal", () => {
+    render(<CourseScheduler />);
+    const deleteSemesterButton = screen.getByRole('button', {name: "-"});
+    userEvent.click(deleteSemesterButton);
+    const deleteSemesterCancelButton = screen.getByRole('button', {name: "Cancel"});
+    userEvent.click(deleteSemesterCancelButton);
 });
 
 

@@ -48,7 +48,7 @@ export function AddSemesterModal({  showAddSemesterModal, setShowAddSemesterModa
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => setShowAddSemesterModal(false)}>
+                    <Button aria-label="Cancel" variant="secondary" onClick={() => setShowAddSemesterModal(false)}>
                         Cancel
                     </Button>
                     <Button variant="primary" onClick={saveSemester}>
