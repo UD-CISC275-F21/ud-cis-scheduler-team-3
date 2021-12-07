@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
-import {MemoryRouter} from 'react-router-dom';
 import { CourseScheduler } from "./Components/CourseScheduler";
 // import PopUp from "./Components/PopUpInstructions";
 // import TabTitle from "./Components/Tabs/TabTitle";
