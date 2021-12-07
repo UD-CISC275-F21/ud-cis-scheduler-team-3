@@ -66,17 +66,17 @@ test("hardLoad loads after changes", () => {
  
 test("Cancel buttons for Add Semester Modal", () => {
     render(<CourseScheduler />);
-    const addSemesterButton = screen.getByRole('button', {name: "+"});
+    const addSemesterButton = screen.getByRole("button", {name: "+"});
     userEvent.click(addSemesterButton);
-    const addSemesterCancelButton = screen.getByRole('button', {name: "Cancel"});
+    const addSemesterCancelButton = screen.getByRole("button", {name: "Cancel"});
     userEvent.click(addSemesterCancelButton); 
 });
 
 test("Cancel buttons for Delete Semester Modal", () => {
     render(<CourseScheduler />);
-    const deleteSemesterButton = screen.getByRole('button', {name: "-"});
+    const deleteSemesterButton = screen.getByRole("button", {name: "-"});
     userEvent.click(deleteSemesterButton);
-    const deleteSemesterCancelButton = screen.getByRole('button', {name: "Cancel"});
+    const deleteSemesterCancelButton = screen.getByRole("button", {name: "Cancel"});
     userEvent.click(deleteSemesterCancelButton);
 });
 
