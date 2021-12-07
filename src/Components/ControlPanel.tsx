@@ -34,7 +34,8 @@ export function ControlPanel({setShowAddModal, setShowRemoveModal, setEditing,
                 setEditing(true);
             }}
         >Edit Course</Button>
-        <Button 
+        <Button
+            aria-label="clear" 
             variant="secondary" 
             className="m-3"
             onClick={()=>{
@@ -50,6 +51,7 @@ export function ControlPanel({setShowAddModal, setShowRemoveModal, setEditing,
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester } 
             semesterList={ semesterList } setSemesterList={ setSemesterList }></LoadData>
         <Button
+            aria-label="reset"
             variant="outline-danger" 
             className="m-3" 
             onClick={() => {
