@@ -80,4 +80,19 @@ test("Cancel buttons for Delete Semester Modal", () => {
     userEvent.click(deleteSemesterCancelButton);
 });
 
+// Still need to add a semester to choose
+test("Add Semester", () => {
+    render(<CourseScheduler />);
+    const addSemesterButton = screen.getByRole("button", {name: "+"});
+    userEvent.click(addSemesterButton);
+    const addSemester = screen.getByRole("button", {name: "Add Semester"});
+    userEvent.click(addSemester);
+});
 
+test("Delete Semester", () => {
+    render(<CourseScheduler />);
+    const deleteSemesterButton = screen.getByRole("button", {name: "-"});
+    userEvent.click(deleteSemesterButton);
+    const deleteSemester = screen.getByRole("button", {name: "Delete Semester"});
+    userEvent.click(deleteSemester);
+});
