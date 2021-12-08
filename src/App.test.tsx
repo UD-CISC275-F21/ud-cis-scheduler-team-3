@@ -27,7 +27,39 @@ test("Goal is clear and visible", () => {
 
 test("link for UD comp sci plan is provided", () => {
     render(<App />);
+    // source: https://stackoverflow.com/a/66147542
+    expect(screen.getByRole("plan-link")).toHaveAttribute("href", "https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf");
 });
+
+test("Meet the team text and images display", () => {
+    render(<App />);
+
+    const AD_Button = screen.getByRole("button", {name: "AD-Button"});
+    const AJ_Button = screen.getByRole("button", {name: "AJ-Button"});
+    const RR_Button = screen.getByRole("button", {name: "RR-Button"});
+    
+    // text displays
+    expect(screen.getByText("Meet The Team!")).toBeInTheDocument();
+    expect(screen.getByText("Ahilyn Dipre")).toBeInTheDocument();
+    expect(screen.getByText("Abel Juarez")).toBeInTheDocument();
+    expect(screen.getByText("Ren Ross")).toBeInTheDocument();
+    
+    // images display
+    expect(screen.getByAltText("Ahilyn Dipre GitHub Profile Picture")).toBeInTheDocument();
+    expect(screen.getByAltText("Abel Juarez GitHub Profile Picture")).toBeInTheDocument();
+    expect(screen.getByAltText("Ren Ross GitHub Profile Picture")).toBeInTheDocument();
+
+    // buttons clicks
+    userEvent.click(AD_Button);
+    userEvent.click(AJ_Button);
+    userEvent.click(RR_Button);
+
+    // links function
+    expect(AD_Button).toHaveAttribute("onclick");
+    expect(AJ_Button).toHaveAttribute("href", "https://github.com/TheMexicanChico");
+    expect(RR_Button).toHaveAttribute("href", "https://github.com/renross");
+});
+
 
 it("users can click button to get rid of courses", async () => {
     const removeCode = screen.getByTestId;
