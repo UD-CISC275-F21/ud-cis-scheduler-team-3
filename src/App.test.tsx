@@ -3,14 +3,8 @@ import { render, screen } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
 import { CourseScheduler } from "./Components/CourseScheduler";
-// import PopUp from "./Components/PopUpInstructions";
-// import TabTitle from "./Components/Tabs/TabTitle";
+import { MeetTheTeam } from "./Components/MeetTheTeam";
 
-/**
- * 
- *      Ren-Ren, Don't mess with NavBar
- * 
- */
 
 test("renders UD CIS Scheduler text", () => {
     render(<App />);
@@ -25,18 +19,22 @@ test("Goal is clear and visible", () => {
 });
 
 
-test("link for UD comp sci plan is provided", () => {
+test("link for UD Comp. Sci. plan is provided", () => {
     render(<App />);
     // source: https://stackoverflow.com/a/66147542
     expect(screen.getByRole("plan-link")).toHaveAttribute("href", "https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf");
 });
 
-test("Meet the team text and images display", () => {
-    render(<App />);
+test("Meet The Team", () => {
+    render(<MeetTheTeam />);
 
+    // grab buttons
     const AD_Button = screen.getByRole("button", {name: "AD-Button"});
+    expect(AD_Button).toBeDefined;
     const AJ_Button = screen.getByRole("button", {name: "AJ-Button"});
+    expect(AJ_Button).toBeDefined;
     const RR_Button = screen.getByRole("button", {name: "RR-Button"});
+    expect(RR_Button).toBeDefined;
     
     // text displays
     expect(screen.getByText("Meet The Team!")).toBeInTheDocument();
@@ -49,15 +47,6 @@ test("Meet the team text and images display", () => {
     expect(screen.getByAltText("Abel Juarez GitHub Profile Picture")).toBeInTheDocument();
     expect(screen.getByAltText("Ren Ross GitHub Profile Picture")).toBeInTheDocument();
 
-    // buttons clicks
-    userEvent.click(AD_Button);
-    userEvent.click(AJ_Button);
-    userEvent.click(RR_Button);
-
-    // links function
-    expect(AD_Button).toHaveAttribute("onclick");
-    expect(AJ_Button).toHaveAttribute("href", "https://github.com/TheMexicanChico");
-    expect(RR_Button).toHaveAttribute("href", "https://github.com/renross");
 });
 
 
