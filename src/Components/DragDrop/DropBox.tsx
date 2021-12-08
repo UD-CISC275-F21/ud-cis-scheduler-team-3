@@ -1,6 +1,7 @@
 import React, { FC, useState, useCallback } from "react";
-import Card from "../DragDrop/Card";
+import Card from "./DragCard";
 import update from "immutability-helper";
+//import { Semester } from "../../Interfaces/Semester";
 
 const style = {
     width: 400,
@@ -11,9 +12,10 @@ export interface Item {
   text: string
 }
 
-export interface ContainerState {
+export interface ContainerSemester {
   cards: Item[]
 }
+
 
 export const DropBox: FC = () => {
     {
