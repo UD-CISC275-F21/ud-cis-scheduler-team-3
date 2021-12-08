@@ -27,7 +27,8 @@ export function WelcomeMessage(): JSX.Element {
 
             <p className="CenterText">
                 Recommended 4 Year Path To Graduate on Time:
-                <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf" target="_blank" rel="noreferrer" role="plan-link"
+                <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf" 
+                    target="_blank" rel="noreferrer" aria-label="plan-link"
                 >Suggested Plan</a></p>
         </div>
         <MeetTheTeam></MeetTheTeam></div>
