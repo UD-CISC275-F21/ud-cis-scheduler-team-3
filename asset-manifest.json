@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ud-cis-scheduler-team-3/static/css/main.4c843cbc.chunk.css",
-    "main.js": "/ud-cis-scheduler-team-3/static/js/main.8268dfc6.chunk.js",
-    "main.js.map": "/ud-cis-scheduler-team-3/static/js/main.8268dfc6.chunk.js.map",
+    "main.css": "/ud-cis-scheduler-team-3/static/css/main.3d60a262.chunk.css",
+    "main.js": "/ud-cis-scheduler-team-3/static/js/main.205c0818.chunk.js",
+    "main.js.map": "/ud-cis-scheduler-team-3/static/js/main.205c0818.chunk.js.map",
     "runtime-main.js": "/ud-cis-scheduler-team-3/static/js/runtime-main.96248a9f.js",
     "runtime-main.js.map": "/ud-cis-scheduler-team-3/static/js/runtime-main.96248a9f.js.map",
     "static/css/2.d8cb5cde.chunk.css": "/ud-cis-scheduler-team-3/static/css/2.d8cb5cde.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.b29984a5.chunk.js.map": "/ud-cis-scheduler-team-3/static/js/3.b29984a5.chunk.js.map",
     "index.html": "/ud-cis-scheduler-team-3/index.html",
     "static/css/2.d8cb5cde.chunk.css.map": "/ud-cis-scheduler-team-3/static/css/2.d8cb5cde.chunk.css.map",
-    "static/css/main.4c843cbc.chunk.css.map": "/ud-cis-scheduler-team-3/static/css/main.4c843cbc.chunk.css.map",
+    "static/css/main.3d60a262.chunk.css.map": "/ud-cis-scheduler-team-3/static/css/main.3d60a262.chunk.css.map",
     "static/js/2.3d56d696.chunk.js.LICENSE.txt": "/ud-cis-scheduler-team-3/static/js/2.3d56d696.chunk.js.LICENSE.txt",
     "static/media/Team3_Logo.149f57ed.svg": "/ud-cis-scheduler-team-3/static/media/Team3_Logo.149f57ed.svg",
     "static/media/abeljuarez.83768d42.png": "/ud-cis-scheduler-team-3/static/media/abeljuarez.83768d42.png",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.96248a9f.js",
     "static/css/2.d8cb5cde.chunk.css",
     "static/js/2.3d56d696.chunk.js",
-    "static/css/main.4c843cbc.chunk.css",
-    "static/js/main.8268dfc6.chunk.js"
+    "static/css/main.3d60a262.chunk.css",
+    "static/js/main.205c0818.chunk.js"
   ]
 }
