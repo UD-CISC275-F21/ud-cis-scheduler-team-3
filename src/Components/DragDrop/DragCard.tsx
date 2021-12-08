@@ -2,7 +2,7 @@ import React from "react";
 import { useDrag, useDrop, DropTargetMonitor } from "react-dnd";
 import { FC, useRef } from "react";
 import { XYCoord } from "dnd-core";
-import CardType from "../DragDrop/CardType";
+import CardType from "./CardType";
 
 const style = {
     border: "1px solid black",
