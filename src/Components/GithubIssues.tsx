@@ -1,22 +1,51 @@
 import React from "react";
-import { Octokit } from "@octokit/rest"; 
-import { REPO } from "../../config"; 
+import { Octokit } from "@octokit/rest";
+import { REPO_AUTH as REPO, OCTOKIT_AUTH as OCTO } from "../Assets/config"; 
 
-export async function GithubIssue(): Promise<JSX.Element> {
-    const octokit = new Octokit;
-    //const client = new GitHubClient();
+export function GithubIssues(): JSX.Element {
+    return <div></div>;
+}
+
+export async function UserFeedback(): Promise<void> {
     
-    octokit.rest.issues.create({
+    const octokit = new Octokit({
+        auth: OCTO.auth,
+        userAgent: OCTO.userAgent
+    });
+    
+    const newIssue = await octokit.issues.create({
         owner: REPO.owner,
         repo: REPO.project,
-        title: "issue title",
-        labels: ["user feedback"],
-        body: "issue desc"
+        title: "",
+        labels: ["user-submitted-feedback", "enhancement"],
     });
 
-    //const basicAuth = new Credentials(USER_AUTH.username, USER_AUTH.passowrd);
-    //client.Credentials = basicAuth;
+    if (newIssue) {
+        return console.log(`Here's the issue: <${newIssue.data.html_url}>`);
+    } else {
+        return console.log("Back to the drawing board...");
+    }
 
+}
+
+export async function ReportBug(): Promise<void> {
     
-    return <div></div>;
+    const octokit = new Octokit({
+        auth: OCTO.auth,
+        userAgent: OCTO.userAgent
+    });
+    
+    const newIssue = await octokit.issues.create({
+        owner: REPO.owner,
+        repo: REPO.project,
+        title: "",
+        labels: ["user-reported-bug", "bug"],
+    });
+
+    if (newIssue) {
+        return console.log(`Here's the issue: <${newIssue.data.html_url}>`);
+    } else {
+        return console.log("Back to the drawing board...");
+    }
+
 }

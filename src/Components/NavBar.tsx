@@ -4,6 +4,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { CourseScheduler } from "./CourseScheduler";
 import Team3Logo from "../Images/Team3_Logo.svg";
 import { WelcomeMessage } from "./WelcomeMessage";
+import { GithubIssues } from "./GithubIssues";
 
 export function NavBar(): JSX.Element {
     //  NavBar Reference: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
@@ -19,10 +20,12 @@ export function NavBar(): JSX.Element {
             <Nav className="mr-auto">
                 <Nav.Link aria-label="Welcome Tab" href="/ud-cis-scheduler-team-3/#/">Welcome</Nav.Link>
                 <Nav.Link aria-label="Course Tab" href="/ud-cis-scheduler-team-3/#/course-scheduler">Course Scheduler</Nav.Link>
+                <Nav.Link aria-label="Contact Tab" href="/ud-cis-scheduler-team-3/#/contact-us">Contact Us</Nav.Link>
             </Nav>
         </Navbar>
         <Router basename="/ud-cis-scheduler-team-3">
             <Switch>
+                <Route exact path="/contact-us"><GithubIssues></GithubIssues></Route>
                 <Route exact path="/course-scheduler"><CourseScheduler></CourseScheduler></Route>
                 <Route exact path=""><WelcomeMessage></WelcomeMessage></Route>
             </Switch>
