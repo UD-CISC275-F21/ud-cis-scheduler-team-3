@@ -3,7 +3,7 @@ import { Nav, Navbar } from "react-bootstrap";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { CourseScheduler } from "./CourseScheduler";
 import Team3Logo from "../Images/Team3_Logo.svg";
-import { WelcomeMessage } from "./Website Text/WelcomeMessage";
+import { WelcomeMessage } from "./WelcomeMessage";
 
 export function NavBar(): JSX.Element {
     //  NavBar Reference: https://www.nicesnippets.com/blog/react-bootstrap-navbar-example
