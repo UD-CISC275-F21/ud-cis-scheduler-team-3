@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Alert, Button } from "react-bootstrap";
 import "../css/CenterElement.css";
@@ -15,7 +16,7 @@ export function MeetTheTeam(): JSX.Element {
                     aria-label="AD-Button"
                     className="Team" 
                     variant="Light"
-                    onClick={() => window.open("https://github.com/ahilynd", "_blank")}>
+                    onClick={() => window.open("https://github.com/ahilynd", "_blank")}> 
                     <img className="TeamImage" alt="Ahilyn Dipre GitHub Profile Picture" src={ AD_pic }></img>
                     Ahilyn Dipre</Button>
                 <Button 
