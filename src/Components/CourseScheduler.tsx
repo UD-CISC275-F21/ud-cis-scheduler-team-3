@@ -40,6 +40,14 @@ export function CourseScheduler(): JSX.Element {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
     }
 
+    function clearEverySemester() {
+        setCurrentSemester({title: "", courses: []});
+    }
+    function clearAllSemesters(){
+        setSemesterList([]);
+        clearEverySemester();
+    }
+
     function addCourse(newCourse: Course): void {
         setCurrentSemester({title: currentSemester.title, courses: [...currentSemester.courses, newCourse]});
     }
@@ -73,7 +81,7 @@ export function CourseScheduler(): JSX.Element {
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
         <ControlPanel 
             setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
-            setEditing={ setEditing } clearSemester={ clearSemester } 
+            setEditing={ setEditing } clearSemester={ clearSemester } clearAllSemesters={ clearAllSemesters }
             removeSemester={ removeSemester } 
             hardReset={ hardReset }
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
