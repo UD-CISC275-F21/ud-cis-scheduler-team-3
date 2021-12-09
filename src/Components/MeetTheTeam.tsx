@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { Alert, Button } from "react-bootstrap";
 import "../css/CenterElement.css";
