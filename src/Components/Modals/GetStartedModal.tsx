@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../css/CenterElement.css";
 
 export function GetStartedModal({  showGetStartedModal, setShowGetStartedModal }: 
     { showGetStartedModal: boolean, setShowGetStartedModal: (b: boolean) => void }): JSX.Element {
@@ -18,16 +19,16 @@ export function GetStartedModal({  showGetStartedModal, setShowGetStartedModal }
                 <Modal.Body>
                     The semester table below, and all semesters currently in the drop-down menu, are structured after 
                     the <a href="https://www.cis.udel.edu/wp-content/uploads/2018/10/COE_MajorSlicks_CISC_2018.pdf">
-                    Default Computer Science B.S plan</a> as designated by the UD College of Engineering.
-                        
+                    Default Computer Science B.S plan</a> as designated by the UD College of Engineering.<br/>
+                    <br/>    
                     The blue <b>Semesters</b> drop-down menu below will display all the semesters currently added 
-                    to your plan, and you can select any of them to view the courses currently in that semester.
-                    You can click the <b>-</b> button to the left to remove a semester, and the <b>+</b> button on 
-                    the right to add a semester to your plan. 
-
+                    to your plan, and you can select any of them to view the courses currently in that semester.<br/>
+                    <br/>
+                    You can click the <b>- (minus)</b> button to the left to remove a semester, and the <b>+ (plus)</b> button on 
+                    the right to add a semester to your plan.<br/>
+                    <br/>
                     Though the semesters — and the courses in them — are currently set to the default plan for a 
                     Computer Science B.S student, they can easily be manipulated to fit anyone’s academic needs.
-                    
                 </Modal.Body>
             </Modal>
         </div>
