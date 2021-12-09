@@ -186,5 +186,5 @@ test("Clear All Semester Clears All Semesters", () => {
     userEvent.click(clearAllSemesters);
     const reset = screen.getByRole("button", {name: "reset"});
     userEvent.click(reset);
-})
+});
 
