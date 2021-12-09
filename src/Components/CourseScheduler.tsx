@@ -18,6 +18,7 @@ import { DropBox } from "./DragDrop/DropBox";
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
     const [currentSemester, setCurrentSemester] = useState<Semester>(semesterList[0]);
+    const [clearingAllCurrentSemester, setNewCurrentSemester] = useState<Semester>(semesterList[]);
     const [editing, setEditing] = useState<boolean>(false);
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
     const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
@@ -43,7 +44,11 @@ export function CourseScheduler(): JSX.Element {
 
 
     function clearSemester() {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => [!COURSES.code])});
+    }
+
+    function clearAllSemesters(){
+        setNewCurrentSemester( );
     }
 
     function addCourse(newCourse: Course): void {
@@ -79,7 +84,7 @@ export function CourseScheduler(): JSX.Element {
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
         <ControlPanel 
             setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
-            setEditing={ setEditing } clearSemester={ clearSemester } 
+            setEditing={ setEditing } clearSemester={ clearSemester } clearAllSemesters={ clearAllSemesters }
             removeSemester={ removeSemester } 
             hardReset={ hardReset }
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
