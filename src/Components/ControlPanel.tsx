@@ -43,7 +43,7 @@ export function ControlPanel({setShowAddModal, setShowRemoveModal, setEditing,
             }}
         >Clear Courses</Button>
         <Button
-            aria-label="clear" 
+            aria-label="clear all semesters" 
             variant="secondary" 
             className="m-3"
             onClick={()=>{
