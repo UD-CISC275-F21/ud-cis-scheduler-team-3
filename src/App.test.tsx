@@ -178,5 +178,5 @@ test("Reset when Semeseter is Cleared", () => {
     userEvent.click(clearCoursesButton);
     const reset = screen.getByRole("button", {name: "reset"});
     userEvent.click(reset);
-});
+}); 
 
