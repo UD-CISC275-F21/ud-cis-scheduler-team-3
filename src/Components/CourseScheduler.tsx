@@ -10,10 +10,6 @@ import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 import { GetStartedModal } from "./Modals/GetStartedModal";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DropBox } from "./DragDrop/DropBox";
-
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -31,7 +27,6 @@ export function CourseScheduler(): JSX.Element {
         setCurrentSemester({title: defaultSemesters[0].title, courses: defaultSemesters[0].courses});
     }
 
-
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
         setSemesterList(newSemesterList);
@@ -41,7 +36,6 @@ export function CourseScheduler(): JSX.Element {
     function addSemester(newSemester: string) {
         setSemesterList([...semesterList, {title: newSemester, courses: []}]);
     }
-
 
     function clearSemester() {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => [!COURSES.code])});
@@ -96,8 +90,5 @@ export function CourseScheduler(): JSX.Element {
             showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
             removeCourse={ removeCourse } 
             currentSemester= { currentSemester }></RemoveCourseModal>
-        <DndProvider backend={HTML5Backend}>
-            <DropBox />
-        </DndProvider>
     </div>;
 }
