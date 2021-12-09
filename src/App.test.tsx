@@ -180,3 +180,11 @@ test("Reset when Semeseter is Cleared", () => {
     userEvent.click(reset);
 }); 
 
+test("Clear All Semester Clears All Semesters", () => {
+    render(<CourseScheduler />);
+    const clearAllSemesters = screen.getByRole("button", {name: "clear all semesters"});
+    userEvent.click(clearAllSemesters);
+    const reset = screen.getByRole("button", {name: "reset"});
+    userEvent.click(reset);
+});
+
