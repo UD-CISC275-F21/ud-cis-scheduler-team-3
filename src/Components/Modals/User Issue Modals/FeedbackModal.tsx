@@ -9,7 +9,7 @@ export function FeedbackModal({issueTitle, setIssueTitle, userIssue, showFeedbac
     return (
         <Modal show={ showFeedbackModal } onHide={ hideFeedbackModal }>
             <Modal.Header closeButton>
-                <Modal.Title>Report Form</Modal.Title>
+                <Modal.Title>Feedback Form</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
