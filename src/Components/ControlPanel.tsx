@@ -6,9 +6,9 @@ export const LOCAL_STORAGE_CURRENTSEMESTER = "scheduler_currentSemester";
 export const LOCAL_STORAGE_SEMESTERLIST = "scheduler_semesterList";
 
 export function ControlPanel({setShowAddModal, setShowRemoveModal, setEditing, 
-    clearSemester, hardReset, currentSemester, setCurrentSemester, semesterList, setSemesterList}: 
+    clearSemester, clearAllSemesters, hardReset, currentSemester, setCurrentSemester, semesterList, setSemesterList}: 
     {setShowAddModal: (b:boolean)=>void, setShowRemoveModal: (b:boolean)=>void, setEditing: (b:boolean)=>void, 
-    clearSemester: VoidFunction, removeSemester: VoidFunction, hardReset: VoidFunction, 
+    clearSemester: VoidFunction, clearAllSemesters: VoidFunction, removeSemester: VoidFunction, hardReset: VoidFunction, 
     currentSemester: Semester, setCurrentSemester: (s:Semester)=>void, 
     semesterList: Semester[], setSemesterList: (s:Semester[])=>void}): JSX.Element {
 
@@ -42,6 +42,14 @@ export function ControlPanel({setShowAddModal, setShowRemoveModal, setEditing,
                 clearSemester();
             }}
         >Clear Courses</Button>
+        <Button
+            aria-label="clear all semesters" 
+            variant="secondary" 
+            className="m-3"
+            onClick={()=>{
+                clearAllSemesters();
+            }}
+        >Clear All Semesters</Button>
     </div>
     <div className="CenterText">
         <SaveData 

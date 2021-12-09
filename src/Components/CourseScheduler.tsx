@@ -10,10 +10,6 @@ import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 import { GetStartedModal } from "./Modals/GetStartedModal";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DropBox } from "./DragDrop/DropBox";
-
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -30,7 +26,6 @@ export function CourseScheduler(): JSX.Element {
         setCurrentSemester({title: defaultSemesters[0].title, courses: defaultSemesters[0].courses});
     }
 
-
     function removeSemester() {
         const newSemesterList = semesterList.filter(sem => sem !== currentSemester);
         setSemesterList(newSemesterList);
@@ -41,9 +36,16 @@ export function CourseScheduler(): JSX.Element {
         setSemesterList([...semesterList, {title: newSemester, courses: []}]);
     }
 
-
     function clearSemester() {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
+    }
+
+    function clearEverySemester() {
+        setCurrentSemester({title: "", courses: []});
+    }
+    function clearAllSemesters(){
+        setSemesterList([]);
+        clearEverySemester();
     }
 
     function addCourse(newCourse: Course): void {
@@ -79,7 +81,7 @@ export function CourseScheduler(): JSX.Element {
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
         <ControlPanel 
             setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
-            setEditing={ setEditing } clearSemester={ clearSemester } 
+            setEditing={ setEditing } clearSemester={ clearSemester } clearAllSemesters={ clearAllSemesters }
             removeSemester={ removeSemester } 
             hardReset={ hardReset }
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
@@ -91,8 +93,5 @@ export function CourseScheduler(): JSX.Element {
             showRemoveModal={ showRemoveModal } setShowRemoveModal={ setShowRemoveModal } 
             removeCourse={ removeCourse } 
             currentSemester= { currentSemester }></RemoveCourseModal>
-        <DndProvider backend={HTML5Backend}>
-            <DropBox />
-        </DndProvider>
     </div>;
 }
