@@ -18,7 +18,6 @@ import { DropBox } from "./DragDrop/DropBox";
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
     const [currentSemester, setCurrentSemester] = useState<Semester>(semesterList[0]);
-    const [clearingAllCurrentSemester, setNewCurrentSemester] = useState<Semester>(semesterList[]);
     const [editing, setEditing] = useState<boolean>(false);
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
     const [showRemoveModal, setShowRemoveModal] = useState<boolean>(false);
@@ -47,8 +46,12 @@ export function CourseScheduler(): JSX.Element {
         setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => [!COURSES.code])});
     }
 
+    function clearEverySemester() {
+        setCurrentSemester({title: "", courses: []});
+    }
     function clearAllSemesters(){
-        setNewCurrentSemester( );
+        setSemesterList([]);
+        clearEverySemester();
     }
 
     function addCourse(newCourse: Course): void {
