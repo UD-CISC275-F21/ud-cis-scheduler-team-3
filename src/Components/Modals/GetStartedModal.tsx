@@ -22,11 +22,12 @@ export function GetStartedModal({  showGetStartedModal, setShowGetStartedModal }
                         
                     The blue <b>Semesters</b> drop-down menu below will display all the semesters currently added 
                     to your plan, and you can select any of them to view the courses currently in that semester.
-                    
+                    You can click the <b>-</b> button to the left to remove a semester, and the <b>+</b> button on 
+                    the right to add a semester to your plan. 
+
                     Though the semesters — and the courses in them — are currently set to the default plan for a 
                     Computer Science B.S student, they can easily be manipulated to fit anyone’s academic needs.
-
-                    For more information about how to use the scheduler, click on the help buttons below!
+                    
                 </Modal.Body>
             </Modal>
         </div>
