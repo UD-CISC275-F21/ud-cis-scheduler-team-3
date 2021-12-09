@@ -41,7 +41,7 @@ export function ControlPanel({setShowAddModal, setShowRemoveModal, setEditing,
             onClick={()=>{
                 clearSingleSemester();
             }}
-        >Clear Courses</Button>
+        >Clear This Semester</Button>
         <Button
             aria-label="clear all semesters" 
             variant="secondary" 
