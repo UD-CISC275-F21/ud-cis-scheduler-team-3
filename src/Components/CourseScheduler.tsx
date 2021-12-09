@@ -37,7 +37,7 @@ export function CourseScheduler(): JSX.Element {
     }
 
     function clearSemester() {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => [!COURSES.code])});
+        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
     }
 
     function clearEverySemester() {
