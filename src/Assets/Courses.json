@@ -237,5 +237,35 @@
     "title": "General Elective 6", 
     "credits": "3", 
     "description": "Required of all students."
+  },
+  {
+    "code": "BLANK1", 
+    "title": "---", 
+    "credits": "---", 
+    "description": "---"
+  },
+  {
+    "code": "BLANK2", 
+    "title": "---", 
+    "credits": "---", 
+    "description": "---"
+  },
+  {
+    "code": "BLANK3", 
+    "title": "---", 
+    "credits": "---", 
+    "description": "---"
+  },
+  {
+    "code": "BLANK4", 
+    "title": "---", 
+    "credits": "---", 
+    "description": "---"
+  },
+  {
+    "code": "BLANK5", 
+    "title": "---", 
+    "credits": "---", 
+    "description": "---"
   }
 ]
