@@ -1,5 +1,5 @@
 import { Octokit } from "@octokit/rest";
-import { REPO_AUTH as REPO, OCTOKIT_AUTH as OCTO } from "../../Assets/config"; 
+import { REPO_AUTH as REPO, OCTOKIT_AUTH as OCTO } from "../../Assets/config-example"; 
 
 export async function ReportProblem(): Promise<void> {
     
