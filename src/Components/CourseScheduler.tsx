@@ -10,6 +10,7 @@ import { RemoveSemesterModal } from "./Modals/RemoveSemesterModal";
 import { AddCourseModal } from "./Modals/AddCourseModal";
 import { RemoveCourseModal } from "./Modals/RemoveCourseModal";
 import { GetStartedModal } from "./Modals/GetStartedModal";
+import { emptySemester } from "./Semesters/EmptySemester";
 
 export function CourseScheduler(): JSX.Element {
     const [semesterList, setSemesterList] = useState(defaultSemesters);
@@ -34,18 +35,22 @@ export function CourseScheduler(): JSX.Element {
 
     function addSemester(newSemester: string) {
         setSemesterList([...semesterList, {title: newSemester, courses: []}]);
+        handleEmptySemester();
     }
-
-    function clearSemester() {
-        setCurrentSemester({title: currentSemester.title, courses: currentSemester.courses.filter(COURSES => !COURSES.code)});
+    
+    function clearSingleSemester() {
+        setCurrentSemester({title: "---", courses: []});
+        handleEmptySemester();
     }
-
-    function clearEverySemester() {
-        setCurrentSemester({title: "", courses: []});
-    }
+    
     function clearAllSemesters(){
         setSemesterList([]);
-        clearEverySemester();
+        clearSingleSemester();
+        handleEmptySemester();
+    }
+
+    function handleEmptySemester() {
+        setCurrentSemester({title: emptySemester[0].title, courses: [...emptySemester[0].courses]});
     }
 
     function addCourse(newCourse: Course): void {
@@ -81,7 +86,7 @@ export function CourseScheduler(): JSX.Element {
             currentSemester={currentSemester} setCurrentSemester={setCurrentSemester}></SemesterTable>
         <ControlPanel 
             setShowAddModal={ setShowAddModal } setShowRemoveModal={ setShowRemoveModal } 
-            setEditing={ setEditing } clearSemester={ clearSemester } clearAllSemesters={ clearAllSemesters }
+            setEditing={ setEditing } clearSingleSemester={ clearSingleSemester } clearAllSemesters={ clearAllSemesters }
             removeSemester={ removeSemester } 
             hardReset={ hardReset }
             currentSemester={ currentSemester } setCurrentSemester={ setCurrentSemester }
