@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 
-export function ReportModal({issueTitle, setIssueTitle, showReportModal, setShowReportModal}: 
-    {issueTitle: string, setIssueTitle: (s:string)=>void, showReportModal: boolean, setShowReportModal: (b:boolean)=>void}): JSX.Element {
+export function ReportModal({issueTitle, setIssueTitle, userIssue, showReportModal, setShowReportModal}: 
+    {issueTitle: string, setIssueTitle: (s:string)=>void, userIssue: (s1:string, s2:string)=>void,showReportModal: boolean, setShowReportModal: (b:boolean)=>void}): JSX.Element {
     
     const hideReportModal = () => setShowReportModal(false);
 
@@ -21,7 +21,7 @@ export function ReportModal({issueTitle, setIssueTitle, showReportModal, setShow
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={() => setShowReportModal(false)}>Cancel</Button>
-                <Button variant="warning" onClick={()=>console.log("submit")}>Submit</Button>
+                <Button variant="warning" onClick={ ()=>userIssue("user-report", issueTitle) }>Submit</Button>
             </Modal.Footer>
         </Modal>
     );

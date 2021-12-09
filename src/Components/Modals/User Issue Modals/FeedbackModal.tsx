@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 
-export function FeedbackModal({issueTitle, setIssueTitle, showFeedbackModal, setShowFeedbackModal}: 
-    {issueTitle: string, setIssueTitle: (s:string)=>void, showFeedbackModal: boolean, setShowFeedbackModal: (b:boolean)=>void}): JSX.Element {
+export function FeedbackModal({issueTitle, setIssueTitle, userIssue, showFeedbackModal, setShowFeedbackModal}: 
+    {issueTitle: string, setIssueTitle: (s:string)=>void, userIssue: (s1:string, s2:string)=>void, showFeedbackModal: boolean, setShowFeedbackModal: (b:boolean)=>void}): JSX.Element {
     
     const hideFeedbackModal = () => setShowFeedbackModal(false);
     
@@ -21,7 +21,7 @@ export function FeedbackModal({issueTitle, setIssueTitle, showFeedbackModal, set
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-danger" onClick={() => setShowFeedbackModal(false)}>Cancel</Button>
-                <Button variant="warning" onClick={()=>console.log("submit")}>Submit</Button>
+                <Button variant="warning" onClick={ ()=>userIssue("user-feedback", issueTitle) }>Submit</Button>
             </Modal.Footer>
         </Modal>
     );
