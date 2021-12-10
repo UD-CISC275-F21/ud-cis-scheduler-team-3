@@ -11,6 +11,8 @@ export function ContactUs(): JSX.Element {
     const [issueTitle, setIssueTitle] = useState<string>("");
     const [showReportModal, setShowReportModal] = useState<boolean>(false);
     const [showFeedbackModal, setShowFeedbackModal] = useState<boolean>(false);
+    const hideReportModal = () => setShowReportModal(false);
+    const hideFeedbackModal = () => setShowFeedbackModal(false);    
     
     async function userIssue(issueType: string, issueTitle: string): Promise<void> {
         // the following line includes guidance from Josh Lyon
@@ -37,7 +39,8 @@ export function ContactUs(): JSX.Element {
             }) : errormsg += "No errors could be logged.";
             console.log(`Issue creation failed. (HTTP Error ${response.status}`);
         });
-        
+        hideReportModal();
+        hideFeedbackModal();
     
         if (newIssue) {
             console.log("Issue created successfully.");
@@ -54,11 +57,11 @@ export function ContactUs(): JSX.Element {
             ></ContactUsCards>
             <ReportModal 
                 issueTitle={ issueTitle } setIssueTitle={ setIssueTitle } userIssue = { userIssue }
-                showReportModal={ showReportModal } setShowReportModal={ setShowReportModal }
+                showReportModal={ showReportModal } setShowReportModal={ setShowReportModal } hideReportModal={ hideReportModal }
             ></ReportModal>
             <FeedbackModal 
                 issueTitle={ issueTitle } setIssueTitle={ setIssueTitle } userIssue = { userIssue }
-                showFeedbackModal={ showFeedbackModal } setShowFeedbackModal={ setShowFeedbackModal }
+                showFeedbackModal={ showFeedbackModal } setShowFeedbackModal={ setShowFeedbackModal } hideFeedbackModal={ hideFeedbackModal }
             ></FeedbackModal>
             <MeetTheTeam/>
         </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 
-export function ReportModal({issueTitle, setIssueTitle, userIssue, showReportModal, setShowReportModal}: 
-    {issueTitle: string, setIssueTitle: (s:string)=>void, userIssue: (s1:string, s2:string)=>void,showReportModal: boolean, setShowReportModal: (b:boolean)=>void}): JSX.Element {
+export function ReportModal({issueTitle, setIssueTitle, userIssue, showReportModal, setShowReportModal, hideReportModal}: 
+    {issueTitle: string, setIssueTitle: (s:string)=>void, userIssue: (s1:string, s2:string)=>void,
+        showReportModal: boolean, setShowReportModal: (b:boolean)=>void, hideReportModal: VoidFunction}): JSX.Element {
     
-    const hideReportModal = () => setShowReportModal(false);
 
     return (
         <Modal show={ showReportModal } onHide={ hideReportModal }>
