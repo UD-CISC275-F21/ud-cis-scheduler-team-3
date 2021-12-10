@@ -37,7 +37,7 @@ jobs:
         value: ${{ steps.get-repo-values.outputs.url }}
     - name: Add config file
       run: |
-        echo "export const USER_ISSUES_TOKEN='$ENV_TOKEN'" >> src/Assets/config.ts
+        echo "export const USER_ISSUES_TOKEN=\"$ENV_TOKEN\"" >> src/Assets/config.ts
         cat src/Assets/config.ts
       shell: bash
       env:
