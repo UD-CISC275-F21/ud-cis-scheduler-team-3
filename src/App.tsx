@@ -1,19 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import "./css/App.css";
+import { NavBar } from "./Components/NavBar";
 
-function App(): JSX.Element {
-    return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-            </header>
-        </div>
-    );
+function App(): JSX.Element { // jsx.element = very important return type, function has to return jsx.element
+
+    return <div>
+        <NavBar></NavBar>
+    </div>;
 }
 
 export default App;
