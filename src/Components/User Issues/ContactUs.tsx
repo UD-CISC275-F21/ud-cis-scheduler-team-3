@@ -40,7 +40,7 @@ export function ContactUs(): JSX.Element {
         
     
         if (newIssue) {
-            console.log(`Here's the issue: <${newIssue.data.html_url}>`);
+            console.log("Issue created successfully.");
         } else {
             console.log("Back to the drawing board...");
         }
